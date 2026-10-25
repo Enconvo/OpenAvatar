@@ -5,7 +5,8 @@ are doing. An OpenAvatar character is one small JSON file (`.openavatar`):
 its body built from soft solids, its materials, face and parts, and how it
 reacts while the agent listens, thinks, speaks or works, and while the
 person codes, reads or plays. Any app that implements the format can show
-the same characters.
+the same characters. Browse them, live, in the
+[gallery](https://openavatar.enconvo.com).
 
 | Folder | What |
 |---|---|

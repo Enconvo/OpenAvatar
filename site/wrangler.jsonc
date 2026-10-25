@@ -3,6 +3,10 @@
   "name": "openavatar-gallery",
   "main": "src/worker.js",
   "compatibility_date": "2026-05-01",
+  // The gallery's address; `npm run deploy` builds for it. The workers.dev address is off so links have one home.
+  "routes": [{ "pattern": "openavatar.enconvo.com", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false,
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

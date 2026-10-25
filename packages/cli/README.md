@@ -1,7 +1,7 @@
 # @openavatar/cli
 
 The `openavatar` command checks, renders, packs and installs
-[OpenAvatar 0.1](../../spec/SPEC.md) documents. Rendering uses the reference
+[OpenAvatar 0.1](https://github.com/Enconvo/OpenAvatar/blob/main/spec/SPEC.md) documents. Rendering uses the reference
 renderer, `@openavatar/three`, in a headless Chrome, Edge or Chromium that is
 already on the computer; nothing is downloaded.
 
