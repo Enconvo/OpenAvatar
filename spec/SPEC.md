@@ -1119,7 +1119,7 @@ one of them, comparing two at a time:
 
 A file the reader rejects takes no part. An app that saves a document there
 SHOULD set its `meta.updated` to the time of saving, so that its copy wins.
-The reference is `compareCopies` in the `openavatar` package. Apps SHOULD
+The reference is `compareCopies` in the `@openavatar/core` package. Apps SHOULD
 notice files added,
 changed and removed while they run. An app MUST NOT delete or rewrite a file
 it did not write unless the person asks it to. When the person deletes a
@@ -1155,7 +1155,7 @@ Section 16.1 says what such a link may fetch.
   case). Anything else it repairs. The steps a reader takes
   to repair a document are its **normalization**, given exactly in Appendix
   B; the reference implementation is the `normalize` function of the
-  `openavatar` package.
+  `@openavatar/core` package.
 - The JSON Schema describes what a writer of 0.1 writes, so it fixes
   `openavatar` to `"0.1"`. A reader does not reject a document for failing
   it, and reads a later minor version as its own.
@@ -1639,7 +1639,7 @@ This appendix gives normalization (section 15) exactly, so that every reader
 reads a document the same way. A reader MUST read a document as if it had
 normalized it by these rules. It need not build the normalized document, but
 one it shows, saves or hands on MUST be the one these rules give. The
-reference implementation is `normalize` in the `openavatar` package, with
+reference implementation is `normalize` in the `@openavatar/core` package, with
 the members of every object listed in its `model.js`.
 
 The JSON Schema describes what a writer of 0.1 writes, so it fixes
@@ -1707,7 +1707,7 @@ most 59, or 60 when the time is 23:59 in UTC (a leap second). An offset's
 hour is at most 23 and its minute at most 59. Two date-times compare by the
 instants they name, to the millisecond: digits past the third after the
 period are ignored, and a leap second counts as the start of the next minute.
-The reference is `instant` in the `openavatar` package.
+The reference is `instant` in the `@openavatar/core` package.
 
 ### B.3 Objects
 

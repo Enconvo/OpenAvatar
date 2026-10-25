@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { parse, compareCopies } from 'openavatar';
+import { parse, compareCopies } from '@openavatar/core';
 
 export const sharedFolder = () => path.join(process.env.OPENAVATAR_HOME || path.join(os.homedir(), '.openavatar'), 'avatars');
 

@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import * as THREE from 'three';
-import { VOCABULARY } from 'openavatar';
+import { VOCABULARY } from '@openavatar/core';
 import { OpenAvatar } from '../src/index.js';
 import { MOTION_POSES, situationPose } from '../src/motion.js';
 

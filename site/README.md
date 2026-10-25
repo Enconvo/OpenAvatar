@@ -42,7 +42,7 @@ https://github.com/Enconvo/OpenAvatar.
 | `/submit/` | Send an avatar: the file is checked on the page, shown live, then sent for review with a credit, a license and the sender's consent |
 | `POST /api/submissions` | Takes `{ document, author, license, consent }` (JSON) and queues it in D1 as `pending` |
 | `/api/avatars.json` | The list, readable from any site |
-| `/vendor/` | three.js, `openavatar` and `@openavatar/three` for the live host |
+| `/vendor/` | three.js, `@openavatar/core` and `@openavatar/three` for the live host |
 
 The list is `{ "openavatar": "0.1", "avatars": [...] }`. Each avatar has
 `slug`, `id`, `name`, `description`, `authors` (names), `license` (an SPDX

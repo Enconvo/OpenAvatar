@@ -1,6 +1,6 @@
 // Starting points for `openavatar new`: the smallest documents that show
 // each rig well. Every value here is a default a writer is expected to change.
-import { newId, SPEC_VERSION } from 'openavatar';
+import { newId, SPEC_VERSION } from '@openavatar/core';
 
 const BLOB = {
   body: {

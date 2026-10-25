@@ -5,7 +5,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { parse } from 'openavatar';
+import { parse } from '@openavatar/core';
 import { OpenAvatar } from '../src/index.js';
 import { geometryVectors } from '../../../conformance/tools/geometry.mjs';
 

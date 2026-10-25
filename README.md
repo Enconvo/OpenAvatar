@@ -11,7 +11,7 @@ the same characters. Browse them, live, in the
 | Folder | What |
 |---|---|
 | [`spec/`](spec/) | [SPEC.md](spec/SPEC.md) (OpenAvatar 0.1), the JSON Schema and `vocabulary.json` |
-| [`packages/core`](packages/core/) | `openavatar`: read, validate and repair documents, and resolve how an avatar reacts. No dependencies |
+| [`packages/core`](packages/core/) | `@openavatar/core`: read, validate and repair documents, and resolve how an avatar reacts. No dependencies |
 | [`packages/three`](packages/three/) | `@openavatar/three`: the reference renderer for three.js |
 | [`packages/cli`](packages/cli/) | `@openavatar/cli`: the `openavatar` command, to check, render, pack and install avatars |
 | [`skills/openavatar`](skills/openavatar/SKILL.md) | The agent skill: lets an AI agent design avatars of any shape from a description |

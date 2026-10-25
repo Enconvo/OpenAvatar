@@ -1,15 +1,15 @@
-# openavatar
+# @openavatar/core
 
 Reads, validates and repairs [OpenAvatar 0.1](https://github.com/Enconvo/OpenAvatar/blob/main/spec/SPEC.md)
 documents (`.openavatar` files), and works out how an avatar reacts to what
 its host reports. No dependencies; runs in browsers and Node.js.
 
 ```sh
-npm install openavatar
+npm install @openavatar/core
 ```
 
 ```js
-import { parse, validate, resolveBehavior } from 'openavatar';
+import { parse, validate, resolveBehavior } from '@openavatar/core';
 
 const { valid, errors } = validate(JSON.parse(text)); // SPEC 17.1: may this file be accepted?
 const { document, repairs } = parse(text);           // the document as every reader sees it (SPEC 15)
@@ -24,7 +24,7 @@ const now = resolveBehavior(document, { state: 'thinking', userActivity: 'coding
 | `stringify(document)` | Writes a document back as JSON |
 | `resolveBehavior(document, input)` | Resolves the layers of SPEC 11 for the host inputs of SPEC 12 |
 | `VOCABULARY`, `MOTIONS`, `PROPS`, `EFFECTS`, `OUTFITS`, … | The standard ids and what each means |
-| `openavatar/schema.json`, `openavatar/vocabulary.json` | The JSON Schema and the vocabulary as files |
+| `@openavatar/core/schema.json`, `@openavatar/core/vocabulary.json` | The JSON Schema and the vocabulary as files |
 
 TypeScript types ship with the package. To draw avatars, use
 [`@openavatar/three`](https://www.npmjs.com/package/@openavatar/three); to

@@ -3,7 +3,7 @@
 // blinking, gaze and speech. Flat features are three.js shapes extruded thin
 // and bent onto the surface, so they hug a small head as well as a big one.
 import * as THREE from 'three';
-import { expressionPoses } from 'openavatar';
+import { expressionPoses } from '@openavatar/core';
 import { frontPoint } from './sdf.js';
 import { bendGeometry } from './geometry.js';
 import { featureLift } from './materials.js';

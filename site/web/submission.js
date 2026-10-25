@@ -1,7 +1,7 @@
 // What a gallery submission must be. The submit page runs this before sending, so people see problems at once, and
 // the Worker runs it again on what arrives. A submission only queues an avatar for review; nothing reaches the
 // gallery until a person approves it.
-import { LIMITS, validate } from 'openavatar';
+import { LIMITS, validate } from '@openavatar/core';
 
 /** The licenses the gallery accepts, with what each lets others do. */
 export const LICENSES = {

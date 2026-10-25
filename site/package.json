@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@openavatar/cli": "0.1.x",
+    "@openavatar/core": "0.1.x",
     "@openavatar/three": "0.1.x",
     "marked": "18.0.14",
-    "openavatar": "0.1.x",
     "three": "0.185.1"
   },
   "devDependencies": {

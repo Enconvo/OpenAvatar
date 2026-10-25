@@ -3,7 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { catalogOf, entryFor, slugOf, tagCounts, TEXT } from '../src/catalog.js';
-import { ACTIVITIES, EXPRESSIONS, MOTIONS, STATES, USER_ACTIVITIES } from 'openavatar';
+import { ACTIVITIES, EXPRESSIONS, MOTIONS, STATES, USER_ACTIVITIES } from '@openavatar/core';
 import { avatarPage, enconvoLink, homePage, makePage, notFoundPage, specPage, submitPage, TRY } from '../src/pages.js';
 import { headingId, renderSpec, SPEC_LINKS } from '../src/spec.js';
 import { checkSubmission, LICENSES } from '../web/submission.js';

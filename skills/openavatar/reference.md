@@ -1,7 +1,7 @@
 # OpenAvatar 0.1 reference
 
 Every member a document can have, with its type, range and meaning. Generated from the
-`openavatar` package by `spec/tools/skill-reference.mjs`; [SPEC.md](https://github.com/Enconvo/OpenAvatar/blob/main/spec/SPEC.md) is the full text.
+`@openavatar/core` package by `spec/tools/skill-reference.mjs`; [SPEC.md](https://github.com/Enconvo/OpenAvatar/blob/main/spec/SPEC.md) is the full text.
 Lengths are avatar units (a body is about 2 tall), angles are degrees, `[x, y]` positions on the
 surface are front points, and a number outside its range is clamped. A front point is where the line
 through `[x, y]` along z first meets the solid from the front; one that misses the solid floats at

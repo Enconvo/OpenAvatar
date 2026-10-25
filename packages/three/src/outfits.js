@@ -12,7 +12,7 @@ import * as THREE from 'three';
 import { frontPoint, surfaceAlong, smax } from './sdf.js';
 import { meshField } from './mesh.js';
 import { shapeGeometry } from './geometry.js';
-import { VOCABULARY } from 'openavatar';
+import { VOCABULARY } from '@openavatar/core';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const UP = V3(0, 1, 0), FWD = V3(0, 0, 1);

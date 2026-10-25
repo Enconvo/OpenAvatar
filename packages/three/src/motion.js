@@ -3,7 +3,7 @@
 // layers resolve to, idle motions now and then, a command from the host, gaze
 // and the arms. Each motion is a pose over its progress p (0 to 1); the
 // avatar's groups take the sum of the poses every frame.
-import { resolveMotion, motionLoops, hasArms, VOCABULARY } from 'openavatar';
+import { resolveMotion, motionLoops, hasArms, VOCABULARY } from '@openavatar/core';
 
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const bell = p => Math.sin(Math.PI * clamp(p));

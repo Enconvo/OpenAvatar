@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
-import { validate } from 'openavatar';
+import { validate } from '@openavatar/core';
 import { main, openRenderer, readShared } from '../src/index.js';
 
 const examples = new URL('../../../examples/', import.meta.url).pathname;

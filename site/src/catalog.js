@@ -1,7 +1,7 @@
 // The gallery's catalogue: one entry per avatar, read from its document. Only what the pages and the JSON list show;
 // the document itself is served as it is.
 import { createHash } from 'node:crypto';
-import { parse } from 'openavatar';
+import { parse } from '@openavatar/core';
 
 const MAX_SLUG = 48;
 /** The document's text on an entry, for the build. A symbol, so JSON (the pages' catalogue, the list) leaves it out. */

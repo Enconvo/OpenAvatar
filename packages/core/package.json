@@ -1,5 +1,5 @@
 {
-  "name": "openavatar",
+  "name": "@openavatar/core",
   "version": "0.1.0",
   "description": "Read, validate and normalize OpenAvatar documents, and resolve how an avatar reacts.",
   "license": "Apache-2.0",

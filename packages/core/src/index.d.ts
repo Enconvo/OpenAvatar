@@ -1,4 +1,4 @@
-// Types for the openavatar package and the OpenAvatar 0.1 document (SPEC.md).
+// Types for the @openavatar/core package and the OpenAvatar 0.1 document (SPEC.md).
 
 export type Vec2 = [number, number];
 export type Vec3 = [number, number, number];

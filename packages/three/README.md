@@ -6,13 +6,13 @@ materials, faces, parts, props, effects, outfits and motions, reacting live to
 what an AI agent and its user are doing.
 
 ```sh
-npm install @openavatar/three openavatar three
+npm install @openavatar/three @openavatar/core three
 ```
 
 A ready-made stage for one avatar on a canvas:
 
 ```js
-import { parse } from 'openavatar';
+import { parse } from '@openavatar/core';
 import { OpenAvatarStage } from '@openavatar/three';
 
 const stage = new OpenAvatarStage(canvas);
@@ -35,7 +35,7 @@ In your own three.js scene, add `new OpenAvatar(document).object`, call
 | `SUPPORTED_MOTIONS`, `SUPPORTED_PROPS`, `SUPPORTED_EFFECTS`, `SUPPORTED_OUTFITS` | What this renderer draws |
 | `@openavatar/three/sdf`, `/mesh`, `/patterns` | The shape field, the mesher and the pattern painter on their own |
 
-Peer dependencies: `three` 0.160 or later and `openavatar` 0.1. Avatars to try
+Peer dependencies: `three` 0.160 or later and `@openavatar/core` 0.1. Avatars to try
 are in the [gallery](https://openavatar.enconvo.com).
 
 Apache-2.0.

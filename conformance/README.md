@@ -65,7 +65,7 @@ npx @openavatar/cli render conformance/render/shape-torus.openavatar --view thre
 ## How the suite is made
 
 `tools/cases.mjs` defines the cases, and `tools/build.mjs` writes the
-documents, asks the reference implementation (the `openavatar` and
+documents, asks the reference implementation (the `@openavatar/core` and
 `@openavatar/three` packages) for the expected results and the geometry
 vectors (`tools/geometry.mjs`), and renders the pictures in a headless
 browser. After changing a case or the reference

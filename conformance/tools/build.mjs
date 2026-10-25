@@ -1,13 +1,13 @@
 // Builds the conformance suite of SPEC 17.2 from the cases in cases.mjs:
 // the documents, the expected results of the reference implementation (the
-// `openavatar` package), the geometry vectors and the reference renders
+// `@openavatar/core` package), the geometry vectors and the reference renders
 // (`@openavatar/three`, the renders in a headless browser). Run from openavatar/:
 //
 //   node conformance/tools/build.mjs              everything
 //   node conformance/tools/build.mjs --no-renders documents and expectations only
 import fs from 'node:fs';
 import path from 'node:path';
-import { normalize, parse, validate, resolveBehavior, stringify, OpenAvatarError } from 'openavatar';
+import { normalize, parse, validate, resolveBehavior, stringify, OpenAvatarError } from '@openavatar/core';
 import { RENDER, REPAIR, REJECT, BEHAVIOR, covers } from './cases.mjs';
 import { geometryVectors } from './geometry.mjs';
 

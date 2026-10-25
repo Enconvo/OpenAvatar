@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parse } from 'openavatar';
+import { parse } from '@openavatar/core';
 import { catalogOf, TEXT } from './src/catalog.js';
 import { avatarPage, homePage, makePage, notFoundPage, specPage, submitPage } from './src/pages.js';
 import { LICENSES } from './web/submission.js';
@@ -35,7 +35,7 @@ const COPIES = {
 const dirOf = spec => path.dirname(fileURLToPath(import.meta.resolve(spec)));
 const VENDOR = {
   three: { from: dirOf('three'), files: ['three.module.min.js', 'three.core.min.js'] },
-  openavatar: { from: dirOf('openavatar'), files: name => name.endsWith('.js') },
+  openavatar: { from: dirOf('@openavatar/core'), files: name => name.endsWith('.js') },
   renderer: { from: dirOf('@openavatar/three'), files: name => name.endsWith('.js') },
 };
 

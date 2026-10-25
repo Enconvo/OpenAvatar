@@ -58,7 +58,7 @@ function closeDetails() {
 
 async function preview(text) {
   try {
-    const { parse } = await import('openavatar');
+    const { parse } = await import('@openavatar/core');
     stage ??= await startStage(figure);
     stage.load(parse(text).document);
     figure.classList.add('is-live');

@@ -10,7 +10,7 @@ const FONTS = 'https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;600&fa
 
 const IMPORT_MAP = { imports: {
   three: '/vendor/three/three.module.min.js',
-  openavatar: '/vendor/openavatar/index.js',
+  '@openavatar/core': '/vendor/openavatar/index.js',
   '@openavatar/three': '/vendor/renderer/index.js',
 } };
 

@@ -30,8 +30,8 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
+    "@openavatar/core": "0.1.x",
     "@openavatar/three": "0.1.x",
-    "openavatar": "0.1.x",
     "playwright-core": "1.64.0",
     "three": "0.185.1"
   },

@@ -151,7 +151,7 @@ schema = {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openavatar.dev/schema/0.1/openavatar.schema.json",
   "title": "OpenAvatar 0.1 document",
-  "description": "An animated character for AI agents, data only. Spec: https://openavatar.dev/spec/0.1. Limits that JSON Schema cannot express (SPEC 5.6, 14.1, 17.1) are checked by the openavatar package's validate().",
+  "description": "An animated character for AI agents, data only. Spec: https://openavatar.dev/spec/0.1. Limits that JSON Schema cannot express (SPEC 5.6, 14.1, 17.1) are checked by the @openavatar/core package's validate().",
   "type": "object",
   "required": ["openavatar", "id", "name", "body"],
   "additionalProperties": False,

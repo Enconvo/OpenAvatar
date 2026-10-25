@@ -23,8 +23,8 @@
     "src"
   ],
   "peerDependencies": {
-    "three": ">=0.160.0",
-    "openavatar": "0.1.x"
+    "@openavatar/core": "0.1.x",
+    "three": ">=0.160.0"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs"

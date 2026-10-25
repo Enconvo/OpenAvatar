@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
-import { normalize, stringify, VOCABULARY } from 'openavatar';
+import { normalize, stringify, VOCABULARY } from '@openavatar/core';
 import { checkBytes, kb, MAX_BYTES } from './check.js';
 import { sharedFolder, readShared, fileNameFor } from './shared.js';
 import { newDocument } from './templates.js';

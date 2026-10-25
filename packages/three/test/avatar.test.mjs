@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as THREE from 'three';
-import { VOCABULARY } from 'openavatar';
+import { VOCABULARY } from '@openavatar/core';
 import { OpenAvatar, SUPPORTED_MOTIONS, makeMaterial, addShells } from '../src/index.js';
 
 const dir = new URL('../../../examples/', import.meta.url).pathname;

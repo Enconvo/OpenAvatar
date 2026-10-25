@@ -7,7 +7,7 @@ export const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 export async function documentOf(entry) {
   const response = await fetch(`/avatars/${entry.slug}.openavatar?v=${entry.revision}`);
   if (!response.ok) throw new Error(`${entry.slug}: ${response.status}`);
-  return (await import('openavatar')).parse(await response.text()).document;
+  return (await import('@openavatar/core')).parse(await response.text()).document;
 }
 
 /** A stage on the figure's canvas, sized to it. */

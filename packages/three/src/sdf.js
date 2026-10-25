@@ -1,7 +1,7 @@
 // The shape language (SPEC 5) compiled to signed distance functions, and a
 // conservative bounding box for each shape. Pure math with no three.js, so it
 // runs in workers and in Node. Input shapes are normalized documents' shapes
-// (the openavatar package's normalize()), so members are in range.
+// (the @openavatar/core package's normalize()), so members are in range.
 //
 // Deformed, scaled and smoothly blended fields are not exact distances; the
 // mesher and the ray casts below only need the sign and a field whose slope

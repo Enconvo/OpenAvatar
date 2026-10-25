@@ -10,12 +10,12 @@ const ORIGIN = 'http://openavatar.localhost';
 const dirOf = spec => path.dirname(fileURLToPath(import.meta.resolve(spec)));
 const MOUNTS = {
   '/three/': () => dirOf('three'),
-  '/openavatar/': () => dirOf('openavatar'),
+  '/openavatar/': () => dirOf('@openavatar/core'),
   '/renderer/': () => dirOf('@openavatar/three'),
   '/cli/': () => path.dirname(fileURLToPath(import.meta.url)),
 };
 const PAGE = `<!doctype html><html><head><meta charset="utf-8">
-<script type="importmap">{"imports":{"three":"/three/three.module.js","openavatar":"/openavatar/index.js","@openavatar/three":"/renderer/index.js"}}</script>
+<script type="importmap">{"imports":{"three":"/three/three.module.js","@openavatar/core":"/openavatar/index.js","@openavatar/three":"/renderer/index.js"}}</script>
 </head><body><script type="module">
 import('/cli/page.js').catch(e => { window.openavatarError = String(e && e.stack || e); });
 </script></body></html>`;

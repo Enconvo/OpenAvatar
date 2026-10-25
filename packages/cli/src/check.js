@@ -2,7 +2,7 @@
 // reference renderer to measure it against the size rule of SPEC 4. Errors
 // are what a writer got wrong (a reader repairs or rejects them); warnings
 // are SHOULDs.
-import { validate, normalize, OpenAvatarError, LIMITS } from 'openavatar';
+import { validate, normalize, OpenAvatarError, LIMITS } from '@openavatar/core';
 
 export const MAX_BYTES = LIMITS.fileBytes ?? 256 * 1024;
 const SHOULD_FIT = 1.5, MUST_FIT = 2;

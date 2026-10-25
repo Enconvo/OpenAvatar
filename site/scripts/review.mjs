@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import { stringify } from 'openavatar';
+import { stringify } from '@openavatar/core';
 import { slugOf } from '../src/catalog.js';
 import { licenseName } from '../src/pages.js';
 import { checkDocument } from '../web/submission.js';

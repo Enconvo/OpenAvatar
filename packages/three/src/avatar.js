@@ -3,7 +3,7 @@
 // your scene, call update() each frame. stage.js wraps it with a renderer,
 // camera and lights for pages that just want a character on a canvas.
 import * as THREE from 'three';
-import { normalize, resolveBehavior, expressionPoses, STATES, ACTIVITIES, USER_ACTIVITIES, EXPRESSIONS, VOCABULARY } from 'openavatar';
+import { normalize, resolveBehavior, expressionPoses, STATES, ACTIVITIES, USER_ACTIVITIES, EXPRESSIONS, VOCABULARY } from '@openavatar/core';
 import { shapeGeometry, cachedBody, bentPatch, extentOf } from './geometry.js';
 import { makeMaterial, addShells } from './materials.js';
 import { compileShape, frontPoint, shapeBounds, surfaceAlong, smin, smax } from './sdf.js';
