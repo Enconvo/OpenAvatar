@@ -1,0 +1,26 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-unknown-members",
+  "name": "Repair unknown-members",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9,
+      "fuzz": 2
+    },
+    "material": "main",
+    "color": "#FF0000"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "glitter": true
+  },
+  "wobble": true
+}

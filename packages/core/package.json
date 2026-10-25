@@ -1,0 +1,45 @@
+{
+  "name": "openavatar",
+  "version": "0.1.0",
+  "description": "Read, validate and normalize OpenAvatar documents, and resolve how an avatar reacts.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enconvo/OpenAvatar.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/Enconvo/OpenAvatar/tree/main/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/Enconvo/OpenAvatar/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./vocabulary.json": "./vocabulary.json",
+    "./schema.json": "./schema.json"
+  },
+  "files": [
+    "src",
+    "vocabulary.json",
+    "schema.json"
+  ],
+  "scripts": {
+    "sync": "cp ../../spec/schema/openavatar-0.1.schema.json schema.json && cp ../../spec/vocabulary.json vocabulary.json && node scripts/vocabulary-module.mjs",
+    "pretest": "npm run sync",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "keywords": [
+    "avatar",
+    "agent",
+    "openavatar",
+    "sdf",
+    "character"
+  ]
+}

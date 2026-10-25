@@ -1,0 +1,590 @@
+{
+  "openavatar": "0.1",
+  "id": "e25ab0d9-646d-4cd4-9e6a-09cc041222d2",
+  "name": "Sleepy Teapot",
+  "meta": {
+    "description": "A sleepy little glazed ceramic teapot with a curved spout, a looped handle and a knobbed lid. Steam curls from its spout while it thinks, and it hops when a task is done.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "teapot",
+      "ceramic",
+      "sleepy",
+      "kitchen",
+      "object"
+    ],
+    "created": "2026-10-25T04:51:13Z",
+    "updated": "2026-10-25T05:40:00Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "blob",
+    "anchor": "ground",
+    "material": "glaze",
+    "shape": {
+      "type": "union",
+      "smooth": 0.15,
+      "children": [
+        {
+          "type": "ellipsoid",
+          "radii": [
+            0.82,
+            0.68,
+            0.78
+          ]
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.48,
+          "height": 0.12,
+          "position": [
+            0,
+            -0.64,
+            0
+          ],
+          "rounding": 0.03
+        },
+        {
+          "type": "cylinder",
+          "radius": 0.5,
+          "height": 0.12,
+          "position": [
+            0,
+            0.62,
+            0
+          ],
+          "rounding": 0.02
+        }
+      ]
+    }
+  },
+  "materials": {
+    "glaze": {
+      "type": "ceramic",
+      "color": "#7FC3D4"
+    },
+    "cream": {
+      "type": "ceramic",
+      "color": "#F7E6C4"
+    },
+    "steam": {
+      "type": "velvet",
+      "color": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.1,
+      "spacing": 0.24,
+      "height": 0.1,
+      "shape": "wide"
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.12,
+      "height": -0.14
+    },
+    "cheeks": {
+      "color": "#FF9DB2",
+      "size": 0.1,
+      "spacing": 0.42,
+      "height": -0.08,
+      "show": "always"
+    },
+    "expressions": {
+      "neutral": {
+        "eyes": "sad",
+        "mouth": "smile"
+      }
+    }
+  },
+  "parts": [
+    {
+      "id": "spout",
+      "role": "detail",
+      "attach": {
+        "position": [
+          0.55,
+          -0.28,
+          0
+        ]
+      },
+      "shape": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "intersect",
+            "children": [
+              {
+                "type": "union",
+                "smooth": 0,
+                "children": [
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.0,
+                      0.0,
+                      0
+                    ],
+                    "to": [
+                      0.159,
+                      0.018,
+                      0
+                    ],
+                    "radius": 0.19,
+                    "radiusTo": 0.175
+                  },
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.159,
+                      0.018,
+                      0
+                    ],
+                    "to": [
+                      0.304,
+                      0.073,
+                      0
+                    ],
+                    "radius": 0.175,
+                    "radiusTo": 0.16
+                  },
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.304,
+                      0.073,
+                      0
+                    ],
+                    "to": [
+                      0.435,
+                      0.165,
+                      0
+                    ],
+                    "radius": 0.16,
+                    "radiusTo": 0.145
+                  },
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.435,
+                      0.165,
+                      0
+                    ],
+                    "to": [
+                      0.551,
+                      0.293,
+                      0
+                    ],
+                    "radius": 0.145,
+                    "radiusTo": 0.13
+                  },
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.551,
+                      0.293,
+                      0
+                    ],
+                    "to": [
+                      0.653,
+                      0.458,
+                      0
+                    ],
+                    "radius": 0.13,
+                    "radiusTo": 0.115
+                  },
+                  {
+                    "type": "capsule",
+                    "from": [
+                      0.653,
+                      0.458,
+                      0
+                    ],
+                    "to": [
+                      0.74,
+                      0.66,
+                      0
+                    ],
+                    "radius": 0.115,
+                    "radiusTo": 0.1
+                  }
+                ]
+              },
+              {
+                "type": "halfspace",
+                "normal": [
+                  0.342,
+                  0.94,
+                  0
+                ],
+                "offset": 0.873
+              }
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.065,
+            "position": [
+              0.74,
+              0.66,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "handle",
+      "role": "detail",
+      "attach": {
+        "position": [
+          -0.86,
+          0.05,
+          0
+        ]
+      },
+      "shape": {
+        "type": "torus",
+        "radius": 0.3,
+        "thickness": 0.09,
+        "scale": [
+          0.85,
+          1,
+          1.15
+        ],
+        "rotation": [
+          90,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "lid",
+      "role": "detail",
+      "attach": {
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "align": "upright",
+        "lift": -0.02
+      },
+      "shape": {
+        "type": "union",
+        "smooth": 0.05,
+        "children": [
+          {
+            "type": "cylinder",
+            "radius": 0.54,
+            "height": 0.06,
+            "position": [
+              0,
+              0.03,
+              0
+            ],
+            "rounding": 0.02
+          },
+          {
+            "type": "intersect",
+            "children": [
+              {
+                "type": "ellipsoid",
+                "radii": [
+                  0.44,
+                  0.28,
+                  0.44
+                ]
+              },
+              {
+                "type": "halfspace",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "offset": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "knob",
+      "role": "detail",
+      "material": "cream",
+      "attach": {
+        "to": "lid",
+        "position": [
+          0,
+          0.36,
+          0
+        ]
+      },
+      "shape": {
+        "type": "union",
+        "smooth": 0.05,
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.12
+          },
+          {
+            "type": "cylinder",
+            "radius": 0.05,
+            "height": 0.1,
+            "position": [
+              0,
+              -0.08,
+              0
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rim-band",
+      "role": "detail",
+      "material": "cream",
+      "attach": {
+        "position": [
+          0,
+          0.6,
+          0
+        ]
+      },
+      "shape": {
+        "type": "torus",
+        "radius": 0.5,
+        "thickness": 0.045
+      }
+    },
+    {
+      "id": "steam-1",
+      "role": "detail",
+      "material": "steam",
+      "attach": {
+        "to": "spout",
+        "position": [
+          0.76,
+          0.7,
+          0
+        ]
+      },
+      "shape": {
+        "type": "union",
+        "smooth": 0.06,
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.1
+          },
+          {
+            "type": "sphere",
+            "radius": 0.075,
+            "position": [
+              0.08,
+              -0.025,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.07,
+            "position": [
+              -0.075,
+              -0.03,
+              0
+            ]
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        },
+        {
+          "type": "drift",
+          "driver": "thinking",
+          "axis": "y",
+          "amount": 0.18,
+          "speed": 0.5,
+          "phase": 0.0
+        },
+        {
+          "type": "bob",
+          "driver": "thinking",
+          "axis": "x",
+          "amount": 0.05,
+          "speed": 0.8,
+          "phase": 0.0
+        }
+      ]
+    },
+    {
+      "id": "steam-2",
+      "role": "detail",
+      "material": "steam",
+      "attach": {
+        "to": "spout",
+        "position": [
+          0.64,
+          0.92,
+          0
+        ]
+      },
+      "shape": {
+        "type": "union",
+        "smooth": 0.06,
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.13
+          },
+          {
+            "type": "sphere",
+            "radius": 0.098,
+            "position": [
+              0.104,
+              -0.033,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.091,
+            "position": [
+              -0.098,
+              -0.039,
+              0
+            ]
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        },
+        {
+          "type": "drift",
+          "driver": "thinking",
+          "axis": "y",
+          "amount": 0.18,
+          "speed": 0.5,
+          "phase": 0.33
+        },
+        {
+          "type": "bob",
+          "driver": "thinking",
+          "axis": "x",
+          "amount": 0.05,
+          "speed": 0.8,
+          "phase": 0.4
+        }
+      ]
+    },
+    {
+      "id": "steam-3",
+      "role": "detail",
+      "material": "steam",
+      "attach": {
+        "to": "spout",
+        "position": [
+          0.46,
+          1.14,
+          0
+        ]
+      },
+      "shape": {
+        "type": "union",
+        "smooth": 0.06,
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.16
+          },
+          {
+            "type": "sphere",
+            "radius": 0.12,
+            "position": [
+              0.128,
+              -0.04,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.112,
+            "position": [
+              -0.12,
+              -0.048,
+              0
+            ]
+          }
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        },
+        {
+          "type": "drift",
+          "driver": "thinking",
+          "axis": "y",
+          "amount": 0.18,
+          "speed": 0.5,
+          "phase": 0.66
+        },
+        {
+          "type": "bob",
+          "driver": "thinking",
+          "axis": "x",
+          "amount": 0.05,
+          "speed": 0.8,
+          "phase": 0.8
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.25,
+      "bounce": 0.45,
+      "sway": 0.3,
+      "blink": 0.3
+    },
+    "reactions": {
+      "states": {
+        "thinking": {
+          "effect": null
+        }
+      },
+      "activities": {
+        "done": {
+          "motion": "hop"
+        }
+      }
+    },
+    "idleMotions": [
+      "yawn",
+      "nod",
+      "stretch"
+    ]
+  }
+}

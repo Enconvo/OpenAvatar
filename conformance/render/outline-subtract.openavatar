@@ -1,0 +1,62 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.outline-subtract",
+  "name": "Crescent",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "extrusion",
+      "outline": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "circle",
+            "radius": 0.9
+          },
+          {
+            "type": "circle",
+            "radius": 0.45,
+            "center": [
+              0.68,
+              0.7
+            ]
+          }
+        ]
+      },
+      "depth": 0.8,
+      "rounding": 0.28,
+      "puff": 0.45
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#9FA8DA",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

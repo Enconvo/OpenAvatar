@@ -1,0 +1,91 @@
+{
+  "openavatar": "0.1",
+  "id": "e3f8a1c6-5d27-4b9e-8f03-6c4d2a1b7e33",
+  "name": "Starling",
+  "meta": {
+    "description": "A tangerine pillow star in round wire glasses; the lenses light up while it thinks.",
+    "authors": [{"name": "Enconvo", "url": "https://enconvo.com"}],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["star", "felt", "glasses"]
+  },
+  "body": {
+    "shape": {
+      "type": "extrusion",
+      "depth": 0.7,
+      "rounding": 0.27,
+      "puff": 0.6,
+      "outline": {"type": "star", "points": 5, "radius": 1.1, "innerRadius": 0.6},
+      "scale": 0.92
+    },
+    "material": "tangerine"
+  },
+  "materials": {
+    "tangerine": {"type": "felt", "color": "#FF842B"},
+    "frame": {"type": "plastic", "color": "#0B0B0E", "roughness": 0.4},
+    "lens": {
+      "type": "glass",
+      "color": "#E6ECFF",
+      "opacity": 0.15,
+      "glow": {"color": "#FFFFFF", "intensity": 0.6, "driver": "thinking"}
+    }
+  },
+  "face": {
+    "eyes": {"size": 0.069, "spacing": 0.23, "height": 0.11},
+    "mouth": {"width": 0.129, "height": -0.184}
+  },
+  "parts": [
+    {
+      "id": "glasses",
+      "role": "glasses",
+      "material": "frame",
+      "shape": {
+        "type": "union",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.18,
+            "thickness": 0.036,
+            "position": [0.25, 0, 0],
+            "rotation": [90, 0, 0],
+            "mirror": "x"
+          },
+          {
+            "type": "capsule",
+            "from": [-0.075, 0, 0],
+            "to": [0.075, 0, 0],
+            "radius": 0.028,
+            "deform": [{"type": "bend", "axis": "x", "toward": "y", "amount": -119}]
+          },
+          {
+            "type": "capsule",
+            "from": [0.43, 0.02, 0],
+            "to": [0.56, 0.05, -0.14],
+            "radius": 0.024,
+            "mirror": "x"
+          }
+        ],
+        "scale": 0.92
+      },
+      "attach": {"at": [0.0, 0.11], "lift": 0.129}
+    },
+    {
+      "id": "lenses",
+      "role": "glasses",
+      "material": "lens",
+      "shape": {
+        "type": "cylinder",
+        "radius": 0.165,
+        "height": 0.012,
+        "position": [0.25, 0, 0],
+        "rotation": [90, 0, 0],
+        "mirror": "x",
+        "scale": 0.92
+      },
+      "attach": {"to": "glasses", "position": [0.0, 0.0, -0.005]}
+    }
+  ],
+  "behavior": {
+    "reactions": {"userActivities": {"reading": {"expression": "happy", "intensity": 0.5}}}
+  }
+}

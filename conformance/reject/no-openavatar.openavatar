@@ -1,0 +1,1 @@
+{"id":"org.openavatar.conformance.repair-no-openavatar","name":"Repair no-openavatar","body":{"shape":{"type":"sphere","radius":0.9},"material":"main"},"materials":{"main":{"type":"felt","color":"#F2C9A0","sheen":"#FFFFFF"}}}

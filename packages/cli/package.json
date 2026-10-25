@@ -1,0 +1,43 @@
+{
+  "name": "@openavatar/cli",
+  "version": "0.1.0",
+  "description": "Check, render, pack and install OpenAvatar documents from the command line.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enconvo/OpenAvatar.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/Enconvo/OpenAvatar/tree/main/packages/cli#readme",
+  "bugs": {
+    "url": "https://github.com/Enconvo/OpenAvatar/issues"
+  },
+  "type": "module",
+  "bin": {
+    "openavatar": "./bin/openavatar.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@openavatar/three": "0.1.x",
+    "openavatar": "0.1.x",
+    "playwright-core": "1.64.0",
+    "three": "0.185.1"
+  },
+  "keywords": [
+    "avatar",
+    "openavatar",
+    "cli"
+  ]
+}

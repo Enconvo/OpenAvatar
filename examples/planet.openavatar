@@ -1,0 +1,293 @@
+{
+  "openavatar": "0.1",
+  "id": "589c6774-2bbb-41a4-80a6-55c539fc09f3",
+  "name": "Peachy Planet",
+  "meta": {
+    "description": "A tiny floating ringed planet in pastel peach and lilac bands, with a sleepy, content face. Its ring turns slowly and its little moons glow brighter while it speaks.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "planet",
+      "space",
+      "ringed",
+      "pastel",
+      "sleepy",
+      "moons"
+    ],
+    "created": "2026-10-25T04:51:17Z",
+    "updated": "2026-10-25T05:45:00Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "blob",
+    "anchor": "float",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.8
+    },
+    "material": "planet"
+  },
+  "materials": {
+    "planet": {
+      "type": "clay",
+      "color": "#FFC6A2",
+      "pattern": {
+        "type": "stripes",
+        "axis": "y",
+        "scale": 0.26,
+        "colors": [
+          "#CBB2F2",
+          "#FFC6A2"
+        ]
+      }
+    },
+    "ring": {
+      "type": "clay",
+      "color": "#D8C6F6",
+      "pattern": {
+        "type": "spots",
+        "scale": 0.22,
+        "colors": [
+          "#C4ADEE"
+        ]
+      }
+    },
+    "moon": {
+      "type": "clay",
+      "color": "#B07A28",
+      "glow": {
+        "color": "#FFB840",
+        "intensity": 1,
+        "base": 0.4,
+        "driver": "speaking"
+      }
+    },
+    "ring-inner": {
+      "type": "clay",
+      "color": "#FFE2CC"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.09,
+      "spacing": 0.27,
+      "height": 0.1
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.15,
+      "height": -0.1
+    },
+    "cheeks": {
+      "color": "#FF9DB2",
+      "size": 0.09,
+      "spacing": 0.45,
+      "height": -0.05,
+      "show": "always"
+    },
+    "expressions": {
+      "neutral": {
+        "eyes": "squint",
+        "mouth": "smile"
+      }
+    }
+  },
+  "parts": [
+    {
+      "id": "ring",
+      "role": "detail",
+      "material": "ring",
+      "shape": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "cylinder",
+            "radius": 1.24,
+            "height": 0.05,
+            "rounding": 0.02
+          },
+          {
+            "type": "cylinder",
+            "radius": 1.06,
+            "height": 1
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          18,
+          0,
+          -14
+        ]
+      },
+      "animations": [
+        {
+          "type": "spin",
+          "axis": "y",
+          "speed": 0.08
+        }
+      ]
+    },
+    {
+      "id": "ring-inner",
+      "role": "detail",
+      "material": "ring-inner",
+      "shape": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "cylinder",
+            "radius": 1.05,
+            "height": 0.04,
+            "rounding": 0.015
+          },
+          {
+            "type": "cylinder",
+            "radius": 0.94,
+            "height": 1
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "moon",
+      "role": "accessory",
+      "material": "moon",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.1
+      },
+      "attach": {
+        "to": "ring",
+        "position": [
+          1.38,
+          0,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.3
+        }
+      ]
+    },
+    {
+      "id": "star-left",
+      "role": "accessory",
+      "material": "moon",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "star",
+          "points": 5,
+          "radius": 0.13,
+          "innerRadius": 0.06
+        },
+        "depth": 0.08,
+        "rounding": 0.015,
+        "puff": 0.5
+      },
+      "attach": {
+        "position": [
+          -0.86,
+          0.86,
+          0.2
+        ],
+        "rotation": [
+          0,
+          0,
+          12
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "amount": 0.05,
+          "speed": 0.4
+        },
+        {
+          "type": "pulse",
+          "amount": 0.12,
+          "speed": 0.5
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.3
+        }
+      ]
+    },
+    {
+      "id": "moon-small",
+      "role": "accessory",
+      "material": "moon",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.075
+      },
+      "attach": {
+        "position": [
+          0.95,
+          0.72,
+          0
+        ]
+      },
+      "pivot": [
+        -0.95,
+        0,
+        0
+      ],
+      "animations": [
+        {
+          "type": "spin",
+          "axis": "y",
+          "speed": 0.12,
+          "phase": 0.15
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.3
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.3,
+      "bounce": 0.3,
+      "sway": 0.4,
+      "blink": 0.3
+    },
+    "idleMotions": [
+      "yawn",
+      "spin",
+      "nod"
+    ]
+  }
+}

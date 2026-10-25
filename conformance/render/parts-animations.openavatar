@@ -1,0 +1,312 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.parts-animations",
+  "name": "Animations",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.8
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#B2DFDB",
+      "sheen": "#FFFFFF"
+    },
+    "a": {
+      "type": "felt",
+      "color": "#FF8A65",
+      "sheen": "#FFFFFF"
+    },
+    "b": {
+      "type": "felt",
+      "color": "#BA68C8",
+      "sheen": "#FFFFFF"
+    },
+    "c": {
+      "type": "felt",
+      "color": "#FFF176",
+      "glow": {
+        "color": "#FFEB3B",
+        "intensity": 1,
+        "driver": "speaking"
+      }
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  },
+  "parts": [
+    {
+      "id": "sway",
+      "role": "antenna",
+      "material": "a",
+      "shape": {
+        "type": "capsule",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          0.24,
+          0
+        ],
+        "radius": 0.03
+      },
+      "attach": {
+        "direction": [
+          -0.35,
+          0.94,
+          0
+        ],
+        "lift": -0.02,
+        "align": "upright"
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 12,
+          "speed": 0.5
+        }
+      ]
+    },
+    {
+      "id": "spin",
+      "role": "detail",
+      "material": "b",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "star",
+          "points": 4,
+          "radius": 0.12,
+          "innerRadius": 0.05
+        },
+        "depth": 0.04
+      },
+      "attach": {
+        "direction": [
+          0.35,
+          0.94,
+          0
+        ],
+        "lift": 0.1
+      },
+      "animations": [
+        {
+          "type": "spin",
+          "axis": "y",
+          "speed": 0.5
+        }
+      ]
+    },
+    {
+      "id": "bob",
+      "role": "detail",
+      "material": "a",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "position": [
+          0.98,
+          0.3,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.06,
+          "speed": 1
+        }
+      ]
+    },
+    {
+      "id": "pulse",
+      "role": "detail",
+      "material": "b",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "position": [
+          -0.98,
+          0.3,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "amount": 0.2,
+          "driver": "voice"
+        }
+      ]
+    },
+    {
+      "id": "wiggle",
+      "role": "tail",
+      "material": "a",
+      "shape": {
+        "type": "capsule",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0,
+          -0.2,
+          -0.12
+        ],
+        "radius": 0.05
+      },
+      "attach": {
+        "position": [
+          0,
+          -0.5,
+          -0.66
+        ],
+        "align": "none"
+      },
+      "animations": [
+        {
+          "type": "wiggle",
+          "axis": "z",
+          "amount": 15,
+          "speed": 2
+        }
+      ]
+    },
+    {
+      "id": "flap",
+      "role": "ear",
+      "material": "b",
+      "mirror": "x",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.12,
+          0.08,
+          0.04
+        ]
+      },
+      "attach": {
+        "direction": [
+          0.9,
+          0.3,
+          0
+        ],
+        "lift": -0.02
+      },
+      "animations": [
+        {
+          "type": "flap",
+          "axis": "z",
+          "amount": 20,
+          "speed": 1.5,
+          "driver": "speaking"
+        }
+      ]
+    },
+    {
+      "id": "appear",
+      "role": "detail",
+      "material": "a",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.06
+      },
+      "attach": {
+        "at": [
+          0,
+          -0.5
+        ],
+        "lift": 0.04
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "drift",
+      "role": "detail",
+      "material": "b",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.05
+      },
+      "attach": {
+        "position": [
+          0.6,
+          -0.4,
+          0.5
+        ]
+      },
+      "animations": [
+        {
+          "type": "drift",
+          "axis": "y",
+          "amount": 0.5,
+          "speed": 0.6
+        }
+      ]
+    },
+    {
+      "id": "glow",
+      "role": "detail",
+      "material": "c",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.06
+      },
+      "attach": {
+        "position": [
+          -0.6,
+          -0.4,
+          0.5
+        ]
+      },
+      "animations": [
+        {
+          "type": "glow",
+          "amount": 1.5,
+          "driver": "pointer"
+        }
+      ]
+    }
+  ]
+}

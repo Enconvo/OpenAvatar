@@ -1,0 +1,126 @@
+{
+  "openavatar": "0.1",
+  "id": "c6a2e9f1-8b34-4d07-a1c9-3e5f7b0d2c55",
+  "name": "Sugar",
+  "meta": {
+    "description": "A magenta sugar cube in a black bowtie that bounces with its voice.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "food",
+      "felt",
+      "formal"
+    ]
+  },
+  "body": {
+    "shape": {
+      "type": "box",
+      "size": [
+        1.64,
+        1.56,
+        1.48
+      ],
+      "rounding": 0.32
+    },
+    "material": "magenta"
+  },
+  "materials": {
+    "magenta": {
+      "type": "felt",
+      "color": "#E2449E"
+    },
+    "ink": {
+      "type": "felt",
+      "color": "#16151B",
+      "sheen": "#6A6878"
+    }
+  },
+  "face": {
+    "eyes": {
+      "size": 0.092,
+      "spacing": 0.3,
+      "height": 0.22
+    },
+    "mouth": {
+      "width": 0.16,
+      "height": -0.08
+    }
+  },
+  "parts": [
+    {
+      "id": "bowtie",
+      "role": "accessory",
+      "material": "ink",
+      "shape": {
+        "type": "union",
+        "smooth": 0.04,
+        "scale": [
+          0.86,
+          0.86,
+          0.39
+        ],
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.075
+          },
+          {
+            "type": "capsule",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0.3,
+              0,
+              0
+            ],
+            "radius": 0.05,
+            "radiusTo": 0.15,
+            "mirror": "x"
+          }
+        ]
+      },
+      "attach": {
+        "at": [
+          0,
+          -0.48
+        ],
+        "lift": 0.05
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "amount": 0.28,
+          "driver": "voice"
+        },
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 10,
+          "speed": 1.75,
+          "driver": "voice"
+        },
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 5,
+          "speed": 0.5,
+          "driver": "thinking"
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "bounce": 0.8
+    }
+  }
+}

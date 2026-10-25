@@ -1,0 +1,55 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.deform-twist",
+  "name": "Twist",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "box",
+      "size": [
+        1.2,
+        1.6,
+        1.2
+      ],
+      "rounding": 0.2,
+      "deform": [
+        {
+          "type": "twist",
+          "axis": "y",
+          "amount": 40
+        }
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#80DEEA",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

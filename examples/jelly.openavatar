@@ -1,0 +1,304 @@
+{
+  "openavatar": "0.1",
+  "id": "f1d7c3a9-2e86-4b15-9c4a-5a8e0f3d1b66",
+  "name": "Jelly",
+  "meta": {
+    "description": "A teal felt jellyfish; the bell pulses with speech and pom-pom tentacles trail behind.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "sea",
+      "felt"
+    ]
+  },
+  "body": {
+    "shape": {
+      "type": "intersect",
+      "smooth": 0.16,
+      "children": [
+        {
+          "type": "ellipsoid",
+          "radii": [
+            1.0,
+            0.9,
+            0.94
+          ],
+          "deform": [
+            {
+              "type": "ripple",
+              "axis": "y",
+              "count": 9,
+              "amplitude": 0.03,
+              "range": [
+                -0.5,
+                0.1
+              ]
+            }
+          ]
+        },
+        {
+          "type": "halfspace",
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "offset": 0.26
+        }
+      ]
+    },
+    "material": "teal",
+    "anchor": "float"
+  },
+  "materials": {
+    "teal": {
+      "type": "felt",
+      "color": "#2FC5B3",
+      "sheen": "#C9FFF6"
+    },
+    "pom": {
+      "type": "felt",
+      "color": "#8BEADB",
+      "sheen": "#FFFFFF"
+    },
+    "pom-tip": {
+      "type": "felt",
+      "color": "#FF8DB8",
+      "sheen": "#FFE0EC"
+    }
+  },
+  "face": {
+    "eyes": {
+      "size": 0.09,
+      "spacing": 0.3,
+      "height": 0.24
+    },
+    "mouth": {
+      "width": 0.15,
+      "height": -0.02
+    }
+  },
+  "parts": [
+    {
+      "id": "tentacle",
+      "role": "detail",
+      "material": "pom",
+      "shape": {
+        "type": "union",
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.1,
+            "position": [
+              0,
+              -0.1,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.085,
+            "position": [
+              0,
+              -0.27,
+              0
+            ]
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0,
+          -0.3,
+          0.38
+        ]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 8,
+          "speed": 0.3,
+          "phase": 0
+        },
+        {
+          "type": "sway",
+          "axis": "x",
+          "amount": 12,
+          "speed": 0.5,
+          "driver": "voice",
+          "phase": 0
+        }
+      ]
+    },
+    {
+      "id": "tentacle-tip",
+      "role": "detail",
+      "material": "pom-tip",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "to": "tentacle",
+        "position": [
+          0,
+          -0.44,
+          0
+        ]
+      }
+    },
+    {
+      "id": "tentacle-in",
+      "role": "detail",
+      "material": "pom",
+      "shape": {
+        "type": "union",
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.1,
+            "position": [
+              0,
+              -0.1,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.085,
+            "position": [
+              0,
+              -0.27,
+              0
+            ]
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0.3,
+          -0.3,
+          0.3
+        ]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 8,
+          "speed": 0.3,
+          "phase": 0.13
+        },
+        {
+          "type": "sway",
+          "axis": "x",
+          "amount": 12,
+          "speed": 0.5,
+          "driver": "voice",
+          "phase": 0.13
+        }
+      ],
+      "mirror": "x"
+    },
+    {
+      "id": "tentacle-in-tip",
+      "role": "detail",
+      "material": "pom-tip",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "to": "tentacle-in",
+        "position": [
+          0,
+          -0.44,
+          0
+        ]
+      }
+    },
+    {
+      "id": "tentacle-out",
+      "role": "detail",
+      "material": "pom",
+      "shape": {
+        "type": "union",
+        "children": [
+          {
+            "type": "sphere",
+            "radius": 0.1,
+            "position": [
+              0,
+              -0.1,
+              0
+            ]
+          },
+          {
+            "type": "sphere",
+            "radius": 0.085,
+            "position": [
+              0,
+              -0.27,
+              0
+            ]
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0.6,
+          -0.3,
+          0.1
+        ]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 8,
+          "speed": 0.3,
+          "phase": 0.26
+        },
+        {
+          "type": "sway",
+          "axis": "x",
+          "amount": 12,
+          "speed": 0.5,
+          "driver": "voice",
+          "phase": 0.26
+        }
+      ],
+      "mirror": "x"
+    },
+    {
+      "id": "tentacle-out-tip",
+      "role": "detail",
+      "material": "pom-tip",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "to": "tentacle-out",
+        "position": [
+          0,
+          -0.44,
+          0
+        ]
+      }
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "sway": 0.7,
+      "energy": 0.4
+    }
+  }
+}

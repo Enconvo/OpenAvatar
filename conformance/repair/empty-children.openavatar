@@ -1,0 +1,44 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-empty-children",
+  "name": "Repair empty-children",
+  "body": {
+    "shape": {
+      "type": "intersect",
+      "children": [
+        {
+          "type": "sphere",
+          "radius": 0.9
+        },
+        {
+          "type": "blob"
+        }
+      ]
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "parts": [
+    {
+      "id": "gone",
+      "shape": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "nothing"
+          },
+          {
+            "type": "sphere",
+            "radius": 0.1
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-colors",
+  "name": "Repair colors",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#FF8800",
+      "sheen": "#FFEEDD"
+    },
+    "bad": {
+      "type": "felt"
+    }
+  }
+}

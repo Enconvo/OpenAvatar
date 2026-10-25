@@ -1,0 +1,48 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.material-velvet",
+  "name": "Velvet",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "superellipsoid",
+      "radii": [
+        0.92,
+        0.86,
+        0.84
+      ],
+      "exponent": 2.4
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "velvet",
+      "color": "#7A3FA0",
+      "sheen": "#E3B8FF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

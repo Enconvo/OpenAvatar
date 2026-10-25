@@ -1,0 +1,66 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.anchor-float",
+  "name": "Ghost",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "capsule",
+      "from": [
+        0,
+        -0.3,
+        0
+      ],
+      "to": [
+        0,
+        0.3,
+        0
+      ],
+      "radius": 0.62,
+      "deform": [
+        {
+          "type": "ripple",
+          "axis": "y",
+          "count": 6,
+          "amplitude": 0.06,
+          "range": [
+            -0.95,
+            -0.55
+          ]
+        }
+      ]
+    },
+    "anchor": "float"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F5F5F5",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

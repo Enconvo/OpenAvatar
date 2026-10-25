@@ -1,0 +1,10 @@
+{
+  "name": "openavatar-monorepo",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*", "site"],
+  "scripts": {
+    "schema": "python3 spec/tools/gen-schema.py spec && node spec/tools/skill-reference.mjs",
+    "test": "npm test --workspaces --if-present"
+  }
+}

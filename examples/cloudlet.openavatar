@@ -1,0 +1,91 @@
+{
+  "openavatar": "0.1",
+  "id": "0b9c2d7e-4a61-4c3f-b5e8-7d1a9f2c6b44",
+  "name": "Cloudlet",
+  "meta": {
+    "description": "A sky-blue cloud that blushes when it talks and rains a little while it thinks.",
+    "authors": [{"name": "Enconvo", "url": "https://enconvo.com"}],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["cloud", "weather", "felt"]
+  },
+  "body": {
+    "shape": {
+      "type": "intersect",
+      "smooth": 0.2,
+      "scale": [0.82, 0.82, 0.656],
+      "children": [
+        {
+          "type": "union",
+          "smooth": 0.23,
+          "children": [
+            {"type": "sphere", "radius": 0.68, "position": [0, 0.2, 0]},
+            {"type": "sphere", "radius": 0.5, "position": [-0.66, -0.12, 0]},
+            {"type": "sphere", "radius": 0.54, "position": [0.68, -0.08, 0]},
+            {"type": "sphere", "radius": 0.5, "position": [-0.28, -0.3, 0]},
+            {"type": "sphere", "radius": 0.5, "position": [0.3, -0.28, 0]}
+          ]
+        },
+        {"type": "halfspace", "normal": [0, -1, 0], "offset": 0.62}
+      ]
+    },
+    "material": "sky",
+    "anchor": "float"
+  },
+  "materials": {
+    "sky": {"type": "felt", "color": "#8CC4FF", "sheen": "#F2F8FF"},
+    "rain": {"type": "felt", "color": "#5FA8FF", "sheen": "#D8EBFF"}
+  },
+  "face": {
+    "eyes": {"size": 0.074, "spacing": 0.246, "height": 0.098},
+    "mouth": {"width": 0.123, "height": -0.115},
+    "cheeks": {
+      "color": "#FF8DB3",
+      "size": 0.098,
+      "spacing": 0.451,
+      "height": -0.066,
+      "show": "speaking"
+    }
+  },
+  "parts": [
+    {
+      "id": "drop-1",
+      "role": "detail",
+      "material": "rain",
+      "shape": {"type": "ellipsoid", "radii": [0.075, 0.11, 0.075], "scale": 0.82},
+      "attach": {"position": [-0.344, -0.508, 0.098]},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "drift", "axis": "y", "amount": -0.574, "speed": 0.9, "phase": 0}
+      ]
+    },
+    {
+      "id": "drop-2",
+      "role": "detail",
+      "material": "rain",
+      "shape": {"type": "ellipsoid", "radii": [0.075, 0.11, 0.075], "scale": 0.82},
+      "attach": {"position": [0.049, -0.508, 0.098]},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "drift", "axis": "y", "amount": -0.574, "speed": 0.9, "phase": 0.38}
+      ]
+    },
+    {
+      "id": "drop-3",
+      "role": "detail",
+      "material": "rain",
+      "shape": {"type": "ellipsoid", "radii": [0.075, 0.11, 0.075], "scale": 0.82},
+      "attach": {"position": [0.394, -0.508, 0.098]},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "drift", "axis": "y", "amount": -0.574, "speed": 0.9, "phase": 0.7}
+      ]
+    }
+  ],
+  "behavior": {
+    "reactions": {
+      "states": {"thinking": {"effect": null}},
+      "activities": {"error": {"effect": null, "expression": "sad"}}
+    }
+  }
+}

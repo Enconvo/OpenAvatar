@@ -1,0 +1,43 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.shape-sphere",
+  "name": "Sphere",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.face-sewn-wide",
+  "name": "Face sewn wide",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        0.92,
+        0.86,
+        0.84
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#D1C4E9",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "sewn",
+    "eyes": {
+      "shape": "wide",
+      "size": 0.09,
+      "spacing": 0.32,
+      "height": 0.16
+    },
+    "mouth": {
+      "shape": "cat",
+      "width": 0.16,
+      "height": -0.1
+    },
+    "cheeks": {
+      "color": "#FF9DB2",
+      "size": 0.1,
+      "spacing": 0.5,
+      "height": -0.04,
+      "show": "happy"
+    },
+    "nose": {
+      "shape": "triangle",
+      "size": 0.08,
+      "height": 0.02
+    }
+  }
+}

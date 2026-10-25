@@ -1,0 +1,63 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.shape-union",
+  "name": "Snowman",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "union",
+      "smooth": 0.25,
+      "children": [
+        {
+          "type": "sphere",
+          "radius": 0.56,
+          "position": [
+            0,
+            0.42,
+            0
+          ]
+        },
+        {
+          "type": "sphere",
+          "radius": 0.72,
+          "position": [
+            0,
+            -0.27,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F5F1E6",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.5
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": 0.3
+    }
+  }
+}

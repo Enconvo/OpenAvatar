@@ -1,0 +1,27 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-whole-numbers",
+  "name": "Repair whole-numbers",
+  "body": {
+    "shape": {
+      "type": "extrusion",
+      "outline": {
+        "type": "star",
+        "points": 5,
+        "radius": 1,
+        "innerRadius": 0.6
+      },
+      "depth": 0.8,
+      "rounding": 0.28,
+      "puff": 0.45
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  }
+}

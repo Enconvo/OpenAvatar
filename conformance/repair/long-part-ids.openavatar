@@ -1,0 +1,75 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-long-part-ids",
+  "name": "Repair long-part-ids",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "parts": [
+    {
+      "id": "a-very-long-part-id-for-a-button",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.08
+      },
+      "attach": {
+        "at": [
+          0.3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "a-very-long-part-id-for-a-button",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.08
+      },
+      "attach": {
+        "at": [
+          -0.3,
+          0
+        ]
+      }
+    },
+    {
+      "id": "a-very-long-part-id-for-a-button",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.08
+      },
+      "attach": {
+        "at": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "thread",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "to": "a-very-long-part-id-for-a-button",
+        "position": [
+          0,
+          0,
+          0.08
+        ]
+      }
+    }
+  ]
+}

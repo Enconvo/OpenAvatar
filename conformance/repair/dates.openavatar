@@ -1,0 +1,23 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-dates",
+  "name": "Repair dates",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "meta": {
+    "created": "2016-12-31t23:59:60z",
+    "updated": "2026-02-30T12:00:00Z"
+  }
+}

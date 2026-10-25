@@ -1,0 +1,37 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-repeats-keep-first",
+  "name": "Repair repeats-keep-first",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "meta": {
+    "tags": [
+      "plush",
+      "round",
+      "plush",
+      "soft",
+      "round"
+    ]
+  },
+  "behavior": {
+    "idleMotions": [
+      "wave",
+      "moonwalk",
+      "look-around",
+      "nod",
+      "wave"
+    ]
+  }
+}

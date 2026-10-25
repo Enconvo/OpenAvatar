@@ -1,0 +1,66 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.face-drawn-almond",
+  "name": "Face drawn almond",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        0.92,
+        0.86,
+        0.84
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#FFF9C4",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "drawn",
+    "eyes": {
+      "shape": "almond",
+      "size": 0.09,
+      "spacing": 0.32,
+      "height": 0.16
+    },
+    "mouth": {
+      "shape": "none",
+      "width": 0.16,
+      "height": -0.1
+    },
+    "cheeks": {
+      "color": "#FF9DB2",
+      "size": 0.1,
+      "spacing": 0.5,
+      "height": -0.04,
+      "show": "happy"
+    },
+    "nose": {
+      "shape": "snout",
+      "size": 0.08,
+      "height": 0.02
+    },
+    "brows": {
+      "color": "#4E342E",
+      "thickness": 0.02,
+      "length": 0.12,
+      "height": 0.32
+    }
+  }
+}

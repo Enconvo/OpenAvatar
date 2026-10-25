@@ -1,0 +1,133 @@
+{
+  "openavatar": "0.1",
+  "id": "9e4b1f6c-7a2d-4c88-b3e5-0f6a2d8c4e77",
+  "name": "Matcha",
+  "meta": {
+    "description": "A matcha-green plush yeti in a knit beanie, with felt quote marks for eyes in Enconvo.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "plush",
+      "yeti",
+      "fur"
+    ]
+  },
+  "body": {
+    "rig": "biped",
+    "material": "pile",
+    "proportions": {
+      "head": 0.6,
+      "headShape": "round",
+      "body": 0.5,
+      "bodyShape": "pear",
+      "legs": 0.4,
+      "arms": 0.5
+    }
+  },
+  "materials": {
+    "pile": {
+      "type": "fur",
+      "color": "#8CCB9B",
+      "fur": {
+        "length": 0.65,
+        "density": 0.75,
+        "droop": 0.4,
+        "tip": "#B9E4C2"
+      }
+    },
+    "ear": {
+      "type": "felt",
+      "color": "#6FAE80"
+    }
+  },
+  "face": {
+    "type": "sewn",
+    "eyes": {
+      "size": 0.1,
+      "spacing": 0.24,
+      "height": 0.42
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": 0.2
+    },
+    "cheeks": {
+      "color": "#FF9DB2",
+      "size": 0.09,
+      "spacing": 0.36,
+      "height": 0.28,
+      "show": "happy"
+    }
+  },
+  "parts": [
+    {
+      "id": "ears",
+      "role": "ear",
+      "material": "ear",
+      "mirror": "x",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.13,
+          0.17,
+          0.08
+        ],
+        "rotation": [
+          0,
+          0,
+          -20
+        ]
+      },
+      "attach": {
+        "to": "head",
+        "direction": [
+          0.62,
+          0.78,
+          0
+        ],
+        "lift": -0.04,
+        "align": "upright"
+      },
+      "animations": [
+        {
+          "type": "flap",
+          "axis": "z",
+          "amount": 12,
+          "speed": 0.6,
+          "driver": "listening"
+        }
+      ]
+    }
+  ],
+  "outfit": "beanie",
+  "behavior": {
+    "temperament": {
+      "energy": 0.6,
+      "bounce": 0.6
+    },
+    "idleMotions": [
+      "wave",
+      "stretch",
+      "groove"
+    ],
+    "reactions": {
+      "activities": {
+        "done": {
+          "motion": "cheer"
+        }
+      }
+    }
+  },
+  "extensions": {
+    "com.enconvo": {
+      "face": "quo"
+    }
+  }
+}

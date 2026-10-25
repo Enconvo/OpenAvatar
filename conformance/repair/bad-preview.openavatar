@@ -1,0 +1,22 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-bad-preview",
+  "name": "Repair bad-preview",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "preview": {
+    "image": "https://example.com/me.png"
+  }
+}

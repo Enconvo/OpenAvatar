@@ -1,0 +1,316 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.parts-roles",
+  "name": "Roles",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.82
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#FFAB91",
+      "sheen": "#FFFFFF"
+    },
+    "wing": {
+      "type": "felt",
+      "color": "#FFFFFF",
+      "sheen": "#FFFFFF"
+    },
+    "horn": {
+      "type": "felt",
+      "color": "#FFF8E1",
+      "sheen": "#FFFFFF"
+    },
+    "dark": {
+      "type": "felt",
+      "color": "#3E2723",
+      "sheen": "#FFFFFF"
+    },
+    "leaf": {
+      "type": "felt",
+      "color": "#66BB6A",
+      "sheen": "#FFFFFF"
+    },
+    "hat": {
+      "type": "felt",
+      "color": "#5C6BC0",
+      "sheen": "#FFFFFF"
+    },
+    "petal": {
+      "type": "felt",
+      "color": "#F06292",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.1
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.14
+    }
+  },
+  "parts": [
+    {
+      "id": "wings",
+      "role": "wing",
+      "material": "wing",
+      "mirror": "x",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "ellipse",
+          "radii": [
+            0.34,
+            0.2
+          ]
+        },
+        "depth": 0.06,
+        "rounding": 0.03,
+        "rotation": [
+          0,
+          70,
+          20
+        ]
+      },
+      "attach": {
+        "direction": [
+          0.9,
+          0.1,
+          -0.4
+        ],
+        "lift": -0.05
+      },
+      "animations": [
+        {
+          "type": "flap",
+          "axis": "y",
+          "amount": 18,
+          "speed": 1.2
+        }
+      ]
+    },
+    {
+      "id": "horns",
+      "role": "horn",
+      "material": "horn",
+      "mirror": "x",
+      "shape": {
+        "type": "cone",
+        "radius": 0.07,
+        "height": 0.24,
+        "rounding": 0.02
+      },
+      "attach": {
+        "direction": [
+          0.42,
+          0.9,
+          0.1
+        ],
+        "lift": -0.03,
+        "align": "upright"
+      }
+    },
+    {
+      "id": "fin",
+      "role": "fin",
+      "material": "wing",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "polygon",
+          "points": [
+            [
+              0,
+              0
+            ],
+            [
+              -0.3,
+              0
+            ],
+            [
+              0,
+              0.34
+            ]
+          ],
+          "rounding": 0.05
+        },
+        "depth": 0.05,
+        "rounding": 0.02,
+        "rotation": [
+          0,
+          -90,
+          0
+        ]
+      },
+      "attach": {
+        "direction": [
+          0,
+          0.2,
+          -1
+        ],
+        "lift": -0.05,
+        "align": "upright"
+      }
+    },
+    {
+      "id": "tuft",
+      "role": "hair",
+      "material": "dark",
+      "shape": {
+        "type": "capsule",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          0.06,
+          0.18,
+          0
+        ],
+        "radius": 0.035,
+        "radiusTo": 0.015
+      },
+      "attach": {
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "lift": -0.02,
+        "align": "upright"
+      }
+    },
+    {
+      "id": "hat",
+      "role": "hat",
+      "material": "hat",
+      "shape": {
+        "type": "cylinder",
+        "radius": 0.18,
+        "height": 0.08,
+        "rounding": 0.03
+      },
+      "attach": {
+        "direction": [
+          -0.25,
+          0.97,
+          0
+        ],
+        "lift": -0.01,
+        "align": "upright"
+      }
+    },
+    {
+      "id": "glasses",
+      "role": "glasses",
+      "material": "dark",
+      "shape": {
+        "type": "torus",
+        "radius": 0.1,
+        "thickness": 0.018,
+        "position": [
+          0.15,
+          0,
+          0
+        ],
+        "rotation": [
+          90,
+          0,
+          0
+        ],
+        "mirror": "x"
+      },
+      "attach": {
+        "at": [
+          0,
+          0.1
+        ],
+        "lift": 0.06
+      }
+    },
+    {
+      "id": "leaf",
+      "role": "leaf",
+      "material": "leaf",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "intersect",
+          "children": [
+            {
+              "type": "circle",
+              "radius": 0.14,
+              "center": [
+                -0.07,
+                0
+              ]
+            },
+            {
+              "type": "circle",
+              "radius": 0.14,
+              "center": [
+                0.07,
+                0
+              ]
+            }
+          ]
+        },
+        "depth": 0.03,
+        "rounding": 0.01
+      },
+      "attach": {
+        "to": "hat",
+        "position": [
+          0.08,
+          0.12,
+          0
+        ]
+      }
+    },
+    {
+      "id": "flower",
+      "role": "prop",
+      "material": "petal",
+      "shape": {
+        "type": "extrusion",
+        "outline": {
+          "type": "star",
+          "points": 5,
+          "radius": 0.12,
+          "innerRadius": 0.07
+        },
+        "depth": 0.04,
+        "rounding": 0.02
+      },
+      "attach": {
+        "at": [
+          0.62,
+          -0.45
+        ],
+        "lift": 0.04
+      }
+    }
+  ]
+}

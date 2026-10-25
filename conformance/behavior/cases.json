@@ -1,0 +1,697 @@
+{
+  "$comment": "For each case, a reader given the document and the input resolves these channels (SPEC 11.3), as a renderer that knows exactly the standard ids of 0.1 does: ids it does not know take their fallbacks (SPEC 13). null means the channel is not set.",
+  "cases": [
+    {
+      "id": "idle",
+      "document": "../examples/mochi.openavatar",
+      "input": {},
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "At rest only the gaze is set"
+    },
+    {
+      "id": "state-listening",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "state": "listening"
+      },
+      "expected": {
+        "expression": "neutral",
+        "expressionIntensity": 1,
+        "motion": "lean-in",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to listening (SPEC 13.1)"
+    },
+    {
+      "id": "state-thinking",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "state": "thinking"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": "dots",
+        "gaze": "up",
+        "quiet": false
+      },
+      "checks": "The default reaction to thinking (SPEC 13.1)"
+    },
+    {
+      "id": "state-speaking",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "state": "speaking"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.4,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to speaking (SPEC 13.1)"
+    },
+    {
+      "id": "activity-searching",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "searching"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "look-around",
+        "prop": null,
+        "effect": null,
+        "gaze": "around",
+        "quiet": false
+      },
+      "checks": "The default reaction to searching (SPEC 13.2)"
+    },
+    {
+      "id": "activity-working",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "working"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 0.6,
+        "motion": "nod-beat",
+        "prop": null,
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "The default reaction to working (SPEC 13.2)"
+    },
+    {
+      "id": "activity-waiting",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "waiting"
+      },
+      "expected": {
+        "expression": "surprised",
+        "expressionIntensity": 0.6,
+        "motion": "bounce",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to waiting (SPEC 13.2)"
+    },
+    {
+      "id": "activity-error",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "error"
+      },
+      "expected": {
+        "expression": "sad",
+        "expressionIntensity": 1,
+        "motion": "shake",
+        "prop": null,
+        "effect": "sweat",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to error (SPEC 13.2)"
+    },
+    {
+      "id": "activity-done",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "done"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 1,
+        "motion": "hop",
+        "prop": null,
+        "effect": "sparkles",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to done (SPEC 13.2)"
+    },
+    {
+      "id": "activity-sleeping",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "activity": "sleeping"
+      },
+      "expected": {
+        "expression": "sleepy",
+        "expressionIntensity": 1,
+        "motion": "sleep",
+        "prop": null,
+        "effect": "zzz",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to sleeping (SPEC 13.2)"
+    },
+    {
+      "id": "user-coding",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "coding"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 0.4,
+        "motion": "typing",
+        "prop": "laptop",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "The default reaction to coding (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-writing",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "writing"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "writing",
+        "prop": "notebook",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "The default reaction to writing (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-reading",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "reading"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "reading",
+        "prop": "book",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "The default reaction to reading (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-browsing",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "browsing"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "look-around",
+        "prop": null,
+        "effect": null,
+        "gaze": "side",
+        "quiet": false
+      },
+      "checks": "The default reaction to browsing (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-designing",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "designing"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 0.5,
+        "motion": "writing",
+        "prop": "notebook",
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to designing (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-form-filling",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "form-filling"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": "clipboard",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "The default reaction to form-filling (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-chatting",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "chatting"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.5,
+        "motion": "nod",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to chatting (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-meeting",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "meeting"
+      },
+      "expected": {
+        "expression": "neutral",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": true
+      },
+      "checks": "The default reaction to meeting (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-watching",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "watching"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.4,
+        "motion": null,
+        "prop": "popcorn",
+        "effect": null,
+        "gaze": "side",
+        "quiet": false
+      },
+      "checks": "The default reaction to watching (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-listening-music",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "listening-music"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "groove",
+        "prop": "headphones",
+        "effect": "notes",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to listening-music (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-gaming",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "gaming"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.6,
+        "motion": null,
+        "prop": "gamepad",
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to gaming (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "user-away",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "away"
+      },
+      "expected": {
+        "expression": "sleepy",
+        "expressionIntensity": 0.6,
+        "motion": "sleep",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The default reaction to away (SPEC 13.3), on a biped with arms"
+    },
+    {
+      "id": "armless-coding",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "userActivity": "coding"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 0.4,
+        "motion": "nod-beat",
+        "prop": "laptop",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "An armless avatar falls back from motions that need arms (SPEC 13.5)"
+    },
+    {
+      "id": "coding-while-thinking",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "coding",
+        "state": "thinking"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 1,
+        "motion": "typing",
+        "prop": "laptop",
+        "effect": "dots",
+        "gaze": "up",
+        "quiet": false
+      },
+      "checks": "The prop stays from the user activity; thinking sets the expression (SPEC 11.3)"
+    },
+    {
+      "id": "coding-searching-speaking",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "coding",
+        "activity": "searching",
+        "state": "speaking"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.4,
+        "motion": "look-around",
+        "prop": "laptop",
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "Speaking outranks the activity, which outranks the user activity, channel by channel"
+    },
+    {
+      "id": "meeting-is-quiet",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "userActivity": "meeting",
+        "state": "idle"
+      },
+      "expected": {
+        "expression": "neutral",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": true
+      },
+      "checks": "During a meeting the avatar is quiet: no idle motions or effects"
+    },
+    {
+      "id": "host-expression",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "state": "thinking",
+        "expression": "love",
+        "expressionIntensity": 0.6
+      },
+      "expected": {
+        "expression": "love",
+        "expressionIntensity": 0.6,
+        "motion": null,
+        "prop": null,
+        "effect": "dots",
+        "gaze": "up",
+        "quiet": false
+      },
+      "checks": "An expression from the host takes the expression channel at layer 2"
+    },
+    {
+      "id": "host-expression-unknown",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "expression": "smug"
+      },
+      "expected": {
+        "expression": "neutral",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "An unknown expression from the host takes its fallback"
+    },
+    {
+      "id": "host-expression-while-speaking",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "state": "speaking",
+        "expression": "sad",
+        "expressionIntensity": 0.5
+      },
+      "expected": {
+        "expression": "sad",
+        "expressionIntensity": 0.5,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "An expression from the host outranks speaking's own (SPEC 11.3)"
+    },
+    {
+      "id": "done-then-coding",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "activity": "done",
+        "userActivity": "coding",
+        "finished": [
+          "activity"
+        ]
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 1,
+        "motion": "typing",
+        "prop": "laptop",
+        "effect": "sparkles",
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "Once the activity's motion has played to its end, the user activity's motion takes the channel; the other channels stay (SPEC 11.3)"
+    },
+    {
+      "id": "command-on-armless",
+      "document": "../examples/mochi.openavatar",
+      "input": {
+        "command": "clap"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "celebrate",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "A commanded motion that needs arms falls back on an armless avatar"
+    },
+    {
+      "id": "command-on-biped",
+      "document": "../examples/matcha.openavatar",
+      "input": {
+        "command": "clap",
+        "state": "speaking"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 0.4,
+        "motion": "clap",
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "A commanded motion outranks every layer"
+    },
+    {
+      "id": "reaction-overrides",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "state": "thinking"
+      },
+      "expected": {
+        "expression": "relaxed",
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": "sparkles",
+        "gaze": "up",
+        "quiet": false
+      },
+      "checks": "A document reaction replaces the default for the channels it sets"
+    },
+    {
+      "id": "reaction-null",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "activity": "error"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "A null reaction turns the default off"
+    },
+    {
+      "id": "reaction-vendor-motion",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "activity": "done"
+      },
+      "expected": {
+        "expression": "happy",
+        "expressionIntensity": 1,
+        "motion": "nod",
+        "prop": null,
+        "effect": "confetti",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "A renderer that does not know an x- motion plays nod (SPEC 13); one that knows it plays it"
+    },
+    {
+      "id": "reaction-prop",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "userActivity": "coding"
+      },
+      "expected": {
+        "expression": "thinking",
+        "expressionIntensity": 0.4,
+        "motion": "nod-beat",
+        "prop": "notebook",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "A document can swap the prop of a user activity"
+    },
+    {
+      "id": "reaction-prop-off",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "userActivity": "listening-music"
+      },
+      "expected": {
+        "expression": null,
+        "expressionIntensity": 1,
+        "motion": "groove",
+        "prop": null,
+        "effect": "notes",
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "A document can turn the prop of a user activity off"
+    },
+    {
+      "id": "reaction-own-expression",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "userActivity": "reading"
+      },
+      "expected": {
+        "expression": "x-shy",
+        "expressionIntensity": 1,
+        "motion": "nod",
+        "prop": "book",
+        "effect": null,
+        "gaze": "down",
+        "quiet": false
+      },
+      "checks": "An x- expression the document defines in face.expressions is shown as it is (SPEC 8.5)"
+    },
+    {
+      "id": "reaction-undefined-expression",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "userActivity": "writing"
+      },
+      "expected": {
+        "expression": "neutral",
+        "expressionIntensity": 1,
+        "motion": "nod-beat",
+        "prop": "notebook",
+        "effect": null,
+        "gaze": "work",
+        "quiet": false
+      },
+      "checks": "An x- expression the document does not define takes the fallback, neutral (SPEC 13)"
+    },
+    {
+      "id": "host-own-expression",
+      "document": "behavior/reactions.openavatar",
+      "input": {
+        "expression": "x-shy",
+        "expressionIntensity": 0.8
+      },
+      "expected": {
+        "expression": "x-shy",
+        "expressionIntensity": 0.8,
+        "motion": null,
+        "prop": null,
+        "effect": null,
+        "gaze": "user",
+        "quiet": false
+      },
+      "checks": "The host can ask for an expression the document defines (SPEC 8.5)"
+    }
+  ]
+}

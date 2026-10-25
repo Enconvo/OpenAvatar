@@ -1,0 +1,19 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-unknown-shape-type",
+  "name": "Repair unknown-shape-type",
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  }
+}

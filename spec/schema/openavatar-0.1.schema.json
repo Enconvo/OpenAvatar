@@ -1,0 +1,2990 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openavatar.dev/schema/0.1/openavatar.schema.json",
+  "title": "OpenAvatar 0.1 document",
+  "description": "An animated character for AI agents, data only. Spec: https://openavatar.dev/spec/0.1. Limits that JSON Schema cannot express (SPEC 5.6, 14.1, 17.1) are checked by the openavatar package's validate().",
+  "type": "object",
+  "required": [
+    "openavatar",
+    "id",
+    "name",
+    "body"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "openavatar": {
+      "const": "0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]{1,128}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "meta": {
+      "$ref": "#/$defs/meta"
+    },
+    "preview": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "string",
+          "pattern": "^data:image/(png|webp);base64,[A-Za-z0-9+/=]+$",
+          "maxLength": 131100
+        },
+        "background": {
+          "$ref": "#/$defs/color"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "image"
+      ]
+    },
+    "body": {
+      "$ref": "#/$defs/body"
+    },
+    "materials": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/materialId"
+      },
+      "maxProperties": 16,
+      "additionalProperties": {
+        "$ref": "#/$defs/material"
+      }
+    },
+    "face": {
+      "$ref": "#/$defs/face"
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/part"
+      },
+      "maxItems": 32
+    },
+    "outfit": {
+      "$ref": "#/$defs/outfitId"
+    },
+    "behavior": {
+      "$ref": "#/$defs/behavior"
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z0-9-]+(\\.[a-z0-9-]+)+$",
+        "maxLength": 253
+      },
+      "additionalProperties": {
+        "type": "object"
+      }
+    }
+  },
+  "$defs": {
+    "color": {
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+      "description": "sRGB color, #RRGGBB or #RGB."
+    },
+    "vec3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5
+        },
+        {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5
+        },
+        {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5
+        }
+      ],
+      "items": false,
+      "minItems": 3
+    },
+    "vec2": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5
+        },
+        {
+          "type": "number",
+          "minimum": -5,
+          "maximum": 5
+        }
+      ],
+      "items": false,
+      "minItems": 2
+    },
+    "frontPoint": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -1.5,
+          "maximum": 1.5
+        },
+        {
+          "type": "number",
+          "minimum": -1.5,
+          "maximum": 1.5
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "description": "A front point [x, y]: where the line from (x, y, +infinity) toward -z first meets the solid (SPEC 4)."
+    },
+    "rotation3": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        },
+        {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        },
+        {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        }
+      ],
+      "items": false,
+      "minItems": 3
+    },
+    "scale3": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 20
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 20
+            },
+            {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 20
+            },
+            {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 20
+            }
+          ],
+          "items": false,
+          "minItems": 3
+        }
+      ]
+    },
+    "scale2": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 20
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 20
+            },
+            {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 20
+            }
+          ],
+          "items": false,
+          "minItems": 2
+        }
+      ]
+    },
+    "deformer": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "taper"
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "amount": {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "axis",
+            "amount"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "twist"
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "amount": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "axis",
+            "amount"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "bend"
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "toward": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "amount": {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "axis",
+            "toward",
+            "amount"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "squash"
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "below": {
+              "type": "number",
+              "minimum": 0.2,
+              "maximum": 5
+            },
+            "above": {
+              "type": "number",
+              "minimum": 0.2,
+              "maximum": 5
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "axis"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ripple"
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 32
+            },
+            "amplitude": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.2
+            },
+            "range": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "axis",
+            "count",
+            "amplitude"
+          ]
+        }
+      ]
+    },
+    "shape": {
+      "description": "A solid (SPEC 5).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "sphere"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1.5
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radius"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ellipsoid"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radii": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radii"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "box"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "size": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.5
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "size"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "superellipsoid"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radii": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.01,
+                  "maximum": 1.5
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "exponent": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radii"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "capsule"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "from": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "to": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 1
+            },
+            "radiusTo": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "from",
+            "to",
+            "radius"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "cylinder"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1.5
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 3
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.5
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radius",
+            "height"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "cone"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 1.5
+            },
+            "radiusTop": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.5
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 3
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.5
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radius",
+            "height"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "torus"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 1.5
+            },
+            "thickness": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 0.75
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radius",
+            "thickness"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "extrusion"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "outline": {
+              "$ref": "#/$defs/outline"
+            },
+            "depth": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 3
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1.5
+            },
+            "puff": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "outline",
+            "depth"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "halfspace"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "normal": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -1,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": -1,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": -1,
+                  "maximum": 1
+                }
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "offset": {
+              "type": "number",
+              "minimum": -3,
+              "maximum": 3
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "normal"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "union"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/shape"
+              },
+              "minItems": 1,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "subtract"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/shape"
+              },
+              "minItems": 2,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "intersect"
+            },
+            "position": {
+              "$ref": "#/$defs/vec3"
+            },
+            "rotation": {
+              "$ref": "#/$defs/rotation3"
+            },
+            "scale": {
+              "$ref": "#/$defs/scale3"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "deform": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/deformer"
+              },
+              "maxItems": 4
+            },
+            "inflate": {
+              "type": "number",
+              "minimum": -0.3,
+              "maximum": 0.3
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/shape"
+              },
+              "minItems": 2,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        }
+      ]
+    },
+    "outline": {
+      "description": "A flat shape in the xy plane (SPEC 5.4).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "circle"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 3
+            },
+            "center": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radius"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "ellipse"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "radii": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            },
+            "center": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "radii"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "rect"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "size": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 6
+                },
+                {
+                  "type": "number",
+                  "minimum": 0.005,
+                  "maximum": 6
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            },
+            "center": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 3
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "size"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "polygon"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "points": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": -3,
+                    "maximum": 3
+                  },
+                  {
+                    "type": "number",
+                    "minimum": -3,
+                    "maximum": 3
+                  }
+                ],
+                "items": false,
+                "minItems": 2
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "rounding": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "points"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "star"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "points": {
+              "type": "integer",
+              "minimum": 3,
+              "maximum": 12
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 3
+            },
+            "innerRadius": {
+              "type": "number",
+              "minimum": 0.001,
+              "maximum": 3
+            },
+            "center": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "points",
+            "radius",
+            "innerRadius"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "heart"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "size": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 3
+            },
+            "center": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                {
+                  "type": "number",
+                  "minimum": -3,
+                  "maximum": 3
+                }
+              ],
+              "items": false,
+              "minItems": 2
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "size"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "stroke"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "points": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number",
+                    "minimum": -3,
+                    "maximum": 3
+                  },
+                  {
+                    "type": "number",
+                    "minimum": -3,
+                    "maximum": 3
+                  }
+                ],
+                "items": false,
+                "minItems": 2
+              },
+              "minItems": 2,
+              "maxItems": 64
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0.002,
+              "maximum": 1
+            },
+            "widthTo": {
+              "type": "number",
+              "minimum": 0.002,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "points",
+            "width"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "union"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/outline"
+              },
+              "minItems": 1,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "subtract"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/outline"
+              },
+              "minItems": 2,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "intersect"
+            },
+            "rotation": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "scale": {
+              "$ref": "#/$defs/scale2"
+            },
+            "mirror": {
+              "enum": [
+                "x",
+                "y"
+              ]
+            },
+            "children": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/outline"
+              },
+              "minItems": 2,
+              "maxItems": 32
+            },
+            "smooth": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "children"
+          ]
+        }
+      ]
+    },
+    "driver": {
+      "description": "A standard animation driver id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "always",
+            "idle",
+            "listening",
+            "thinking",
+            "speaking",
+            "active",
+            "voice",
+            "mic",
+            "pointer",
+            "idle",
+            "listening",
+            "thinking",
+            "speaking",
+            "searching",
+            "working",
+            "waiting",
+            "error",
+            "done",
+            "sleeping",
+            "coding",
+            "writing",
+            "reading",
+            "browsing",
+            "designing",
+            "form-filling",
+            "chatting",
+            "meeting",
+            "watching",
+            "listening-music",
+            "gaming",
+            "away",
+            "neutral",
+            "happy",
+            "angry",
+            "sad",
+            "relaxed",
+            "surprised",
+            "laugh",
+            "thinking",
+            "love",
+            "sleepy",
+            "wink-left",
+            "wink-right"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "expressionId": {
+      "description": "A standard expression id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "neutral",
+            "happy",
+            "angry",
+            "sad",
+            "relaxed",
+            "surprised",
+            "laugh",
+            "thinking",
+            "love",
+            "sleepy",
+            "wink-left",
+            "wink-right"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "motionId": {
+      "description": "A standard motion id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "nod",
+            "hop",
+            "spin",
+            "wiggle",
+            "shake",
+            "bow",
+            "jump",
+            "bounce",
+            "nod-beat",
+            "look-around",
+            "lean-in",
+            "shiver",
+            "stretch",
+            "yawn",
+            "sleep",
+            "peek",
+            "groove",
+            "dance",
+            "celebrate",
+            "wave",
+            "clap",
+            "cheer",
+            "shrug",
+            "point",
+            "think",
+            "typing",
+            "writing",
+            "reading",
+            "facepalm",
+            "heart-hands"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "propId": {
+      "description": "A standard prop id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "laptop",
+            "book",
+            "notebook",
+            "magnifier",
+            "clipboard",
+            "cup",
+            "phone",
+            "headphones",
+            "gamepad",
+            "popcorn"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "effectId": {
+      "description": "A standard effect id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "dots",
+            "zzz",
+            "sparkles",
+            "hearts",
+            "notes",
+            "question",
+            "exclaim",
+            "sweat",
+            "steam",
+            "confetti"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "outfitId": {
+      "description": "A standard outfit id (vocabulary.json) or an x- vendor id.",
+      "anyOf": [
+        {
+          "enum": [
+            "party-hat",
+            "beanie",
+            "crown",
+            "headphones",
+            "bow-tie",
+            "flower",
+            "witch-hat",
+            "santa-hat",
+            "bunny-ears",
+            "scarf",
+            "chef-hat",
+            "cowboy-hat",
+            "headband",
+            "halo",
+            "top-hat",
+            "graduation-cap",
+            "beret",
+            "flower-crown",
+            "propeller-cap",
+            "pirate-hat",
+            "lei",
+            "bucket-hat",
+            "cat-ears",
+            "antennae",
+            "viking-helmet",
+            "hair-bow",
+            "devil-horns",
+            "unicorn-horn",
+            "goggles",
+            "hard-hat",
+            "sailor-hat",
+            "tiara",
+            "mushroom-cap",
+            "jester-hat",
+            "fez",
+            "bowler-hat",
+            "earmuffs",
+            "sprout",
+            "laurel-wreath",
+            "baseball-cap",
+            "straw-hat",
+            "deerstalker",
+            "bandana",
+            "chick",
+            "butterfly",
+            "headlamp",
+            "frog-hat",
+            "strawberry-hat",
+            "fire-helmet"
+          ]
+        },
+        {
+          "type": "string",
+          "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+        }
+      ]
+    },
+    "materialId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,31}$"
+    },
+    "material": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "felt",
+            "fur",
+            "velvet",
+            "plastic",
+            "rubber",
+            "clay",
+            "ceramic",
+            "glass",
+            "metal",
+            "toon"
+          ]
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "sheen": {
+          "$ref": "#/$defs/color"
+        },
+        "roughness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "pattern": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": [
+                "gradient",
+                "stripes",
+                "spots",
+                "checks"
+              ]
+            },
+            "colors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/color"
+              },
+              "minItems": 1,
+              "maxItems": 4
+            },
+            "axis": {
+              "enum": [
+                "x",
+                "y",
+                "z"
+              ]
+            },
+            "scale": {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 4
+            },
+            "angle": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "colors"
+          ]
+        },
+        "glow": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "base": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "driver": {
+              "$ref": "#/$defs/driver"
+            }
+          },
+          "additionalProperties": false
+        },
+        "fur": {
+          "type": "object",
+          "properties": {
+            "length": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "density": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "droop": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "tip": {
+              "$ref": "#/$defs/color"
+            }
+          },
+          "additionalProperties": false
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "A material (SPEC 7)."
+    },
+    "materialRef": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/materialId"
+        },
+        {
+          "$ref": "#/$defs/material"
+        }
+      ],
+      "description": "A material id from `materials`, or a material written in place."
+    },
+    "face": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "bead",
+            "sewn",
+            "drawn",
+            "none"
+          ]
+        },
+        "eyes": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "enum": [
+                "round",
+                "oval",
+                "tall",
+                "wide",
+                "dot",
+                "almond"
+              ]
+            },
+            "size": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 0.3
+            },
+            "spacing": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.6
+            },
+            "height": {
+              "type": "number",
+              "minimum": -1.2,
+              "maximum": 1.2
+            },
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "highlight": {
+              "type": "boolean"
+            },
+            "blink": {
+              "type": "boolean"
+            },
+            "gaze": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "mouth": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "enum": [
+                "oval",
+                "smile",
+                "line",
+                "cat",
+                "beak",
+                "none"
+              ]
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 0.6
+            },
+            "height": {
+              "type": "number",
+              "minimum": -1.2,
+              "maximum": 1.2
+            },
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "speaks": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "cheeks": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "size": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 0.4
+            },
+            "spacing": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 0.8
+            },
+            "height": {
+              "type": "number",
+              "minimum": -1.2,
+              "maximum": 1.2
+            },
+            "show": {
+              "enum": [
+                "always",
+                "happy",
+                "speaking",
+                "never"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "brows": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "thickness": {
+              "type": "number",
+              "minimum": 0.005,
+              "maximum": 0.1
+            },
+            "length": {
+              "type": "number",
+              "minimum": 0.02,
+              "maximum": 0.4
+            },
+            "height": {
+              "type": "number",
+              "minimum": -1.2,
+              "maximum": 1.2
+            }
+          },
+          "additionalProperties": false
+        },
+        "nose": {
+          "type": "object",
+          "properties": {
+            "shape": {
+              "enum": [
+                "button",
+                "triangle",
+                "snout"
+              ]
+            },
+            "color": {
+              "$ref": "#/$defs/color"
+            },
+            "size": {
+              "type": "number",
+              "minimum": 0.01,
+              "maximum": 0.3
+            },
+            "height": {
+              "type": "number",
+              "minimum": -1.2,
+              "maximum": 1.2
+            }
+          },
+          "additionalProperties": false
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "expressions": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/expressionId"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "eyes": {
+                "enum": [
+                  "open",
+                  "arc",
+                  "chevron",
+                  "heart",
+                  "wide",
+                  "sad",
+                  "mad",
+                  "shut",
+                  "squint",
+                  "wink-left",
+                  "wink-right"
+                ]
+              },
+              "mouth": {
+                "enum": [
+                  "smile",
+                  "grin",
+                  "o",
+                  "flat",
+                  "frown",
+                  "hmm"
+                ]
+              },
+              "cheeks": {
+                "type": "boolean"
+              },
+              "effect": {
+                "$ref": "#/$defs/effectId"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Eyes, mouth, cheeks, brows and nose (SPEC 8)."
+    },
+    "animation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "sway",
+            "spin",
+            "bob",
+            "pulse",
+            "wiggle",
+            "flap",
+            "appear",
+            "drift",
+            "glow"
+          ]
+        },
+        "driver": {
+          "$ref": "#/$defs/driver"
+        },
+        "axis": {
+          "enum": [
+            "x",
+            "y",
+            "z"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "phase": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "description": "SPEC 10."
+    },
+    "attach": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "pattern": "^(body|head|[a-z0-9][a-z0-9-]{0,31})$"
+        },
+        "position": {
+          "$ref": "#/$defs/vec3"
+        },
+        "at": {
+          "$ref": "#/$defs/frontPoint"
+        },
+        "direction": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": -1,
+              "maximum": 1
+            }
+          ],
+          "items": false,
+          "minItems": 3
+        },
+        "lift": {
+          "type": "number",
+          "minimum": -0.5,
+          "maximum": 0.5
+        },
+        "align": {
+          "enum": [
+            "surface",
+            "upright",
+            "none"
+          ]
+        },
+        "rotation": {
+          "$ref": "#/$defs/rotation3"
+        }
+      },
+      "additionalProperties": false,
+      "description": "SPEC 9.1. At most one of position, at and direction.",
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "position",
+              "at"
+            ],
+            "properties": {
+              "position": true,
+              "at": true
+            }
+          },
+          {
+            "required": [
+              "position",
+              "direction"
+            ],
+            "properties": {
+              "position": true,
+              "direction": true
+            }
+          },
+          {
+            "required": [
+              "at",
+              "direction"
+            ],
+            "properties": {
+              "at": true,
+              "direction": true
+            }
+          }
+        ]
+      }
+    },
+    "part": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{0,31}$"
+        },
+        "role": {
+          "enum": [
+            "ear",
+            "horn",
+            "antenna",
+            "hair",
+            "hat",
+            "tail",
+            "wing",
+            "leaf",
+            "fin",
+            "glasses",
+            "accessory",
+            "prop",
+            "detail"
+          ]
+        },
+        "shape": {
+          "$ref": "#/$defs/shape"
+        },
+        "patch": {
+          "$ref": "#/$defs/outline"
+        },
+        "material": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "attach": {
+          "$ref": "#/$defs/attach"
+        },
+        "mirror": {
+          "const": "x"
+        },
+        "pivot": {
+          "$ref": "#/$defs/vec3"
+        },
+        "animations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animation"
+          },
+          "maxItems": 4
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "description": "SPEC 9.",
+      "oneOf": [
+        {
+          "required": [
+            "shape"
+          ],
+          "properties": {
+            "shape": true
+          }
+        },
+        {
+          "required": [
+            "patch"
+          ],
+          "properties": {
+            "patch": true
+          }
+        }
+      ]
+    },
+    "body": {
+      "type": "object",
+      "properties": {
+        "rig": {
+          "enum": [
+            "blob",
+            "biped"
+          ]
+        },
+        "shape": {
+          "$ref": "#/$defs/shape"
+        },
+        "material": {
+          "$ref": "#/$defs/materialRef"
+        },
+        "anchor": {
+          "enum": [
+            "ground",
+            "float"
+          ]
+        },
+        "proportions": {
+          "type": "object",
+          "properties": {
+            "head": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "headShape": {
+              "enum": [
+                "round",
+                "wide",
+                "tall",
+                "square"
+              ]
+            },
+            "body": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "bodyShape": {
+              "enum": [
+                "pear",
+                "round",
+                "slim",
+                "square"
+              ]
+            },
+            "legs": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "arms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "arms": {
+          "type": "object",
+          "properties": {
+            "style": {
+              "enum": [
+                "nub",
+                "paw",
+                "none"
+              ]
+            },
+            "length": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "thickness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "at": {
+              "$ref": "#/$defs/frontPoint"
+            },
+            "material": {
+              "$ref": "#/$defs/materialRef"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "description": "SPEC 6.",
+      "if": {
+        "not": {
+          "properties": {
+            "rig": {
+              "const": "biped"
+            }
+          },
+          "required": [
+            "rig"
+          ]
+        }
+      },
+      "then": {
+        "required": [
+          "shape"
+        ],
+        "properties": {
+          "shape": true
+        }
+      }
+    },
+    "reaction": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/expressionId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "motion": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/motionId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "prop": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/propId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effect": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/effectId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gaze": {
+          "anyOf": [
+            {
+              "enum": [
+                "user",
+                "down",
+                "up",
+                "side",
+                "around",
+                "pointer",
+                "work"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "intensity": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "SPEC 11.2."
+    },
+    "behavior": {
+      "type": "object",
+      "properties": {
+        "temperament": {
+          "type": "object",
+          "properties": {
+            "energy": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "bounce": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "sway": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "blink": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "reactions": {
+          "type": "object",
+          "properties": {
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "description": "A standard id id (vocabulary.json) or an x- vendor id.",
+                "anyOf": [
+                  {
+                    "enum": [
+                      "idle",
+                      "listening",
+                      "thinking",
+                      "speaking"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+                  }
+                ]
+              },
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/reaction"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "activities": {
+              "type": "object",
+              "propertyNames": {
+                "description": "A standard id id (vocabulary.json) or an x- vendor id.",
+                "anyOf": [
+                  {
+                    "enum": [
+                      "searching",
+                      "working",
+                      "waiting",
+                      "error",
+                      "done",
+                      "sleeping"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+                  }
+                ]
+              },
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/reaction"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "userActivities": {
+              "type": "object",
+              "propertyNames": {
+                "description": "A standard id id (vocabulary.json) or an x- vendor id.",
+                "anyOf": [
+                  {
+                    "enum": [
+                      "coding",
+                      "writing",
+                      "reading",
+                      "browsing",
+                      "designing",
+                      "form-filling",
+                      "chatting",
+                      "meeting",
+                      "watching",
+                      "listening-music",
+                      "gaming",
+                      "away"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "pattern": "^x-[a-z0-9][a-z0-9-]{0,39}$"
+                  }
+                ]
+              },
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/reaction"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "idleMotions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/motionId"
+          },
+          "maxItems": 8,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false,
+      "description": "SPEC 11."
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "maxLength": 500
+        },
+        "authors": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "maxLength": 500
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "name"
+            ]
+          }
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "An SPDX license expression."
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{0,31}$"
+          }
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}[Tt]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?([Zz]|[+-]\\d{2}:\\d{2})$",
+          "maxLength": 64
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}[Tt]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?([Zz]|[+-]\\d{2}:\\d{2})$",
+          "maxLength": 64
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^https://",
+          "maxLength": 500
+        },
+        "derivedFrom": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._-]{1,128}$"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 64
+            },
+            "url": {
+              "type": "string",
+              "pattern": "^https://",
+              "maxLength": 500
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "id"
+          ]
+        },
+        "generator": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 32
+            },
+            "model": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "SPEC 3.2."
+    }
+  }
+}

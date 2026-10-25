@@ -1,0 +1,453 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-over-counts",
+  "name": "Repair over-counts",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "meta": {
+    "tags": [
+      "tag0",
+      "tag1",
+      "tag2",
+      "tag3",
+      "tag4",
+      "tag5",
+      "tag6",
+      "tag7",
+      "tag8",
+      "tag9",
+      "tag10",
+      "tag11"
+    ]
+  },
+  "parts": [
+    {
+      "id": "dot0",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.54,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot1",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.36,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot2",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.18,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot3",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot4",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.18,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot5",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.36,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot6",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.54,
+          -0.3
+        ]
+      }
+    },
+    {
+      "id": "dot7",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.54,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot8",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.36,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot9",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.18,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot10",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot11",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.18,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot12",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.36,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot13",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.54,
+          -0.15
+        ]
+      }
+    },
+    {
+      "id": "dot14",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.54,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot15",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.36,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot16",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.18,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot17",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot18",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.18,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot19",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.36,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot20",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.54,
+          0
+        ]
+      }
+    },
+    {
+      "id": "dot21",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.54,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot22",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.36,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot23",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.18,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot24",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot25",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.18,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot26",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.36,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot27",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0.54,
+          0.14999999999999997
+        ]
+      }
+    },
+    {
+      "id": "dot28",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.54,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "dot29",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.36,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "dot30",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          -0.18,
+          0.3
+        ]
+      }
+    },
+    {
+      "id": "dot31",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.03
+      },
+      "attach": {
+        "at": [
+          0,
+          0.3
+        ]
+      }
+    }
+  ]
+}

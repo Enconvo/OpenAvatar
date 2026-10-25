@@ -1,0 +1,303 @@
+{
+  "openavatar": "0.1",
+  "id": "5e105186-d223-4d14-b701-f6ff66e7182a",
+  "name": "Ember",
+  "meta": {
+    "description": "A plush orange fox with a cream muzzle and a bushy cream-tipped tail, carrying a small glowing lantern to light the way.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["fox", "lantern", "plush", "animal"],
+    "created": "2026-10-24T22:51:51.763Z",
+    "updated": "2026-10-24T23:00:40.000Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "biped",
+    "material": "main",
+    "proportions": {
+      "head": 0.6,
+      "headShape": "wide",
+      "body": 0.45,
+      "bodyShape": "slim",
+      "legs": 0.5,
+      "arms": 0.4
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "velvet",
+      "color": "#E8702A"
+    },
+    "cream": {
+      "type": "velvet",
+      "color": "#FFF0DA"
+    },
+    "iron": {
+      "type": "metal",
+      "color": "#9EA4AC",
+      "roughness": 0.4
+    },
+    "light": {
+      "type": "plastic",
+      "color": "#F5821F",
+      "glow": {
+        "color": "#FF6F00",
+        "intensity": 0.9
+      }
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.23,
+      "height": 0.44
+    },
+    "mouth": {
+      "shape": "cat",
+      "width": 0.12,
+      "height": 0.21
+    },
+    "nose": {
+      "shape": "button",
+      "color": "#2B1A14",
+      "size": 0.055,
+      "height": 0.31
+    },
+    "cheeks": {
+      "color": "#FF8F86",
+      "size": 0.07,
+      "spacing": 0.36,
+      "height": 0.27,
+      "show": "happy"
+    }
+  },
+  "parts": [
+    {
+      "id": "ear",
+      "role": "ear",
+      "shape": {
+        "type": "cone",
+        "radius": 0.2,
+        "radiusTop": 0.015,
+        "height": 0.48,
+        "rounding": 0.04,
+        "scale": [1, 1, 0.55],
+        "position": [0, 0.2, 0]
+      },
+      "attach": {
+        "to": "head",
+        "direction": [0.55, 0.8, 0],
+        "align": "upright",
+        "lift": -0.06,
+        "rotation": [0, 0, -18]
+      },
+      "mirror": "x"
+    },
+    {
+      "id": "ear-inner",
+      "role": "ear",
+      "material": "cream",
+      "shape": {
+        "type": "cone",
+        "radius": 0.13,
+        "radiusTop": 0.01,
+        "height": 0.32,
+        "rounding": 0.02,
+        "scale": [1, 1, 0.55],
+        "position": [0, 0.17, 0.05]
+      },
+      "attach": {
+        "to": "ear",
+        "position": [0, 0, 0]
+      }
+    },
+    {
+      "id": "muzzle",
+      "role": "detail",
+      "material": "cream",
+      "patch": {
+        "type": "union",
+        "smooth": 0.1,
+        "children": [
+          {
+            "type": "ellipse",
+            "radii": [0.23, 0.16],
+            "center": [-0.15, 0]
+          },
+          {
+            "type": "ellipse",
+            "radii": [0.23, 0.16],
+            "center": [0.15, 0]
+          }
+        ]
+      },
+      "attach": {
+        "to": "head",
+        "at": [0, -0.19],
+        "lift": 0.005
+      }
+    },
+    {
+      "id": "chest",
+      "role": "detail",
+      "material": "cream",
+      "patch": {
+        "type": "ellipse",
+        "radii": [0.2, 0.25]
+      },
+      "attach": {
+        "at": [0, -0.36],
+        "lift": 0.005
+      }
+    },
+    {
+      "id": "tail",
+      "role": "tail",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [0.22, 0.5, 0.22],
+        "position": [0, 0.44, 0]
+      },
+      "attach": {
+        "position": [-0.05, -0.62, -0.3],
+        "rotation": [-38, 0, 55]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 8,
+          "speed": 0.7
+        },
+        {
+          "type": "wiggle",
+          "driver": "happy",
+          "amount": 10,
+          "speed": 3
+        }
+      ]
+    },
+    {
+      "id": "tail-tip",
+      "role": "tail",
+      "material": "cream",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "ellipsoid",
+            "radii": [0.23, 0.51, 0.23],
+            "position": [0, 0.44, 0]
+          },
+          {
+            "type": "halfspace",
+            "normal": [0, -1, 0],
+            "offset": -0.66
+          }
+        ]
+      },
+      "attach": {
+        "to": "tail",
+        "position": [0, 0, 0]
+      }
+    },
+    {
+      "id": "lantern",
+      "role": "prop",
+      "material": "iron",
+      "shape": {
+        "type": "union",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.045,
+            "thickness": 0.02,
+            "rotation": [90, 0, 0],
+            "position": [0, -0.17, 0]
+          },
+          {
+            "type": "cone",
+            "radius": 0.15,
+            "radiusTop": 0.05,
+            "height": 0.065,
+            "rounding": 0.015,
+            "position": [0, -0.2325, 0]
+          },
+          {
+            "type": "capsule",
+            "from": [0.085, -0.265, 0.085],
+            "to": [0.085, -0.445, 0.085],
+            "radius": 0.025,
+            "mirror": "x"
+          },
+          {
+            "type": "capsule",
+            "from": [0.085, -0.265, -0.085],
+            "to": [0.085, -0.445, -0.085],
+            "radius": 0.025,
+            "mirror": "x"
+          },
+          {
+            "type": "cylinder",
+            "radius": 0.15,
+            "height": 0.045,
+            "rounding": 0.015,
+            "position": [0, -0.4675, 0]
+          }
+        ]
+      },
+      "attach": {
+        "to": "left-hand",
+        "position": [0, 0, 0]
+      }
+    },
+    {
+      "id": "lantern-light",
+      "role": "prop",
+      "material": "light",
+      "shape": {
+        "type": "cylinder",
+        "radius": 0.11,
+        "height": 0.19,
+        "rounding": 0.04,
+        "position": [0, -0.355, 0]
+      },
+      "attach": {
+        "to": "lantern",
+        "position": [0, 0, 0]
+      },
+      "animations": [
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.6
+        },
+        {
+          "type": "pulse",
+          "driver": "thinking",
+          "amount": 0.08,
+          "speed": 1.2
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.6,
+      "bounce": 0.45,
+      "sway": 0.4,
+      "blink": 0.5
+    },
+    "idleMotions": ["look-around", "stretch", "wave"]
+  }
+}

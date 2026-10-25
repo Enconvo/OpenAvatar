@@ -1,0 +1,267 @@
+{
+  "openavatar": "0.1",
+  "id": "7d652286-beb4-4913-9df7-e750912d30f3",
+  "name": "Bumble",
+  "meta": {
+    "description": "A round, chubby bumblebee in bold yellow and black stripes, with glassy wings that buzz while it works and antennae that sway as it listens.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "bee",
+      "insect",
+      "cute",
+      "stripes"
+    ],
+    "created": "2026-10-24T22:51:41.894Z",
+    "updated": "2026-10-24T23:03:27.078Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        0.95,
+        0.84,
+        0.88
+      ],
+      "position": [
+        0,
+        0.15,
+        0
+      ],
+      "deform": [
+        {
+          "type": "squash",
+          "axis": "y",
+          "below": 0.8
+        }
+      ]
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "clay",
+      "color": "#F7C531",
+      "pattern": {
+        "type": "stripes",
+        "colors": [
+          "#1E1A17"
+        ],
+        "axis": "y",
+        "scale": 0.35
+      }
+    },
+    "dark": {
+      "type": "clay",
+      "color": "#2A2420"
+    },
+    "wing": {
+      "type": "glass",
+      "color": "#D8EEFF",
+      "opacity": 0.45
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.09,
+      "spacing": 0.27,
+      "height": 0.24
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": 0.06
+    },
+    "cheeks": {
+      "color": "#FF8FA3",
+      "size": 0.08,
+      "spacing": 0.42,
+      "height": 0.11,
+      "show": "happy"
+    }
+  },
+  "parts": [
+    {
+      "id": "wing",
+      "role": "wing",
+      "shape": {
+        "type": "extrusion",
+        "depth": 0.04,
+        "puff": 0.4,
+        "outline": {
+          "type": "union",
+          "smooth": 0.05,
+          "children": [
+            {
+              "type": "ellipse",
+              "radii": [
+                0.5,
+                0.27
+              ],
+              "center": [
+                0.44,
+                0
+              ]
+            },
+            {
+              "type": "ellipse",
+              "radii": [
+                0.3,
+                0.17
+              ],
+              "center": [
+                0.3,
+                -0.22
+              ]
+            }
+          ],
+          "rotation": 35
+        }
+      },
+      "material": "wing",
+      "attach": {
+        "position": [
+          0.28,
+          0.7,
+          -0.5
+        ],
+        "rotation": [
+          0,
+          35,
+          0
+        ]
+      },
+      "mirror": "x",
+      "animations": [
+        {
+          "type": "flap",
+          "amount": 10,
+          "speed": 1.5
+        },
+        {
+          "type": "flap",
+          "driver": "active",
+          "amount": 22,
+          "speed": 6
+        }
+      ]
+    },
+    {
+      "id": "antenna",
+      "role": "antenna",
+      "shape": {
+        "type": "union",
+        "smooth": 0.03,
+        "children": [
+          {
+            "type": "capsule",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0.08,
+              0.36,
+              0
+            ],
+            "radius": 0.04
+          },
+          {
+            "type": "sphere",
+            "radius": 0.085,
+            "position": [
+              0.09,
+              0.42,
+              0
+            ]
+          }
+        ]
+      },
+      "material": "dark",
+      "attach": {
+        "direction": [
+          0.32,
+          1,
+          0.3
+        ],
+        "align": "upright",
+        "lift": -0.03
+      },
+      "mirror": "x",
+      "pivot": [
+        0,
+        0,
+        0
+      ],
+      "animations": [
+        {
+          "type": "sway",
+          "amount": 8,
+          "speed": 0.8
+        },
+        {
+          "type": "wiggle",
+          "driver": "mic",
+          "amount": 10,
+          "speed": 3
+        }
+      ]
+    },
+    {
+      "id": "stinger",
+      "role": "tail",
+      "shape": {
+        "type": "cone",
+        "radius": 0.08,
+        "radiusTop": 0,
+        "height": 0.26,
+        "rounding": 0.02
+      },
+      "material": "dark",
+      "attach": {
+        "position": [
+          0,
+          0.1,
+          -0.92
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.65,
+      "bounce": 0.6,
+      "sway": 0.5,
+      "blink": 0.5
+    },
+    "reactions": {
+      "userActivities": {
+        "listening-music": {
+          "motion": "dance"
+        }
+      }
+    },
+    "idleMotions": [
+      "wiggle",
+      "look-around",
+      "hop"
+    ]
+  }
+}

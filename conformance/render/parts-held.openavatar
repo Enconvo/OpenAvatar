@@ -1,0 +1,204 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.parts-held",
+  "name": "Held",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "rig": "biped"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F6C28B",
+      "sheen": "#FFFFFF"
+    },
+    "steel": {
+      "type": "metal",
+      "color": "#E6EAF0",
+      "roughness": 0.3
+    },
+    "red": {
+      "type": "plastic",
+      "color": "#D84A4A"
+    },
+    "gold": {
+      "type": "plastic",
+      "color": "#FFCF4A"
+    },
+    "gem": {
+      "type": "plastic",
+      "color": "#7FD8FF",
+      "glow": {
+        "color": "#7FD8FF",
+        "intensity": 1.6,
+        "base": 0.3,
+        "driver": "speaking"
+      }
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.09,
+      "spacing": 0.24,
+      "height": 0.4
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.13,
+      "height": 0.22
+    }
+  },
+  "parts": [
+    {
+      "id": "helmet",
+      "role": "hat",
+      "material": "steel",
+      "shape": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "intersect",
+            "children": [
+              {
+                "type": "ellipsoid",
+                "radii": [
+                  0.76,
+                  0.68,
+                  0.7
+                ]
+              },
+              {
+                "type": "halfspace",
+                "normal": [
+                  0,
+                  -1,
+                  0
+                ],
+                "offset": -0.12
+              }
+            ]
+          },
+          {
+            "type": "ellipsoid",
+            "radii": [
+              0.7,
+              0.62,
+              0.64
+            ]
+          }
+        ]
+      },
+      "attach": {
+        "to": "head",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "gem",
+      "role": "detail",
+      "material": "gem",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.07
+      },
+      "attach": {
+        "to": "head",
+        "direction": [
+          0,
+          0.55,
+          1
+        ],
+        "lift": 0.06
+      }
+    },
+    {
+      "id": "shield",
+      "role": "prop",
+      "material": "red",
+      "shape": {
+        "type": "cylinder",
+        "radius": 0.26,
+        "height": 0.05,
+        "rounding": 0.02,
+        "rotation": [
+          90,
+          25,
+          0
+        ]
+      },
+      "attach": {
+        "to": "left-hand",
+        "position": [
+          0.08,
+          0,
+          0.1
+        ]
+      }
+    },
+    {
+      "id": "wand",
+      "role": "prop",
+      "material": "gold",
+      "shape": {
+        "type": "union",
+        "smooth": 0.02,
+        "children": [
+          {
+            "type": "capsule",
+            "from": [
+              0,
+              -0.06,
+              0.04
+            ],
+            "to": [
+              0,
+              -0.06,
+              0.34
+            ],
+            "radius": 0.022
+          },
+          {
+            "type": "extrusion",
+            "outline": {
+              "type": "star",
+              "points": 5,
+              "radius": 0.12,
+              "innerRadius": 0.055
+            },
+            "depth": 0.05,
+            "rounding": 0.015,
+            "position": [
+              0,
+              -0.06,
+              0.42
+            ]
+          }
+        ]
+      },
+      "attach": {
+        "to": "right-hand",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ]
+}

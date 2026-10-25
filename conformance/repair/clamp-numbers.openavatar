@@ -1,0 +1,31 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-clamp-numbers",
+  "name": "Repair clamp-numbers",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 4
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "eyes": {
+      "size": 9,
+      "spacing": -1
+    }
+  },
+  "behavior": {
+    "temperament": {
+      "energy": 3,
+      "bounce": -2
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "openavatar": "0.1",
+  "id": "5c1e7f0a-9b2d-4e63-a8f4-1d0c3b7e2a11",
+  "name": "Bubble",
+  "meta": {
+    "description": "The conversation itself: a cobalt speech bubble that types a felt … while it thinks.",
+    "authors": [{"name": "Enconvo", "url": "https://enconvo.com"}],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["chat", "felt"]
+  },
+  "body": {
+    "shape": {
+      "type": "union",
+      "smooth": 0.22,
+      "children": [
+        {"type": "superellipsoid", "radii": [1.18, 0.94, 0.74], "exponent": 2.7},
+        {
+          "type": "capsule",
+          "from": [-0.5, -0.52, 0],
+          "to": [-1.02, -1.06, -0.02],
+          "radius": 0.3,
+          "radiusTo": 0.08
+        }
+      ],
+      "scale": 0.84
+    },
+    "material": "cobalt",
+    "anchor": "float"
+  },
+  "materials": {
+    "cobalt": {"type": "felt", "color": "#2E5BFF"},
+    "dot": {"type": "felt", "color": "#E9EEFF", "sheen": "#FFFFFF"}
+  },
+  "face": {
+    "eyes": {"size": 0.08, "spacing": 0.286, "height": 0.134},
+    "mouth": {"width": 0.168, "height": -0.227}
+  },
+  "parts": [
+    {
+      "id": "dot-1",
+      "role": "detail",
+      "material": "dot",
+      "shape": {"type": "sphere", "radius": 0.075, "scale": 0.84},
+      "attach": {"at": [-0.202, -0.202], "lift": 0.038},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "bob", "axis": "y", "amount": 0.05, "speed": 1.03, "phase": 0}
+      ]
+    },
+    {
+      "id": "dot-2",
+      "role": "detail",
+      "material": "dot",
+      "shape": {"type": "sphere", "radius": 0.075, "scale": 0.84},
+      "attach": {"at": [0.0, -0.202], "lift": 0.038},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "bob", "axis": "y", "amount": 0.05, "speed": 1.03, "phase": 0.14}
+      ]
+    },
+    {
+      "id": "dot-3",
+      "role": "detail",
+      "material": "dot",
+      "shape": {"type": "sphere", "radius": 0.075, "scale": 0.84},
+      "attach": {"at": [0.202, -0.202], "lift": 0.038},
+      "animations": [
+        {"type": "appear", "driver": "thinking"},
+        {"type": "bob", "axis": "y", "amount": 0.05, "speed": 1.03, "phase": 0.29}
+      ]
+    }
+  ],
+  "behavior": {"reactions": {"states": {"thinking": {"effect": null}}}}
+}

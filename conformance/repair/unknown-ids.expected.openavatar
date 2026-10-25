@@ -1,0 +1,34 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-unknown-ids",
+  "name": "Repair unknown-ids",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0"
+    }
+  },
+  "face": {},
+  "behavior": {
+    "idleMotions": [
+      "nod"
+    ],
+    "reactions": {
+      "states": {
+        "thinking": {
+          "expression": "neutral",
+          "motion": "nod",
+          "prop": null,
+          "effect": null
+        }
+      }
+    }
+  }
+}

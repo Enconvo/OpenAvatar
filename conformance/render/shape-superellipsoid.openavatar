@@ -1,0 +1,48 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.shape-superellipsoid",
+  "name": "Superellipsoid",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "superellipsoid",
+      "radii": [
+        0.95,
+        0.85,
+        0.8
+      ],
+      "exponent": 3.2
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#9EC5F8",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

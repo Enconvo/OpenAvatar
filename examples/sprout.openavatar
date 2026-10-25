@@ -1,0 +1,45 @@
+{
+  "openavatar": "0.1",
+  "id": "3b2e9d41-7a5f-4e08-8c1d-2f6b0a9e4d02",
+  "name": "Sprout",
+  "meta": {
+    "description": "A lime seed with two leaves that spin like a propeller while it thinks.",
+    "authors": [{ "name": "Enconvo", "url": "https://enconvo.com" }],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["plant", "felt"]
+  },
+  "body": {
+    "shape": { "type": "ellipsoid", "radii": [0.67, 0.84, 0.655], "deform": [{ "type": "taper", "axis": "y", "amount": -0.155 }] },
+    "material": "lime"
+  },
+  "materials": {
+    "lime": { "type": "felt", "color": "#A2D840" },
+    "stem": { "type": "felt", "color": "#3C9A45", "sheen": "#9EE08F" },
+    "leaf": { "type": "felt", "color": "#45BC52", "sheen": "#C2F5AE" }
+  },
+  "face": {
+    "eyes": { "size": 0.076, "spacing": 0.23, "height": 0.08 },
+    "mouth": { "width": 0.13, "height": -0.14 }
+  },
+  "parts": [
+    {
+      "id": "stem", "role": "leaf", "material": "stem",
+      "shape": { "type": "capsule", "from": [0, 0, 0], "to": [0, 0.2, 0], "radius": 0.028 },
+      "attach": { "direction": [0, 1, 0], "lift": -0.025, "align": "upright" },
+      "animations": [{ "type": "sway", "axis": "z", "amount": 3, "speed": 0.2 }]
+    },
+    {
+      "id": "leaves", "role": "leaf", "material": "leaf",
+      "shape": { "type": "ellipsoid", "radii": [0.29, 0.063, 0.14], "position": [0.25, 0.05, 0], "rotation": [0, 0, 18], "mirror": "x" },
+      "attach": { "to": "stem", "position": [0, 0.2, 0] },
+      "animations": [
+        { "type": "spin", "axis": "y", "speed": 1.75, "driver": "thinking" },
+        { "type": "sway", "axis": "z", "amount": 12, "speed": 1.3, "driver": "voice" }
+      ]
+    }
+  ],
+  "behavior": {
+    "reactions": { "states": { "thinking": { "effect": null } } }
+  }
+}

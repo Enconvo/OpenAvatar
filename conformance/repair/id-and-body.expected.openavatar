@@ -1,0 +1,18 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-id-body--",
+  "name": "Repair id-and-body",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  }
+}

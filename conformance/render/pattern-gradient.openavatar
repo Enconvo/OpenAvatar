@@ -1,0 +1,50 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.pattern-gradient",
+  "name": "Pattern gradient",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#FF9AA2",
+      "pattern": {
+        "type": "gradient",
+        "colors": [
+          "#FFDAC1",
+          "#B5EAD7"
+        ],
+        "axis": "y"
+      }
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

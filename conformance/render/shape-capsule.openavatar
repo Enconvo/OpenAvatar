@@ -1,0 +1,54 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.shape-capsule",
+  "name": "Capsule",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "capsule",
+      "from": [
+        0,
+        -0.4,
+        0
+      ],
+      "to": [
+        0,
+        0.4,
+        0
+      ],
+      "radius": 0.58,
+      "radiusTo": 0.46
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F4A6B8",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

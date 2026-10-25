@@ -1,0 +1,25 @@
+{
+  "name": "@openavatar/site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The OpenAvatar gallery: a static site of open avatars, served by a Cloudflare Worker.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && wrangler dev",
+    "deploy": "OPENAVATAR_ORIGIN=https://openavatar-gallery.yong5313159179.workers.dev node build.mjs && wrangler deploy",
+    "review": "node scripts/review.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@openavatar/cli": "0.1.x",
+    "@openavatar/three": "0.1.x",
+    "marked": "18.0.14",
+    "openavatar": "0.1.x",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "wrangler": "4.140.0"
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "openavatar": "0.1",
+  "id": "d233af24-0afe-43b4-9843-3bfaff5f97e1",
+  "name": "Shy Snail",
+  "meta": {
+    "description": "A shy garden snail with a soft pale green-grey body, a big caramel shell with a dark brown spiral, and two swaying eye stalks.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "snail",
+      "garden",
+      "shy",
+      "cute",
+      "creature"
+    ],
+    "created": "2026-10-25T04:51:57Z",
+    "updated": "2026-10-25T05:20:08Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "blob",
+    "anchor": "ground",
+    "material": "skin",
+    "shape": {
+      "type": "union",
+      "smooth": 0.2,
+      "position": [
+        0,
+        -0.62,
+        0
+      ],
+      "children": [
+        {
+          "type": "capsule",
+          "from": [
+            0,
+            -0.06,
+            -0.92
+          ],
+          "to": [
+            0,
+            0,
+            0.42
+          ],
+          "radius": 0.08,
+          "radiusTo": 0.27,
+          "scale": [
+            1.5,
+            0.7,
+            1
+          ]
+        },
+        {
+          "type": "capsule",
+          "from": [
+            0,
+            0.07,
+            0.3
+          ],
+          "to": [
+            0,
+            0.38,
+            0.6
+          ],
+          "radius": 0.22,
+          "radiusTo": 0.32,
+          "scale": [
+            1.12,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  "materials": {
+    "skin": {
+      "type": "rubber",
+      "color": "#B9C4B0"
+    },
+    "tip": {
+      "type": "rubber",
+      "color": "#8F9D88"
+    },
+    "shell": {
+      "type": "plastic",
+      "color": "#C98C4E",
+      "roughness": 0.55
+    },
+    "band": {
+      "type": "plastic",
+      "color": "#6E3B1F",
+      "roughness": 0.55
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.065,
+      "spacing": 0.13,
+      "height": -0.18
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.1,
+      "height": -0.37
+    },
+    "cheeks": {
+      "color": "#F2A0A6",
+      "size": 0.06,
+      "spacing": 0.23,
+      "height": -0.3,
+      "show": "always"
+    },
+    "expressions": {
+      "relaxed": {
+        "eyes": "open",
+        "mouth": "smile",
+        "cheeks": true
+      }
+    }
+  },
+  "parts": [
+    {
+      "id": "shell",
+      "role": "detail",
+      "material": "shell",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.44,
+          0.62,
+          0.66
+        ]
+      },
+      "attach": {
+        "position": [
+          0,
+          0.05,
+          -0.28
+        ],
+        "rotation": [
+          0,
+          30,
+          0
+        ]
+      }
+    },
+    {
+      "id": "shell-spiral",
+      "role": "detail",
+      "material": "band",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "ellipsoid",
+            "radii": [
+              0.458,
+              0.638,
+              0.678
+            ]
+          },
+          {
+            "type": "extrusion",
+            "depth": 1.2,
+            "rotation": [
+              0,
+              90,
+              0
+            ],
+            "outline": {
+              "type": "stroke",
+              "width": 0.06,
+              "widthTo": 0.1,
+              "points": [
+                [
+                  0.045,
+                  0.07
+                ],
+                [
+                  0.036,
+                  0.078
+                ],
+                [
+                  0.024,
+                  0.083
+                ],
+                [
+                  0.009,
+                  0.084
+                ],
+                [
+                  -0.007,
+                  0.08
+                ],
+                [
+                  -0.023,
+                  0.07
+                ],
+                [
+                  -0.036,
+                  0.055
+                ],
+                [
+                  -0.046,
+                  0.035
+                ],
+                [
+                  -0.049,
+                  0.011
+                ],
+                [
+                  -0.045,
+                  -0.015
+                ],
+                [
+                  -0.034,
+                  -0.041
+                ],
+                [
+                  -0.015,
+                  -0.064
+                ],
+                [
+                  0.011,
+                  -0.082
+                ],
+                [
+                  0.043,
+                  -0.094
+                ],
+                [
+                  0.079,
+                  -0.096
+                ],
+                [
+                  0.116,
+                  -0.089
+                ],
+                [
+                  0.152,
+                  -0.071
+                ],
+                [
+                  0.183,
+                  -0.043
+                ],
+                [
+                  0.207,
+                  -0.006
+                ],
+                [
+                  0.221,
+                  0.038
+                ],
+                [
+                  0.224,
+                  0.085
+                ],
+                [
+                  0.213,
+                  0.134
+                ],
+                [
+                  0.19,
+                  0.18
+                ],
+                [
+                  0.154,
+                  0.22
+                ],
+                [
+                  0.107,
+                  0.251
+                ],
+                [
+                  0.052,
+                  0.269
+                ],
+                [
+                  -0.008,
+                  0.272
+                ],
+                [
+                  -0.069,
+                  0.26
+                ],
+                [
+                  -0.126,
+                  0.231
+                ],
+                [
+                  -0.176,
+                  0.187
+                ],
+                [
+                  -0.213,
+                  0.131
+                ],
+                [
+                  -0.236,
+                  0.064
+                ],
+                [
+                  -0.241,
+                  -0.008
+                ],
+                [
+                  -0.227,
+                  -0.08
+                ],
+                [
+                  -0.194,
+                  -0.149
+                ],
+                [
+                  -0.144,
+                  -0.208
+                ],
+                [
+                  -0.078,
+                  -0.254
+                ],
+                [
+                  -0.001,
+                  -0.282
+                ],
+                [
+                  0.083,
+                  -0.29
+                ],
+                [
+                  0.168,
+                  -0.276
+                ],
+                [
+                  0.249,
+                  -0.239
+                ],
+                [
+                  0.319,
+                  -0.182
+                ],
+                [
+                  0.373,
+                  -0.108
+                ],
+                [
+                  0.408,
+                  -0.02
+                ],
+                [
+                  0.419,
+                  0.075
+                ],
+                [
+                  0.405,
+                  0.173
+                ],
+                [
+                  0.366,
+                  0.265
+                ],
+                [
+                  0.304,
+                  0.346
+                ],
+                [
+                  0.221,
+                  0.41
+                ],
+                [
+                  0.123,
+                  0.452
+                ],
+                [
+                  0.016,
+                  0.468
+                ],
+                [
+                  -0.094,
+                  0.455
+                ],
+                [
+                  -0.199,
+                  0.415
+                ],
+                [
+                  -0.291,
+                  0.348
+                ],
+                [
+                  -0.365,
+                  0.258
+                ],
+                [
+                  -0.415,
+                  0.15
+                ],
+                [
+                  -0.436,
+                  0.031
+                ],
+                [
+                  -0.426,
+                  -0.091
+                ],
+                [
+                  -0.385,
+                  -0.209
+                ],
+                [
+                  -0.314,
+                  -0.314
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "attach": {
+        "to": "shell",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "stalk",
+      "role": "antenna",
+      "material": "skin",
+      "shape": {
+        "type": "union",
+        "smooth": 0.04,
+        "children": [
+          {
+            "type": "capsule",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0,
+              0.46,
+              0
+            ],
+            "radius": 0.05,
+            "radiusTo": 0.04
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0.12,
+          -0.04,
+          0.7
+        ],
+        "rotation": [
+          26,
+          0,
+          -16
+        ]
+      },
+      "mirror": "x",
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "z",
+          "amount": 8,
+          "speed": 0.5
+        },
+        {
+          "type": "sway",
+          "axis": "x",
+          "amount": 5,
+          "speed": 0.35,
+          "phase": 0.3
+        }
+      ]
+    },
+    {
+      "id": "stalk-tip",
+      "role": "antenna",
+      "material": "tip",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.075
+      },
+      "attach": {
+        "to": "stalk",
+        "position": [
+          0,
+          0.48,
+          0
+        ]
+      }
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.25,
+      "bounce": 0.45,
+      "sway": 0.35,
+      "blink": 0.6
+    },
+    "reactions": {
+      "userActivities": {
+        "reading": {
+          "prop": null,
+          "motion": "peek",
+          "expression": "relaxed",
+          "gaze": "user"
+        }
+      }
+    },
+    "idleMotions": [
+      "peek",
+      "stretch",
+      "look-around"
+    ]
+  }
+}

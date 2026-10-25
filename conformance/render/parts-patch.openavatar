@@ -1,0 +1,93 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.parts-patch",
+  "name": "Patches",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        0.88,
+        0.9,
+        0.82
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#4DB6AC",
+      "sheen": "#FFFFFF"
+    },
+    "belly": {
+      "type": "felt",
+      "color": "#E0F2F1",
+      "sheen": "#FFFFFF"
+    },
+    "spot": {
+      "type": "felt",
+      "color": "#00796B",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.3
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": 0.1
+    }
+  },
+  "parts": [
+    {
+      "id": "belly",
+      "role": "detail",
+      "material": "belly",
+      "patch": {
+        "type": "ellipse",
+        "radii": [
+          0.38,
+          0.3
+        ]
+      },
+      "attach": {
+        "at": [
+          0,
+          -0.38
+        ]
+      }
+    },
+    {
+      "id": "spots",
+      "role": "detail",
+      "material": "spot",
+      "mirror": "x",
+      "patch": {
+        "type": "circle",
+        "radius": 0.09
+      },
+      "attach": {
+        "at": [
+          0.5,
+          0.36
+        ]
+      }
+    }
+  ]
+}

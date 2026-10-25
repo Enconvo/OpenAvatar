@@ -1,0 +1,59 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.deform-ripple",
+  "name": "Jellyfish",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        0.9,
+        0.85,
+        0.85
+      ],
+      "deform": [
+        {
+          "type": "ripple",
+          "axis": "y",
+          "count": 8,
+          "amplitude": 0.07,
+          "range": [
+            -0.85,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#CE93D8",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

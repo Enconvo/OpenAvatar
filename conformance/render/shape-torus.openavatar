@@ -1,0 +1,67 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.shape-torus",
+  "name": "Torus",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "sphere",
+      "radius": 0.85
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#B8E0F0",
+      "sheen": "#FFFFFF"
+    },
+    "gold": {
+      "type": "felt",
+      "color": "#FFD23C",
+      "sheen": "#FFF3C0"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  },
+  "parts": [
+    {
+      "id": "halo",
+      "role": "accessory",
+      "material": "gold",
+      "shape": {
+        "type": "torus",
+        "radius": 0.48,
+        "thickness": 0.07
+      },
+      "attach": {
+        "position": [
+          0,
+          1.08,
+          0
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-vendor-ids",
+  "name": "Repair vendor-ids",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "outfit": "x-acme-cape",
+  "behavior": {
+    "idleMotions": [
+      "x-acme-dab"
+    ],
+    "reactions": {
+      "activities": {
+        "done": {
+          "motion": "x-acme-dab",
+          "effect": "x-acme-fireworks"
+        }
+      }
+    }
+  },
+  "extensions": {
+    "com.acme": {
+      "aura": "blue"
+    }
+  }
+}

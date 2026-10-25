@@ -1,0 +1,52 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.outline-ellipse",
+  "name": "Pebble",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "shape": {
+      "type": "extrusion",
+      "outline": {
+        "type": "ellipse",
+        "radii": [
+          1,
+          0.74
+        ]
+      },
+      "depth": 0.8,
+      "rounding": 0.28,
+      "puff": 0.45
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#B0B7C3",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": {
+      "size": 0.08,
+      "spacing": 0.3,
+      "height": 0.15
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.14,
+      "height": -0.08
+    }
+  }
+}

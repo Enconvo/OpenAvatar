@@ -1,0 +1,51 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.biped-tall-slim",
+  "name": "Biped tall slim",
+  "meta": {
+    "license": "CC0-1.0",
+    "authors": [
+      {
+        "name": "OpenAvatar"
+      }
+    ],
+    "tags": [
+      "conformance"
+    ]
+  },
+  "body": {
+    "material": "main",
+    "rig": "biped",
+    "proportions": {
+      "head": 0.5,
+      "headShape": "tall",
+      "body": 0.5,
+      "bodyShape": "slim",
+      "legs": 0.7,
+      "arms": 0.5
+    },
+    "arms": {
+      "style": "nub"
+    }
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#9CCC65",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "sewn",
+    "eyes": {
+      "size": 0.09,
+      "spacing": 0.24,
+      "height": 0.42
+    },
+    "mouth": {
+      "shape": "smile",
+      "width": 0.13,
+      "height": 0.24
+    }
+  }
+}

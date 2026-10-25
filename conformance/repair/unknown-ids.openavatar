@@ -1,0 +1,38 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-unknown-ids",
+  "name": "Repair unknown-ids",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "tweed",
+      "color": "#F2C9A0"
+    }
+  },
+  "face": {
+    "type": "pixel"
+  },
+  "outfit": "tuxedo",
+  "behavior": {
+    "idleMotions": [
+      "moonwalk",
+      "nod"
+    ],
+    "reactions": {
+      "states": {
+        "thinking": {
+          "expression": "smug",
+          "motion": "moonwalk",
+          "prop": "abacus",
+          "effect": "fireworks"
+        }
+      }
+    }
+  }
+}

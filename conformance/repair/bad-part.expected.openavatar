@@ -1,0 +1,35 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-bad-part",
+  "name": "Repair bad-part",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "parts": [
+    {
+      "id": "ok",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "attach": {
+        "direction": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ]
+}

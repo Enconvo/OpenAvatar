@@ -1,0 +1,49 @@
+{
+  "openavatar": "0.1",
+  "id": "org.openavatar.conformance.repair-duplicate-part-ids",
+  "name": "Repair duplicate-part-ids",
+  "body": {
+    "shape": {
+      "type": "sphere",
+      "radius": 0.9
+    },
+    "material": "main"
+  },
+  "materials": {
+    "main": {
+      "type": "felt",
+      "color": "#F2C9A0",
+      "sheen": "#FFFFFF"
+    }
+  },
+  "parts": [
+    {
+      "id": "ear",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "attach": {
+        "direction": [
+          0.6,
+          0.8,
+          0
+        ]
+      }
+    },
+    {
+      "id": "ear",
+      "shape": {
+        "type": "sphere",
+        "radius": 0.15
+      },
+      "attach": {
+        "direction": [
+          -0.6,
+          0.8,
+          0
+        ]
+      }
+    }
+  ]
+}

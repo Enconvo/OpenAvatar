@@ -1,0 +1,47 @@
+{
+  "openavatar": "0.1",
+  "id": "8f0c6a52-0d3e-4c4b-9b8e-6a1f2d7c9e01",
+  "name": "Mochi",
+  "meta": {
+    "description": "A cream daifuku in headphones. The cups glow while it listens.",
+    "authors": [{ "name": "Enconvo", "url": "https://enconvo.com" }],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["food", "music", "felt"]
+  },
+  "body": {
+    "shape": { "type": "ellipsoid", "radii": [1.0, 0.76, 0.86], "deform": [{ "type": "squash", "axis": "y", "below": 0.78 }] },
+    "material": "cream"
+  },
+  "materials": {
+    "cream": { "type": "felt", "color": "#F2E4CC", "sheen": "#FFFFFF" },
+    "band": { "type": "felt", "color": "#FF7A5E", "sheen": "#FFD3C6" },
+    "cup": { "type": "felt", "color": "#F2533F", "sheen": "#FFB8A8", "glow": { "color": "#FF8A6A", "intensity": 1.6, "driver": "listening" } }
+  },
+  "face": {
+    "type": "bead",
+    "eyes": { "size": 0.077, "spacing": 0.31, "height": 0.17 },
+    "mouth": { "width": 0.15, "height": -0.05 },
+    "cheeks": { "color": "#FF9DB2", "size": 0.11, "spacing": 0.52, "height": -0.02, "show": "always" }
+  },
+  "parts": [
+    {
+      "id": "band", "role": "accessory", "material": "band",
+      "shape": { "type": "intersect", "children": [
+        { "type": "torus", "radius": 1.0, "thickness": 0.077, "rotation": [90, 0, 0] },
+        { "type": "halfspace", "normal": [0, -1, 0], "offset": -0.03 }
+      ] },
+      "attach": { "position": [0, 0, -0.03] }
+    },
+    {
+      "id": "cup", "role": "accessory", "material": "cup", "mirror": "x",
+      "shape": { "type": "ellipsoid", "radii": [0.17, 0.29, 0.27] },
+      "attach": { "position": [1.0, 0.03, -0.03] },
+      "animations": [{ "type": "pulse", "driver": "mic", "amount": 0.1 }]
+    }
+  ],
+  "behavior": {
+    "temperament": { "energy": 0.4, "bounce": 0.6 },
+    "reactions": { "userActivities": { "listening-music": { "prop": null, "motion": "groove" } } }
+  }
+}
