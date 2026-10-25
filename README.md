@@ -15,7 +15,7 @@ the same characters. Browse them, live, in the
 | [`packages/three`](packages/three/) | `@openavatar/three`: the reference renderer for three.js |
 | [`packages/cli`](packages/cli/) | `@openavatar/cli`: the `openavatar` command, to check, render, pack and install avatars |
 | [`skills/openavatar`](skills/openavatar/SKILL.md) | The agent skill: lets an AI agent design avatars of any shape from a description |
-| [`examples/`](examples/) | Sixteen characters |
+| [`examples/`](examples/) | Twenty-four characters |
 | [`site/`](site/) | The gallery website: pages, pictures, the JSON list and a live avatar, on a Cloudflare Worker |
 | [`conformance/`](conformance/) | The conformance suite for readers, renderers and hosts |
 

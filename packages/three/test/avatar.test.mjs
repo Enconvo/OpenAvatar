@@ -63,9 +63,14 @@ test('mirrored parts and eyes are symmetric across x = 0', () => {
       const [p, q] = e.copies.map(c => c.anchor.position);
       assert.ok(Math.abs(p.x + q.x) < 1e-6 && Math.abs(p.y - q.y) < 1e-6 && Math.abs(p.z - q.z) < 1e-6, `${doc.name}/${id}`);
     }
-    // Eyes mirror on a body that is itself symmetric (a bent bean is not).
-    const symmetric = [[.3, .2, .5], [.5, -.3, .2], [.2, .6, .4]].every(([x, y, z]) => Math.abs(a.bodySdf(x, y, z) - a.bodySdf(-x, y, z)) < 1e-9);
-    if (a.face.eyes && symmetric) { const [l, r] = a.face.eyes.map(e => e.anchor.position); assert.ok(Math.abs(l.x + r.x) < 1e-6, `${doc.name} eyes`); }
+    // Eyes mirror on a surface that is itself symmetric: the body and the patches laid on it, which a bent bean
+    // or Duet's two different speech bubbles are not.
+    if (a.face.eyes) {
+      const [l, r] = a.face.eyes.map(e => e.anchor.position), sdf = a.faceSdf || a.bodySdf;
+      const near = [-.04, 0, .04].flatMap(d => [[l.x + d, l.y, l.z], [l.x, l.y + d, l.z - .02]]);
+      const symmetric = [[.3, .2, .5], [.5, -.3, .2], [.2, .6, .4], ...near].every(([x, y, z]) => Math.abs(sdf(x, y, z) - sdf(-x, y, z)) < 1e-9);
+      if (symmetric) assert.ok(Math.abs(l.x + r.x) < 1e-6, `${doc.name} eyes`);
+    }
     a.dispose();
   }
 });

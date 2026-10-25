@@ -1,0 +1,2530 @@
+{
+  "openavatar": "0.1",
+  "id": "7303f1cd-dc72-4b08-a6dd-493e8076c321",
+  "name": "Aurora Halo",
+  "meta": {
+    "description": "A breathing ring of light in Enconvo's voice colors that brightens when you talk to it, races a comet round itself while it thinks and swells into a rippling band when it speaks.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "halo",
+      "ring",
+      "light",
+      "aurora",
+      "abstract",
+      "faceless",
+      "enconvo"
+    ],
+    "created": "2026-10-25T12:05:41Z",
+    "updated": "2026-10-25T13:30:00Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "blob",
+    "anchor": "float",
+    "shape": {
+      "type": "union",
+      "children": [
+        {
+          "type": "sphere",
+          "radius": 0.014,
+          "position": [
+            0,
+            0.8735,
+            -0.2889
+          ]
+        },
+        {
+          "type": "sphere",
+          "radius": 0.014,
+          "position": [
+            0,
+            -0.8735,
+            0.2889
+          ]
+        }
+      ]
+    },
+    "material": "comet"
+  },
+  "materials": {
+    "aurora-0": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#572F77",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#552E75",
+          "#542E74",
+          "#532E73",
+          "#532E72"
+        ]
+      },
+      "glow": {
+        "color": "#CE7AFF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-1": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#633A62",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#5C3371",
+          "#582F78",
+          "#572F78",
+          "#572F77"
+        ]
+      },
+      "glow": {
+        "color": "#D57CFF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-2": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#744902",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#744A0A",
+          "#704730",
+          "#6A414C",
+          "#633A62"
+        ]
+      },
+      "glow": {
+        "color": "#FFA893",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-3": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#782124",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#772F1F",
+          "#763B17",
+          "#75440C",
+          "#744902"
+        ]
+      },
+      "glow": {
+        "color": "#FF9173",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-4": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#651E56",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#6F1B43",
+          "#77192F",
+          "#791827",
+          "#782124"
+        ]
+      },
+      "glow": {
+        "color": "#FF5692",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-5": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#482771",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#4A2471",
+          "#4E236E",
+          "#592164",
+          "#651E56"
+        ]
+      },
+      "glow": {
+        "color": "#C366FF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-6": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#343F78",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#383B77",
+          "#3E3575",
+          "#442E73",
+          "#482771"
+        ]
+      },
+      "glow": {
+        "color": "#A887FF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-7": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#5E456E",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#504372",
+          "#414175",
+          "#353F78",
+          "#343F78"
+        ]
+      },
+      "glow": {
+        "color": "#AC9DFF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-8": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#69446A",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#6D4868",
+          "#6E4968",
+          "#69476A",
+          "#5E456E"
+        ]
+      },
+      "glow": {
+        "color": "#FEACF4",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "aurora-9": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#532E72",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#553171",
+          "#5B376F",
+          "#623E6C",
+          "#69446A"
+        ]
+      },
+      "glow": {
+        "color": "#DC8AFF",
+        "intensity": 0.85,
+        "base": 0.7,
+        "driver": "active"
+      }
+    },
+    "thought": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#505B95",
+      "pattern": {
+        "type": "gradient",
+        "axis": "x",
+        "colors": [
+          "#613D8B",
+          "#724C95",
+          "#613D8B",
+          "#505B95"
+        ]
+      },
+      "glow": {
+        "color": "#AA6EEE",
+        "intensity": 0.55
+      }
+    },
+    "comet": {
+      "type": "rubber",
+      "roughness": 1,
+      "color": "#5A34B0",
+      "glow": {
+        "color": "#A274FF",
+        "intensity": 1.1
+      }
+    }
+  },
+  "face": {
+    "type": "none"
+  },
+  "parts": [
+    {
+      "id": "ring-0",
+      "role": "detail",
+      "material": "aurora-0",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.03,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          18.3,
+          180,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "axis": "y",
+          "amount": 10.3,
+          "speed": 0.0637
+        },
+        {
+          "type": "spin",
+          "axis": "z",
+          "speed": 0.03
+        },
+        {
+          "type": "spin",
+          "axis": "z",
+          "driver": "active",
+          "speed": 0.09
+        },
+        {
+          "type": "spin",
+          "axis": "z",
+          "driver": "thinking",
+          "speed": 0.33
+        }
+      ]
+    },
+    {
+      "id": "ring-1",
+      "role": "detail",
+      "material": "aurora-1",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.032,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          36
+        ]
+      }
+    },
+    {
+      "id": "ring-2",
+      "role": "detail",
+      "material": "aurora-2",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.03,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          72
+        ]
+      }
+    },
+    {
+      "id": "ring-3",
+      "role": "detail",
+      "material": "aurora-3",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.032,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          108
+        ]
+      }
+    },
+    {
+      "id": "ring-4",
+      "role": "detail",
+      "material": "aurora-4",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.03,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          144
+        ]
+      }
+    },
+    {
+      "id": "ring-5",
+      "role": "detail",
+      "material": "aurora-5",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.032,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          180
+        ]
+      }
+    },
+    {
+      "id": "ring-6",
+      "role": "detail",
+      "material": "aurora-6",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.03,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          216
+        ]
+      }
+    },
+    {
+      "id": "ring-7",
+      "role": "detail",
+      "material": "aurora-7",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.032,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          252
+        ]
+      }
+    },
+    {
+      "id": "ring-8",
+      "role": "detail",
+      "material": "aurora-8",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.03,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          288
+        ]
+      }
+    },
+    {
+      "id": "ring-9",
+      "role": "detail",
+      "material": "aurora-9",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.032,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          324
+        ]
+      }
+    },
+    {
+      "id": "listen-0",
+      "role": "detail",
+      "material": "aurora-0",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.052,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-1",
+      "role": "detail",
+      "material": "aurora-1",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.054,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          36
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-2",
+      "role": "detail",
+      "material": "aurora-2",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.052,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          72
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-3",
+      "role": "detail",
+      "material": "aurora-3",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.054,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          108
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-4",
+      "role": "detail",
+      "material": "aurora-4",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.052,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          144
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-5",
+      "role": "detail",
+      "material": "aurora-5",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.054,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          180
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-6",
+      "role": "detail",
+      "material": "aurora-6",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.052,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          216
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-7",
+      "role": "detail",
+      "material": "aurora-7",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.054,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          252
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-8",
+      "role": "detail",
+      "material": "aurora-8",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.052,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          288
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "listen-9",
+      "role": "detail",
+      "material": "aurora-9",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.054,
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          324
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.15,
+          "speed": 0.48
+        },
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 0.05
+        }
+      ]
+    },
+    {
+      "id": "voice-0",
+      "role": "detail",
+      "material": "aurora-0",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.1,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              0
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-1",
+      "role": "detail",
+      "material": "aurora-1",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.102,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -36
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          36
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-2",
+      "role": "detail",
+      "material": "aurora-2",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.1,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -72
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          72
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-3",
+      "role": "detail",
+      "material": "aurora-3",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.102,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -108
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          108
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-4",
+      "role": "detail",
+      "material": "aurora-4",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.1,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -144
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          144
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-5",
+      "role": "detail",
+      "material": "aurora-5",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.102,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -180
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          180
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-6",
+      "role": "detail",
+      "material": "aurora-6",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.1,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -216
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          216
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-7",
+      "role": "detail",
+      "material": "aurora-7",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.102,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -252
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          252
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-8",
+      "role": "detail",
+      "material": "aurora-8",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.1,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -288
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          288
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "voice-9",
+      "role": "detail",
+      "material": "aurora-9",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "torus",
+            "radius": 0.92,
+            "thickness": 0.102,
+            "deform": [
+              {
+                "type": "ripple",
+                "axis": "y",
+                "count": 5,
+                "amplitude": 0.035
+              }
+            ],
+            "rotation": [
+              90,
+              0,
+              -324
+            ]
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          },
+          {
+            "type": "halfspace",
+            "normal": [
+              -0.9466,
+              -0.3223,
+              0
+            ],
+            "offset": 0
+          }
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          324
+        ]
+      },
+      "pivot": [
+        0,
+        0.92,
+        0
+      ],
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        },
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.1,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "glow",
+          "driver": "voice",
+          "amount": 0.1
+        }
+      ]
+    },
+    {
+      "id": "thought",
+      "role": "detail",
+      "material": "thought",
+      "shape": {
+        "type": "torus",
+        "radius": 0.92,
+        "thickness": 0.042,
+        "rotation": [
+          90,
+          0,
+          0
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "comet",
+      "role": "detail",
+      "material": "comet",
+      "shape": {
+        "type": "capsule",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "to": [
+          1.124,
+          0,
+          0
+        ],
+        "radius": 0.058,
+        "radiusTo": 0.034,
+        "deform": [
+          {
+            "type": "bend",
+            "axis": "x",
+            "toward": "y",
+            "amount": -62.278
+          }
+        ],
+        "position": [
+          0,
+          0.92,
+          0
+        ]
+      },
+      "attach": {
+        "to": "ring-0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation": [
+          0,
+          180,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        },
+        {
+          "type": "spin",
+          "axis": "z",
+          "driver": "thinking",
+          "speed": 1.17
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "energy": 0.35,
+      "bounce": 0.3,
+      "sway": 0.5,
+      "blink": 0
+    },
+    "reactions": {
+      "states": {
+        "thinking": {
+          "effect": null
+        }
+      },
+      "activities": {
+        "error": {
+          "effect": null
+        },
+        "done": {
+          "effect": null
+        },
+        "sleeping": {
+          "effect": null
+        }
+      },
+      "userActivities": {
+        "coding": {
+          "prop": null
+        },
+        "writing": {
+          "prop": null
+        },
+        "reading": {
+          "prop": null
+        },
+        "designing": {
+          "prop": null
+        },
+        "form-filling": {
+          "prop": null
+        },
+        "watching": {
+          "prop": null
+        },
+        "listening-music": {
+          "prop": null
+        },
+        "gaming": {
+          "prop": null
+        }
+      }
+    },
+    "idleMotions": [
+      "nod"
+    ]
+  }
+}

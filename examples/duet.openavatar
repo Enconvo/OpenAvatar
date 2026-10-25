@@ -1,0 +1,654 @@
+{
+  "openavatar": "0.1",
+  "id": "7b472eb5-c8a1-4cf5-b1be-6860ab0d3904",
+  "name": "Duet",
+  "meta": {
+    "description": "An apricot plush yeti in long pile whose eyes are a conversation: a grey speech bubble from Enconvo and a blue one from you, which fill with typing dots while it thinks.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "plush",
+      "yeti",
+      "fur",
+      "chat",
+      "enconvo"
+    ],
+    "created": "2026-10-25T12:01:14Z",
+    "updated": "2026-10-25T12:01:14Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "biped",
+    "material": "pile",
+    "proportions": {
+      "bodyShape": "round"
+    }
+  },
+  "materials": {
+    "pile": {
+      "type": "fur",
+      "color": "#F0B089",
+      "sheen": "#FFE6D4",
+      "fur": {
+        "length": 0.58,
+        "density": 0.75,
+        "droop": 0.3,
+        "tip": "#FEBB92"
+      }
+    },
+    "grey": {
+      "type": "clay",
+      "color": "#E4E6EC"
+    },
+    "blue": {
+      "type": "clay",
+      "color": "#2F6BFF"
+    },
+    "ink": {
+      "type": "clay",
+      "color": "#1C1E23"
+    },
+    "white": {
+      "type": "clay",
+      "color": "#FFFFFF"
+    }
+  },
+  "face": {
+    "type": "sewn",
+    "color": "#1C1E23",
+    "eyes": {
+      "shape": "round",
+      "size": 0.045,
+      "spacing": 0.22,
+      "height": 0.45
+    },
+    "mouth": {
+      "shape": "oval",
+      "width": 0.16,
+      "height": 0.245
+    },
+    "cheeks": {
+      "color": "#F97C83",
+      "size": 0.16,
+      "spacing": 0.33,
+      "height": 0.3,
+      "show": "happy"
+    },
+    "expressions": {
+      "thinking": {
+        "eyes": "open",
+        "mouth": "hmm",
+        "effect": "question"
+      },
+      "surprised": {
+        "effect": "exclaim"
+      },
+      "sad": {
+        "effect": "sweat"
+      },
+      "love": {
+        "effect": "hearts"
+      },
+      "sleepy": {
+        "effect": "zzz"
+      }
+    }
+  },
+  "parts": [
+    {
+      "id": "bubble-enconvo",
+      "role": "detail",
+      "material": "grey",
+      "patch": {
+        "type": "union",
+        "smooth": 0.03,
+        "children": [
+          {
+            "type": "rect",
+            "size": [
+              0.28,
+              0.22
+            ],
+            "rounding": 0.095
+          },
+          {
+            "type": "stroke",
+            "points": [
+              [
+                -0.07,
+                -0.07
+              ],
+              [
+                -0.155,
+                -0.12
+              ]
+            ],
+            "width": 0.08,
+            "widthTo": 0.02
+          }
+        ]
+      },
+      "attach": {
+        "at": [
+          -0.22,
+          0.45
+        ]
+      }
+    },
+    {
+      "id": "bubble-you",
+      "role": "detail",
+      "material": "blue",
+      "patch": {
+        "type": "union",
+        "smooth": 0.03,
+        "children": [
+          {
+            "type": "rect",
+            "size": [
+              0.28,
+              0.22
+            ],
+            "rounding": 0.095
+          },
+          {
+            "type": "stroke",
+            "points": [
+              [
+                0.07,
+                -0.07
+              ],
+              [
+                0.155,
+                -0.12
+              ]
+            ],
+            "width": 0.08,
+            "widthTo": 0.02
+          }
+        ]
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.45
+        ]
+      }
+    },
+    {
+      "id": "typing-enconvo",
+      "role": "detail",
+      "material": "grey",
+      "patch": {
+        "type": "union",
+        "smooth": 0.03,
+        "children": [
+          {
+            "type": "rect",
+            "size": [
+              0.28,
+              0.22
+            ],
+            "rounding": 0.095
+          },
+          {
+            "type": "stroke",
+            "points": [
+              [
+                -0.07,
+                -0.07
+              ],
+              [
+                -0.155,
+                -0.12
+              ]
+            ],
+            "width": 0.08,
+            "widthTo": 0.02
+          }
+        ]
+      },
+      "attach": {
+        "at": [
+          -0.22,
+          0.45
+        ],
+        "lift": 0.13
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "typing-you",
+      "role": "detail",
+      "material": "blue",
+      "patch": {
+        "type": "union",
+        "smooth": 0.03,
+        "children": [
+          {
+            "type": "rect",
+            "size": [
+              0.28,
+              0.22
+            ],
+            "rounding": 0.095
+          },
+          {
+            "type": "stroke",
+            "points": [
+              [
+                0.07,
+                -0.07
+              ],
+              [
+                0.155,
+                -0.12
+              ]
+            ],
+            "width": 0.08,
+            "widthTo": 0.02
+          }
+        ]
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.45
+        ],
+        "lift": 0.13
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-enconvo-1",
+      "role": "detail",
+      "material": "ink",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-enconvo",
+        "position": [
+          -0.062,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.0,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-enconvo-2",
+      "role": "detail",
+      "material": "ink",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-enconvo",
+        "position": [
+          0,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.857,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-enconvo-3",
+      "role": "detail",
+      "material": "ink",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-enconvo",
+        "position": [
+          0.062,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.714,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-you-1",
+      "role": "detail",
+      "material": "white",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-you",
+        "position": [
+          -0.062,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.92,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-you-2",
+      "role": "detail",
+      "material": "white",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-you",
+        "position": [
+          0,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.777,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "dot-you-3",
+      "role": "detail",
+      "material": "white",
+      "shape": {
+        "type": "ellipsoid",
+        "radii": [
+          0.024,
+          0.024,
+          0.012
+        ]
+      },
+      "attach": {
+        "to": "typing-you",
+        "position": [
+          0.062,
+          0.007,
+          0.016
+        ]
+      },
+      "animations": [
+        {
+          "type": "bob",
+          "axis": "y",
+          "amount": 0.007,
+          "speed": 1.035,
+          "phase": 0.634,
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "brows-surprised",
+      "role": "detail",
+      "material": "ink",
+      "mirror": "x",
+      "patch": {
+        "type": "stroke",
+        "points": [
+          [
+            -0.036,
+            0
+          ],
+          [
+            0.036,
+            0
+          ]
+        ],
+        "width": 0.024
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.65
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "surprised"
+        }
+      ]
+    },
+    {
+      "id": "brows-sad",
+      "role": "detail",
+      "material": "ink",
+      "mirror": "x",
+      "patch": {
+        "type": "stroke",
+        "points": [
+          [
+            -0.036,
+            0
+          ],
+          [
+            0.036,
+            0
+          ]
+        ],
+        "width": 0.024,
+        "rotation": -21.8
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.628
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "sad"
+        }
+      ]
+    },
+    {
+      "id": "brows-angry",
+      "role": "detail",
+      "material": "ink",
+      "mirror": "x",
+      "patch": {
+        "type": "stroke",
+        "points": [
+          [
+            -0.036,
+            0
+          ],
+          [
+            0.036,
+            0
+          ]
+        ],
+        "width": 0.024,
+        "rotation": 25.8
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.608
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "angry"
+        }
+      ]
+    },
+    {
+      "id": "brow-working-right",
+      "role": "detail",
+      "material": "ink",
+      "patch": {
+        "type": "stroke",
+        "points": [
+          [
+            -0.036,
+            0
+          ],
+          [
+            0.036,
+            0
+          ]
+        ],
+        "width": 0.024,
+        "rotation": 4.6
+      },
+      "attach": {
+        "at": [
+          -0.22,
+          0.642
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "working"
+        }
+      ]
+    },
+    {
+      "id": "brow-working-left",
+      "role": "detail",
+      "material": "ink",
+      "patch": {
+        "type": "stroke",
+        "points": [
+          [
+            -0.036,
+            0
+          ],
+          [
+            0.036,
+            0
+          ]
+        ],
+        "width": 0.024,
+        "rotation": 6.9
+      },
+      "attach": {
+        "at": [
+          0.22,
+          0.617
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "working"
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "reactions": {
+      "states": {
+        "thinking": {
+          "expression": null,
+          "effect": null,
+          "motion": "think"
+        },
+        "speaking": {
+          "expression": null
+        }
+      },
+      "activities": {
+        "done": {
+          "effect": null
+        }
+      }
+    }
+  },
+  "extensions": {
+    "com.enconvo": {
+      "face": "duet"
+    }
+  }
+}

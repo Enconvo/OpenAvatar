@@ -1,0 +1,445 @@
+{
+  "openavatar": "0.1",
+  "id": "7e818ac6-5b69-4d60-8cec-f23ffb70b65c",
+  "name": "Mumble",
+  "meta": {
+    "description": "A shaggy Enconvo-blue plush yeti with a heavy fringe where its eyes would be; a wide black felt grin with five white bars smiles, loads and talks for it, like the voice bars in Enconvo.",
+    "authors": [{ "name": "Enconvo", "url": "https://enconvo.com" }],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": ["plush", "yeti", "fur", "voice-bars"],
+    "created": "2026-10-25T12:04:33Z",
+    "updated": "2026-10-25T12:04:33Z",
+    "generator": { "name": "Claude Code", "model": "claude-opus-5-5" }
+  },
+  "body": {
+    "rig": "biped",
+    "material": "pile",
+    "proportions": { "head": 0.5, "headShape": "round", "body": 0.5, "bodyShape": "pear", "legs": 0.5, "arms": 0.5 }
+  },
+  "materials": {
+    "pile": {
+      "type": "fur",
+      "color": "#3C70F4",
+      "sheen": "#B9CCFF",
+      "fur": { "length": 0.75, "density": 1, "droop": 0.45, "tip": "#809FFF" }
+    },
+    "fringe": {
+      "type": "fur",
+      "color": "#3E71FF",
+      "sheen": "#B9CCFF",
+      "fur": { "length": 1, "density": 1, "droop": 0.9, "tip": "#809FFF" }
+    },
+    "ink": { "type": "velvet", "color": "#1C1E23", "sheen": "#7F8696" },
+    "bar": {
+      "type": "velvet",
+      "color": "#F2F0EB",
+      "sheen": "#FFFFFF",
+      "glow": { "color": "#FFFFFF", "intensity": 0.35, "base": 0.15, "driver": "voice" }
+    },
+    "heart": { "type": "velvet", "color": "#FC89A1", "glow": { "color": "#FF6F8E", "intensity": 0.32 } }
+  },
+  "face": {
+    "type": "sewn",
+    "eyes": { "size": 0.02, "spacing": 0.12, "height": 0.72, "color": "#3C70F4", "blink": false, "gaze": false },
+    "mouth": { "shape": "none" },
+    "cheeks": { "color": "#E879B8", "size": 0.2, "spacing": 0.34, "height": 0.27, "show": "happy" },
+    "expressions": { "wink-left": { "cheeks": true }, "wink-right": { "cheeks": true }, "x-talking": { "cheeks": false } }
+  },
+  "parts": [
+    {
+      "id": "fringe",
+      "role": "hair",
+      "material": "fringe",
+      "shape": {
+        "type": "intersect",
+        "children": [
+          {
+            "type": "union",
+            "smooth": 0.12,
+            "children": [
+              { "type": "ellipsoid", "radii": [0.7, 0.6, 0.62], "inflate": -0.02 },
+              { "type": "ellipsoid", "radii": [0.6, 0.2, 0.34], "position": [0, 0.28, 0.3] }
+            ]
+          },
+          { "type": "halfspace", "normal": [0, -1, 0], "offset": -0.06 },
+          { "type": "halfspace", "normal": [0, 0, -1], "offset": -0.1 }
+        ]
+      },
+      "attach": { "to": "head", "position": [0, 0, 0] }
+    },
+    {
+      "id": "grin",
+      "role": "detail",
+      "material": "ink",
+      "patch": {
+        "type": "intersect",
+        "smooth": 0.015,
+        "children": [
+          { "type": "circle", "radius": 0.22, "center": [0, 0.1] },
+          { "type": "rect", "size": [0.5, 0.2], "center": [0, -0.065] }
+        ]
+      },
+      "attach": { "to": "head", "at": [0, -0.12] }
+    },
+    {
+      "id": "bar-1",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "circle", "radius": 0.022 },
+      "attach": { "to": "grin", "at": [-0.124, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "neutral" },
+        { "type": "bob", "driver": "idle", "amount": 0.03, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "thinking", "amount": 0.9, "speed": 0.8, "phase": 0 },
+        { "type": "pulse", "driver": "mic", "amount": 0.33, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "bar-2",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "circle", "radius": 0.022 },
+      "attach": { "to": "grin", "at": [-0.062, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "neutral" },
+        { "type": "bob", "driver": "idle", "amount": 0.0075, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "thinking", "amount": 0.9, "speed": 0.8, "phase": 0.873 },
+        { "type": "pulse", "driver": "mic", "amount": 0.51, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "bar-3",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "circle", "radius": 0.022 },
+      "attach": { "to": "grin", "at": [0, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "neutral" },
+        { "type": "pulse", "driver": "thinking", "amount": 0.9, "speed": 0.8, "phase": 0.745 },
+        { "type": "pulse", "driver": "mic", "amount": 0.6, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "bar-4",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "circle", "radius": 0.022 },
+      "attach": { "to": "grin", "at": [0.062, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "neutral" },
+        { "type": "bob", "driver": "idle", "amount": 0.0075, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "thinking", "amount": 0.9, "speed": 0.8, "phase": 0.618 },
+        { "type": "pulse", "driver": "mic", "amount": 0.51, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "bar-5",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "circle", "radius": 0.022 },
+      "attach": { "to": "grin", "at": [0.124, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "neutral" },
+        { "type": "bob", "driver": "idle", "amount": 0.03, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "thinking", "amount": 0.9, "speed": 0.8, "phase": 0.491 },
+        { "type": "pulse", "driver": "mic", "amount": 0.33, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "talk-middle",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "rect", "size": [0.04, 0.11], "rounding": 0.02 },
+      "attach": { "to": "grin", "at": [0, -0.035] },
+      "animations": [
+        { "type": "appear", "driver": "speaking" },
+        { "type": "pulse", "driver": "voice", "amount": 0.4, "speed": 3.3, "phase": 0 }
+      ]
+    },
+    {
+      "id": "talk-inner",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "rect", "size": [0.04, 0.094], "rounding": 0.02 },
+      "attach": { "to": "grin", "at": [0.062, -0.035] },
+      "mirror": "x",
+      "animations": [
+        { "type": "appear", "driver": "speaking" },
+        { "type": "pulse", "driver": "voice", "amount": 0.4, "speed": 2.7, "phase": 0.35 }
+      ]
+    },
+    {
+      "id": "talk-outer",
+      "role": "detail",
+      "material": "bar",
+      "patch": { "type": "rect", "size": [0.04, 0.07], "rounding": 0.02 },
+      "attach": { "to": "grin", "at": [0.124, -0.035] },
+      "mirror": "x",
+      "animations": [
+        { "type": "appear", "driver": "speaking" },
+        { "type": "pulse", "driver": "voice", "amount": 0.4, "speed": 3.8, "phase": 0.7 }
+      ]
+    },
+    {
+      "id": "grin-happy",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.027, "center": [-0.14, 0.007] },
+          { "type": "circle", "radius": 0.027, "center": [-0.07, -0.0418] },
+          { "type": "circle", "radius": 0.027, "center": [0, -0.058] },
+          { "type": "circle", "radius": 0.027, "center": [0.07, -0.0418] },
+          { "type": "circle", "radius": 0.027, "center": [0.14, 0.007] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "happy" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-relaxed",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.027, "center": [-0.14, 0.007] },
+          { "type": "circle", "radius": 0.027, "center": [-0.07, -0.0418] },
+          { "type": "circle", "radius": 0.027, "center": [0, -0.058] },
+          { "type": "circle", "radius": 0.027, "center": [0.07, -0.0418] },
+          { "type": "circle", "radius": 0.027, "center": [0.14, 0.007] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "relaxed" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-laugh",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "ellipse", "radii": [0.026, 0.04], "center": [-0.136, -0.008] },
+          { "type": "ellipse", "radii": [0.026, 0.04], "center": [-0.068, -0.0455] },
+          { "type": "ellipse", "radii": [0.026, 0.04], "center": [0, -0.058] },
+          { "type": "ellipse", "radii": [0.026, 0.04], "center": [0.068, -0.0455] },
+          { "type": "ellipse", "radii": [0.026, 0.04], "center": [0.136, -0.008] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "laugh" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "laugh", "amount": 0.12, "speed": 2.1 }
+      ]
+    },
+    {
+      "id": "grin-surprised",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.021, "center": [0, 0.005] },
+          { "type": "circle", "radius": 0.021, "center": [-0.0476, -0.0295] },
+          { "type": "circle", "radius": 0.021, "center": [-0.0294, -0.0855] },
+          { "type": "circle", "radius": 0.021, "center": [0.0294, -0.0855] },
+          { "type": "circle", "radius": 0.021, "center": [0.0476, -0.0295] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "surprised" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-sad",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.022, "center": [-0.1, -0.053] },
+          { "type": "circle", "radius": 0.022, "center": [-0.05, -0.0192] },
+          { "type": "circle", "radius": 0.022, "center": [0, -0.008] },
+          { "type": "circle", "radius": 0.022, "center": [0.05, -0.0192] },
+          { "type": "circle", "radius": 0.022, "center": [0.1, -0.053] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "sad" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-angry",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.021, "center": [-0.11, -0.055] },
+          { "type": "circle", "radius": 0.021, "center": [-0.055, -0.015] },
+          { "type": "circle", "radius": 0.021, "center": [0, -0.055] },
+          { "type": "circle", "radius": 0.021, "center": [0.055, -0.015] },
+          { "type": "circle", "radius": 0.021, "center": [0.11, -0.055] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "angry" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "wiggle", "driver": "angry", "amount": 3, "speed": 5 }
+      ]
+    },
+    {
+      "id": "grin-love",
+      "role": "detail",
+      "material": "heart",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.031, "center": [-0.03, -0.008] },
+          { "type": "circle", "radius": 0.022, "center": [-0.017, -0.046] },
+          { "type": "circle", "radius": 0.014, "center": [0, -0.072] },
+          { "type": "circle", "radius": 0.022, "center": [0.017, -0.046] },
+          { "type": "circle", "radius": 0.031, "center": [0.03, -0.008] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "love" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-sleepy",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "ellipse", "radii": [0.024, 0.009], "center": [-0.11, -0.05] },
+          { "type": "ellipse", "radii": [0.024, 0.009], "center": [-0.055, -0.05] },
+          { "type": "ellipse", "radii": [0.024, 0.009], "center": [0, -0.05] },
+          { "type": "ellipse", "radii": [0.024, 0.009], "center": [0.055, -0.05] },
+          { "type": "ellipse", "radii": [0.024, 0.009], "center": [0.11, -0.05] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "sleepy" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-wink-left",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.025, "center": [-0.132, 0.016] },
+          { "type": "circle", "radius": 0.025, "center": [-0.066, -0.0258] },
+          { "type": "circle", "radius": 0.025, "center": [0, -0.045] },
+          { "type": "circle", "radius": 0.025, "center": [0.066, -0.0418] },
+          { "type": "circle", "radius": 0.025, "center": [0.132, -0.016] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "wink-left" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-wink-right",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "circle", "radius": 0.025, "center": [-0.132, -0.016] },
+          { "type": "circle", "radius": 0.025, "center": [-0.066, -0.0418] },
+          { "type": "circle", "radius": 0.025, "center": [0, -0.045] },
+          { "type": "circle", "radius": 0.025, "center": [0.066, -0.0258] },
+          { "type": "circle", "radius": 0.025, "center": [0.132, 0.016] }
+        ]
+      },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "appear", "driver": "wink-right" },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "thinking-gate-1",
+      "role": "detail",
+      "material": "ink",
+      "patch": { "type": "circle", "radius": 0.005 },
+      "attach": { "to": "grin", "at": [0, 0] },
+      "animations": [
+        { "type": "bob", "driver": "neutral", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "happy", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "relaxed", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "laugh", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "thinking-gate-2",
+      "role": "detail",
+      "material": "ink",
+      "patch": { "type": "circle", "radius": 0.005 },
+      "attach": { "to": "thinking-gate-1", "position": [0, 0, 0] },
+      "animations": [
+        { "type": "bob", "driver": "surprised", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "sad", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "angry", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "love", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    },
+    {
+      "id": "grin-thinking",
+      "role": "detail",
+      "material": "bar",
+      "patch": {
+        "type": "union",
+        "children": [
+          { "type": "ellipse", "radii": [0.021, 0.015], "center": [-0.06, -0.019] },
+          { "type": "ellipse", "radii": [0.021, 0.015], "center": [-0.015, -0.027] },
+          { "type": "ellipse", "radii": [0.021, 0.015], "center": [0.03, -0.035] },
+          { "type": "ellipse", "radii": [0.021, 0.015], "center": [0.075, -0.043] },
+          { "type": "ellipse", "radii": [0.021, 0.015], "center": [0.12, -0.051] }
+        ]
+      },
+      "attach": { "to": "thinking-gate-2", "position": [0, 0, 0.001] },
+      "animations": [
+        { "type": "bob", "driver": "sleepy", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "wink-left", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "bob", "driver": "wink-right", "axis": "z", "amount": -1, "speed": 0, "phase": 0.25 },
+        { "type": "pulse", "driver": "speaking", "amount": -1, "speed": 0, "phase": 0.25 }
+      ]
+    }
+  ],
+  "behavior": {
+    "idleMotions": ["wave", "groove", "shrug"],
+    "reactions": {
+      "states": {
+        "idle": { "expression": "neutral" },
+        "thinking": { "expression": null, "effect": null },
+        "speaking": { "expression": "x-talking" }
+      }
+    }
+  }
+}

@@ -1,0 +1,732 @@
+{
+  "openavatar": "0.1",
+  "id": "d1d95b64-75d6-4ac5-bb6a-b620c35de11a",
+  "name": "Isla",
+  "meta": {
+    "description": "A lavender plush yeti in long pile with an aurora cowlick, whose face is the Dynamic Island: a black pill with two eyes that widens with an aurora rim to listen, shimmers to think and shows voice bars when it talks.",
+    "authors": [
+      {
+        "name": "Enconvo",
+        "url": "https://enconvo.com"
+      }
+    ],
+    "license": "CC-BY-4.0",
+    "version": "1.0.0",
+    "tags": [
+      "plush",
+      "yeti",
+      "fur",
+      "dynamic-island",
+      "enconvo"
+    ],
+    "created": "2026-10-25T12:03:54Z",
+    "updated": "2026-10-25T12:25:49Z",
+    "generator": {
+      "name": "Claude Code",
+      "model": "claude-opus-5-5"
+    }
+  },
+  "body": {
+    "rig": "biped",
+    "material": "pile",
+    "proportions": {
+      "head": 0.45,
+      "headShape": "round",
+      "body": 0.5,
+      "bodyShape": "pear",
+      "legs": 0.5,
+      "arms": 0.5
+    },
+    "shape": {
+      "type": "union",
+      "smooth": 0.34,
+      "children": [
+        {
+          "type": "ellipsoid",
+          "radii": [
+            0.76,
+            0.58,
+            0.62
+          ],
+          "position": [
+            0,
+            0.42,
+            0
+          ]
+        },
+        {
+          "type": "ellipsoid",
+          "radii": [
+            0.66,
+            0.56,
+            0.5
+          ],
+          "position": [
+            0,
+            -0.34,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  "materials": {
+    "pile": {
+      "type": "fur",
+      "color": "#C7B5F2",
+      "sheen": "#FFFFFF",
+      "fur": {
+        "length": 0.85,
+        "density": 0.9,
+        "droop": 0.35,
+        "tip": "#CDBCF3"
+      }
+    },
+    "curl": {
+      "type": "fur",
+      "color": "#C7B5F2",
+      "pattern": {
+        "type": "gradient",
+        "colors": [
+          "#BC82F3",
+          "#F5B9EA"
+        ],
+        "axis": "y"
+      },
+      "fur": {
+        "length": 0.65,
+        "density": 0.9,
+        "droop": 0.25,
+        "tip": "#E0A2EE"
+      },
+      "glow": {
+        "color": "#BC82F3",
+        "intensity": 1,
+        "driver": "listening"
+      }
+    },
+    "island": {
+      "type": "ceramic",
+      "color": "#07080B",
+      "roughness": 0.2
+    },
+    "aurora": {
+      "type": "rubber",
+      "color": "#7A45C8",
+      "pattern": {
+        "type": "gradient",
+        "colors": [
+          "#5D6FD8",
+          "#C77BB8"
+        ],
+        "axis": "x"
+      },
+      "glow": {
+        "color": "#BC82F3",
+        "intensity": 0.45
+      }
+    },
+    "shimmer": {
+      "type": "rubber",
+      "color": "#6F5FE0",
+      "glow": {
+        "color": "#9C86F6",
+        "intensity": 0.7
+      }
+    },
+    "bar-1": {
+      "type": "rubber",
+      "color": "#BC82F3",
+      "glow": {
+        "color": "#DABAF8",
+        "intensity": 0.45
+      }
+    },
+    "bar-2": {
+      "type": "rubber",
+      "color": "#F5B9EA",
+      "glow": {
+        "color": "#F9D8F3",
+        "intensity": 0.45
+      }
+    },
+    "bar-3": {
+      "type": "rubber",
+      "color": "#8D9FFF",
+      "glow": {
+        "color": "#C0CAFF",
+        "intensity": 0.45
+      }
+    },
+    "bar-4": {
+      "type": "rubber",
+      "color": "#AA6EEE",
+      "glow": {
+        "color": "#D0AFF6",
+        "intensity": 0.45
+      }
+    },
+    "bar-5": {
+      "type": "rubber",
+      "color": "#FFBA71",
+      "glow": {
+        "color": "#FFD9B1",
+        "intensity": 0.45
+      }
+    }
+  },
+  "face": {
+    "type": "drawn",
+    "color": "#FFFFFF",
+    "eyes": {
+      "shape": "tall",
+      "size": 0.033,
+      "spacing": 0.085,
+      "height": 0.468,
+      "color": "#FFFFFF"
+    },
+    "mouth": {
+      "shape": "oval",
+      "width": 0.07,
+      "height": 0.408,
+      "color": "#FFFFFF",
+      "speaks": false
+    },
+    "cheeks": {
+      "color": "#F47A9E",
+      "size": 0.16,
+      "spacing": 0.38,
+      "height": 0.308,
+      "show": "happy"
+    },
+    "expressions": {
+      "surprised": {
+        "effect": "exclaim"
+      },
+      "sad": {
+        "effect": "sweat"
+      },
+      "love": {
+        "effect": "hearts"
+      },
+      "sleepy": {
+        "effect": "zzz"
+      }
+    }
+  },
+  "parts": [
+    {
+      "id": "island",
+      "role": "detail",
+      "material": "island",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.46,
+          0.19
+        ],
+        "rounding": 0.095
+      },
+      "attach": {
+        "at": [
+          0,
+          0.46
+        ],
+        "lift": 0.086
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "active",
+          "amount": -0.999,
+          "speed": 0,
+          "phase": 0.25
+        }
+      ]
+    },
+    {
+      "id": "island-listen",
+      "role": "detail",
+      "material": "island",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.72,
+          0.22
+        ],
+        "rounding": 0.11
+      },
+      "attach": {
+        "at": [
+          0,
+          0.46
+        ],
+        "lift": 0.09
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "listening"
+        },
+        {
+          "type": "pulse",
+          "driver": "mic",
+          "amount": 0.06,
+          "speed": 0,
+          "phase": 0.25
+        }
+      ]
+    },
+    {
+      "id": "aurora-rim",
+      "role": "detail",
+      "material": "aurora",
+      "patch": {
+        "type": "subtract",
+        "children": [
+          {
+            "type": "rect",
+            "size": [
+              0.72,
+              0.22
+            ],
+            "rounding": 0.11
+          },
+          {
+            "type": "rect",
+            "size": [
+              0.67,
+              0.17
+            ],
+            "rounding": 0.085
+          }
+        ]
+      },
+      "attach": {
+        "to": "island-listen",
+        "at": [
+          0,
+          0
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "glow",
+          "driver": "mic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "island-think",
+      "role": "detail",
+      "material": "island",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.56,
+          0.19
+        ],
+        "rounding": 0.095
+      },
+      "attach": {
+        "at": [
+          0,
+          0.46
+        ],
+        "lift": 0.09
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        }
+      ]
+    },
+    {
+      "id": "shimmer",
+      "role": "detail",
+      "material": "shimmer",
+      "patch": {
+        "type": "ellipse",
+        "radii": [
+          0.022,
+          0.08
+        ],
+        "rotation": -22
+      },
+      "attach": {
+        "to": "island-think",
+        "at": [
+          -0.17,
+          0
+        ]
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "thinking"
+        },
+        {
+          "type": "drift",
+          "driver": "thinking",
+          "axis": "x",
+          "amount": 0.34,
+          "speed": 1.2
+        }
+      ]
+    },
+    {
+      "id": "island-speak",
+      "role": "detail",
+      "material": "island",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.64,
+          0.34
+        ],
+        "rounding": 0.13
+      },
+      "attach": {
+        "at": [
+          0,
+          0.394
+        ],
+        "lift": 0.09
+      },
+      "animations": [
+        {
+          "type": "appear",
+          "driver": "speaking"
+        }
+      ]
+    },
+    {
+      "id": "bar-1",
+      "role": "detail",
+      "material": "bar-1",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.034,
+          0.07
+        ],
+        "rounding": 0.017
+      },
+      "attach": {
+        "to": "island-speak",
+        "at": [
+          -0.104,
+          -0.062
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.5,
+          "speed": 3.1
+        }
+      ]
+    },
+    {
+      "id": "bar-2",
+      "role": "detail",
+      "material": "bar-2",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.034,
+          0.1
+        ],
+        "rounding": 0.017
+      },
+      "attach": {
+        "to": "island-speak",
+        "at": [
+          -0.052,
+          -0.062
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.5,
+          "speed": 2.6,
+          "phase": 0.3
+        }
+      ]
+    },
+    {
+      "id": "bar-3",
+      "role": "detail",
+      "material": "bar-3",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.034,
+          0.13
+        ],
+        "rounding": 0.017
+      },
+      "attach": {
+        "to": "island-speak",
+        "at": [
+          0,
+          -0.062
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.5,
+          "speed": 3.4,
+          "phase": 0.6
+        }
+      ]
+    },
+    {
+      "id": "bar-4",
+      "role": "detail",
+      "material": "bar-4",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.034,
+          0.1
+        ],
+        "rounding": 0.017
+      },
+      "attach": {
+        "to": "island-speak",
+        "at": [
+          0.052,
+          -0.062
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.5,
+          "speed": 2.8,
+          "phase": 0.15
+        }
+      ]
+    },
+    {
+      "id": "bar-5",
+      "role": "detail",
+      "material": "bar-5",
+      "patch": {
+        "type": "rect",
+        "size": [
+          0.034,
+          0.07
+        ],
+        "rounding": 0.017
+      },
+      "attach": {
+        "to": "island-speak",
+        "at": [
+          0.104,
+          -0.062
+        ],
+        "lift": 0.03
+      },
+      "animations": [
+        {
+          "type": "pulse",
+          "driver": "voice",
+          "amount": 0.5,
+          "speed": 3,
+          "phase": 0.45
+        }
+      ]
+    },
+    {
+      "id": "cowlick",
+      "role": "hair",
+      "material": "curl",
+      "shape": {
+        "type": "union",
+        "smooth": 0.05,
+        "scale": [
+          1.3,
+          1.3,
+          1.04
+        ],
+        "children": [
+          {
+            "type": "capsule",
+            "from": [
+              0,
+              -0.12,
+              0
+            ],
+            "to": [
+              0.03,
+              0.14,
+              0
+            ],
+            "radius": 0.2,
+            "radiusTo": 0.12
+          },
+          {
+            "type": "capsule",
+            "from": [
+              0.03,
+              0.14,
+              0
+            ],
+            "to": [
+              0.16,
+              0.3,
+              0
+            ],
+            "radius": 0.12,
+            "radiusTo": 0.04
+          },
+          {
+            "type": "capsule",
+            "from": [
+              -0.1,
+              -0.1,
+              0
+            ],
+            "to": [
+              -0.14,
+              0.06,
+              0
+            ],
+            "radius": 0.1,
+            "radiusTo": 0.065
+          },
+          {
+            "type": "capsule",
+            "from": [
+              -0.14,
+              0.06,
+              0
+            ],
+            "to": [
+              -0.2,
+              0.15,
+              0
+            ],
+            "radius": 0.065,
+            "radiusTo": 0.03
+          },
+          {
+            "type": "capsule",
+            "from": [
+              0.12,
+              -0.1,
+              0
+            ],
+            "to": [
+              0.17,
+              0.03,
+              0
+            ],
+            "radius": 0.09,
+            "radiusTo": 0.0575
+          },
+          {
+            "type": "capsule",
+            "from": [
+              0.17,
+              0.03,
+              0
+            ],
+            "to": [
+              0.25,
+              0.08,
+              0
+            ],
+            "radius": 0.0575,
+            "radiusTo": 0.025
+          }
+        ]
+      },
+      "attach": {
+        "to": "head",
+        "position": [
+          -0.05,
+          0.4648,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          5.7
+        ]
+      },
+      "animations": [
+        {
+          "type": "sway",
+          "driver": "idle",
+          "axis": "z",
+          "amount": 3.4,
+          "speed": 0.21
+        },
+        {
+          "type": "sway",
+          "driver": "listening",
+          "axis": "x",
+          "amount": -14.3,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "sway",
+          "driver": "thinking",
+          "axis": "z",
+          "amount": -17.2,
+          "speed": 0,
+          "phase": 0.25
+        },
+        {
+          "type": "wiggle",
+          "driver": "voice",
+          "axis": "x",
+          "amount": 6.9,
+          "speed": 1.2
+        }
+      ]
+    }
+  ],
+  "behavior": {
+    "temperament": {
+      "blink": 0.58
+    },
+    "reactions": {
+      "states": {
+        "thinking": {
+          "expression": null,
+          "effect": null,
+          "motion": "think"
+        },
+        "speaking": {
+          "expression": null
+        }
+      },
+      "activities": {
+        "working": {
+          "effect": "question"
+        },
+        "done": {
+          "effect": null
+        }
+      }
+    }
+  }
+}
