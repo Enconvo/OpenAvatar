@@ -1,5 +1,5 @@
-// Builds the gallery into dist/: the pages, each avatar's file and picture, the JSON list, and the scripts the live
-// host needs. Pictures come from the reference renderer in a headless browser (playwright-core, as `openavatar render`
+// Builds the gallery into dist/: the pages, each avatar's file and picture, the JSON list the API answers from, and
+// the scripts the live host needs. Pictures come from the reference renderer in a headless browser (playwright-core, as `openavatar render`
 // does) and are kept in .cache/, so a build only draws the avatars, or the renderer, that changed.
 //
 //   node build.mjs                          avatars from ../examples and avatars/ (approved submissions)
@@ -10,7 +10,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from '@openavatar/core';
 import { catalogOf, TEXT } from './src/catalog.js';
-import { avatarPage, homePage, makePage, notFoundPage, specPage, submitPage } from './src/pages.js';
+import { FREE_MONTHLY_CALLS } from './src/api.js';
+import { avatarPage, developersPage, homePage, makePage, notFoundPage, specPage, submitPage } from './src/pages.js';
 import { LICENSES } from './web/submission.js';
 import { renderSpec } from './src/spec.js';
 
@@ -105,7 +106,7 @@ async function pictures(entries, renderer) {
   return { drawn: new Map(entries.map(e => [e.slug, cached(e)])), sheet: sheetFile && { file: sheetFile, entry: sheetEntry } };
 }
 
-/** The list other apps and galleries read: what each card shows, plus where the file, picture and page are. */
+/** The list the API answers from (src/api.js): what each card shows, plus where the file, picture and page are. */
 export function listOf(entries, origin) {
   return {
     openavatar: '0.1',
@@ -142,6 +143,7 @@ async function build() {
   }
   await write(path.join(dist, 'make', 'index.html'), makePage({ origin, sheet: sheetPicture }));
   await write(path.join(dist, 'submit', 'index.html'), submitPage({ licenses: LICENSES }));
+  await write(path.join(dist, 'developers', 'index.html'), developersPage({ origin, limit: FREE_MONTHLY_CALLS }));
   for (const [to, from] of Object.entries(COPIES)) await write(path.join(dist, to), await fs.readFile(path.join(root, from)));
   for (const entry of entries) {
     await write(path.join(dist, 'a', entry.slug, 'index.html'), avatarPage(entry, { origin }));

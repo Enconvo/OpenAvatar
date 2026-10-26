@@ -121,11 +121,11 @@ test('the list gives each avatar its file, picture and page', () => {
   assert.equal(list.avatars[0].name, 'Matcha');
 });
 
-test('the Worker labels avatar files and opens them and the list to other sites', async () => {
+test('the Worker labels avatar files and opens them to other sites', async () => {
   const assets = { fetch: async request => {
     const { pathname } = new URL(request.url);
     if (pathname === '/missing.openavatar') return new Response('Not found', { status: 404, headers: { 'content-type': 'text/html' } });
-    return new Response('x', { headers: { 'content-type': pathname.endsWith('.json') ? 'application/json' : 'application/octet-stream' } });
+    return new Response('x', { headers: { 'content-type': 'application/octet-stream' } });
   } };
   const get = path => worker.fetch(new Request(`https://gallery.test${path}`), { ASSETS: assets });
 
@@ -135,9 +135,8 @@ test('the Worker labels avatar files and opens them and the list to other sites'
   assert.equal(file.headers.get('x-content-type-options'), 'nosniff');
   assert.equal(await file.text(), 'x');
 
-  const list = await get('/api/avatars.json');
-  assert.equal(list.headers.get('content-type'), 'application/json');
-  assert.equal(list.headers.get('access-control-allow-origin'), '*');
+  // The list is the API's now (test/api.test.mjs): without a database it is closed, never served as a file.
+  assert.equal((await get('/api/avatars.json')).status, 503);
 
   const page = await get('/a/matcha/');
   assert.equal(page.headers.get('access-control-allow-origin'), null);

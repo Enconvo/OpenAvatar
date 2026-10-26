@@ -1,12 +1,12 @@
 // The gallery's Worker. Pages, pictures and scripts are static assets. An avatar file (`/avatars/<slug>.openavatar`)
-// passes through here to carry the OpenAvatar media type (SPEC 14.1), and it and the list (`/api/avatars.json`) are
-// made readable by any app or site, which an install link or another gallery needs. Submissions
+// passes through here to carry the OpenAvatar media type (SPEC 14.1) and is made readable by any app or site, which an
+// install link needs. The API (`/api/v1/…`, src/api.js) answers apps that hold a token. Submissions
 // (`POST /api/submissions`) are checked and queued in D1 for a person to review; nothing is published from here.
 // A Worker module may export only its handlers, so the constants stay private.
 import { checkSubmission } from '../web/submission.js';
+import { handleApi } from './api.js';
 
 const MEDIA_TYPE = 'application/vnd.openavatar+json';
-const LIST = '/api/avatars.json';
 const SUBMISSIONS = '/api/submissions';
 // A 256 KB document, as JSON text inside the request, plus the form's few fields.
 const MAX_BODY = 600 * 1024;
@@ -72,11 +72,11 @@ export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
     if (pathname === SUBMISSIONS) return submit(request, env);
+    if (pathname.startsWith('/api/')) return handleApi(request, env);
     const response = await env.ASSETS.fetch(request);
-    const avatar = pathname.toLowerCase().endsWith('.openavatar');
-    if (!(avatar || pathname === LIST) || !response.ok) return response;
+    if (!pathname.toLowerCase().endsWith('.openavatar') || !response.ok) return response;
     const headers = new Headers(response.headers);
-    if (avatar) headers.set('content-type', `${MEDIA_TYPE}; charset=utf-8`);
+    headers.set('content-type', `${MEDIA_TYPE}; charset=utf-8`);
     headers.set('access-control-allow-origin', '*');
     headers.set('x-content-type-options', 'nosniff');
     headers.set('cache-control', 'public, max-age=300');

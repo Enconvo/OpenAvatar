@@ -10,7 +10,8 @@
     "dev": "node build.mjs && wrangler dev",
     "deploy": "OPENAVATAR_ORIGIN=https://openavatar.enconvo.com node build.mjs && wrangler deploy",
     "review": "node scripts/review.mjs",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test test/*.test.mjs",
+    "tokens": "node scripts/tokens.mjs"
   },
   "dependencies": {
     "@openavatar/cli": "0.1.x",

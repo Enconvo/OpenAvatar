@@ -11,16 +11,19 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "404-page",
-    // The Worker labels avatar files, lets other apps read them and the list, and takes submissions.
+    // The Worker labels avatar files and lets other apps read them, answers the API, and takes submissions.
     "run_worker_first": ["/avatars/*", "/api/*"]
   },
-  // Submissions waiting for review. Apply new migrations with
+  // Submissions waiting for review, and the API's tokens and their calls. Apply new migrations with
   // `npx wrangler d1 migrations apply openavatar-gallery --remote` before deploying the Worker that reads them.
   "d1_databases": [
     { "binding": "DB", "database_name": "openavatar-gallery", "database_id": "fff89056-614a-4b1e-af2c-6f637b4da066", "migrations_dir": "migrations" }
   ],
-  // At most five submissions a minute from one address.
+  // At most five submissions and three new API tokens a minute from one address.
+  // The API also reads the secret ADDRESS_SALT (`npx wrangler secret put ADDRESS_SALT`), which hides the addresses it
+  // counts new tokens by; without it the count still works.
   "ratelimits": [
-    { "name": "SUBMIT_LIMIT", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } }
+    { "name": "SUBMIT_LIMIT", "namespace_id": "1001", "simple": { "limit": 5, "period": 60 } },
+    { "name": "TOKEN_LIMIT", "namespace_id": "1002", "simple": { "limit": 3, "period": 60 } }
   ]
 }

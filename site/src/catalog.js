@@ -2,6 +2,7 @@
 // the document itself is served as it is.
 import { createHash } from 'node:crypto';
 import { parse } from '@openavatar/core';
+import { categoryOf } from './categories.js';
 
 const MAX_SLUG = 48;
 /** The document's text on an entry, for the build. A symbol, so JSON (the pages' catalogue, the list) leaves it out. */
@@ -18,6 +19,7 @@ export function entryFor(fileName, text) {
   const { document } = parse(text);
   const meta = document.meta ?? {};
   const authors = (meta.authors ?? []).map(a => a?.name).filter(Boolean);
+  const tags = [...new Set((meta.tags ?? []).map(t => String(t).toLowerCase()))];
   return {
     slug: slugOf(fileName),
     id: document.id,
@@ -25,7 +27,8 @@ export function entryFor(fileName, text) {
     description: meta.description ?? '',
     authors,
     license: meta.license ?? '',
-    tags: [...new Set((meta.tags ?? []).map(t => String(t).toLowerCase()))],
+    tags,
+    category: categoryOf(tags),
     rig: document.body?.rig === 'biped' ? 'biped' : 'blob',
     bytes: Buffer.byteLength(text),
     // Changes whenever the file does, so a picture or a cached copy can be told apart.

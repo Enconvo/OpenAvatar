@@ -23,8 +23,8 @@ and drawn again only when the avatar, the renderer or the picture settings
 change.
 
 `OPENAVATAR_ORIGIN` is the address the site is served from (default
-`https://openavatar.dev`). It goes into the install links, the list and the
-skill's address on the Make page, so set it before a build that will be
+`https://openavatar.dev`). It goes into the install links, the API's list and
+the skill's address on the Make page, so set it before a build that will be
 deployed. Links to the source use `REPO` in `src/pages.js`,
 https://github.com/Enconvo/OpenAvatar.
 
@@ -41,17 +41,63 @@ https://github.com/Enconvo/OpenAvatar.
 | `/skill/SKILL.md`, `/skill/reference.md` | The OpenAvatar skill, for agents that load a skill from an address |
 | `/submit/` | Send an avatar: the file is checked on the page, shown live, then sent for review with a credit, a license and the sender's consent |
 | `POST /api/submissions` | Takes `{ document, author, license, consent }` (JSON) and queues it in D1 as `pending` |
-| `/api/avatars.json` | The list, readable from any site |
+| `/developers/` | The API: make a token, check or revoke one, and the calls |
+| `/api/v1/…` | The API (below). `/api/avatars.json`, the list before the API, answers like `/api/v1/avatars` and needs a token too |
 | `/vendor/` | three.js, `@openavatar/core` and `@openavatar/three` for the live host |
 
-The list is `{ "openavatar": "0.1", "avatars": [...] }`. Each avatar has
-`slug`, `id`, `name`, `description`, `authors` (names), `license` (an SPDX
-id), `tags`, `rig` (`blob` or `biped`), `bytes`, `revision` (changes with the
-file), and the absolute `file`, `picture` and `page` URLs.
+Each avatar in the API has `slug`, `id`, `name`, `description`, `authors`
+(names), `license` (an SPDX id), `tags`, `category`, `rig` (`blob` or
+`biped`), `bytes`, `revision` (changes with the file), and the absolute
+`file`, `picture` and `page` URLs. The build writes them all to
+`dist/api/avatars.json`, which only the Worker reads.
+
+Each avatar is in one category, by its tags (`src/categories.js`): Abstract,
+Creatures, Plush or Objects, else Other.
 
 Names, descriptions, tags and authors come from the documents and are
 escaped on every page (SPEC 16.1). Install links follow SPEC 14.3:
 `enconvo://avatar/install?url=<the file's URL>`.
+
+## The API
+
+Apps that offer the gallery call `/api/v1/…` with a token
+(`Authorization: Bearer oa_…`). Avatar files, pictures and install links stay
+free and need none, so an install link works in any app (SPEC 14.3).
+
+| Call | What it answers | Cost |
+|---|---|---|
+| `GET /api/v1/categories` | The categories, with how many avatars each has | 1 call |
+| `GET /api/v1/avatars` | The avatars; `category`, `tag` and `q` (search) narrow them, `limit` (up to 100) and `offset` page through them | 1 call |
+| `GET /api/v1/avatars/<slug>` | One avatar, with its document | 1 call |
+| `GET /api/v1/usage` | The token's calls this month | Free |
+| `DELETE /api/v1/tokens/current` | Revokes the token | Free |
+| `POST /api/v1/tokens` | A new free token, shown once; `{ "name": "…" }` is optional | Free |
+
+A token made on `/developers/` has 1,000 calls a calendar month (UTC). A call
+that counts says what is left in `OpenAvatar-Quota-Limit`,
+`OpenAvatar-Quota-Remaining` and `OpenAvatar-Quota-Reset`; past the limit it is
+`429 quota_exceeded` with `Retry-After`. One statement counts a call and
+checks the limit, so calls made at once can't go past it. The gallery keeps a
+token's SHA-256, how it is shown (`oa_` and seven characters) and its name,
+nothing else about whoever made it.
+
+There are no accounts yet, so making tokens is limited instead: three a
+minute (`TOKEN_LIMIT`) and five a day from one address, counted under a hash
+of the address, the day and the secret `ADDRESS_SALT`. Another site's page
+can't make tokens; a program that sends no `Origin` can.
+
+### Tokens
+
+`scripts/tokens.mjs` (`npm run tokens -- <command>`) manages tokens, on the
+local database or with `--remote` on the deployed one. A token for one of the
+project's own apps can have no limit (`--unlimited`). Writes are dry runs
+until `--yes`; `--out` puts a new token only in that file.
+
+```sh
+npm run tokens -- list
+npm run tokens -- create --name "Enconvo" --unlimited --out enconvo-token.txt --yes
+npm run tokens -- revoke oa_AbCdEfG… --yes
+```
 
 ## Submissions
 
@@ -108,6 +154,9 @@ The schema is in `migrations/`; add a change with
 `npx wrangler deploy` publishes the Worker `openavatar-gallery` with `dist/`
 as its assets. Before the first deploy, create the database
 (`npx wrangler d1 create openavatar-gallery`), put its id in
-`wrangler.jsonc`, and apply the migrations with `--remote`. The domain and
+`wrangler.jsonc`, apply the migrations with `--remote`, and set
+`ADDRESS_SALT` to a long random value (`npx wrangler secret put ADDRESS_SALT`).
+Apply a new migration with `--remote` before deploying the Worker that reads
+it. The domain and
 the deploy are the project owner's decision; nothing deploys it
 automatically.

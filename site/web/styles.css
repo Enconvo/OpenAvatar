@@ -207,11 +207,22 @@ main { max-width: 80rem; margin: 0 auto; padding: 0 var(--gutter); }
 .make-sheet img { width: 100%; border-radius: 16px; }
 .make-sheet figcaption { font-size: .875rem; color: var(--ink-soft); margin-top: .6rem; text-align: center; }
 
+/* The API: the token form beside what a token gets, then the calls. */
+.developers { padding: clamp(1rem, 3vw, 2.5rem) var(--gutter) 4rem; }
+.token-form, .check-form { display: grid; gap: 1rem; max-width: 34rem; }
+.token-result:not(:empty), .check-result:not(:empty) { display: grid; gap: .6rem; padding: 1rem 1.15rem; border-radius: 18px; background: var(--patch); }
+.token-result p, .check-result p { margin: 0; }
+.token-value { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.token-value code { flex: 1 1 16rem; min-width: 0; overflow-wrap: anywhere; padding: .7rem .9rem; border-radius: 12px; background: var(--ink); color: #E8EAF6; font-size: .9rem; }
+.developers .table-scroll { max-width: 60rem; }
+.developers td:first-child, .developers td:last-child { white-space: nowrap; }
+
 .colophon { max-width: 80rem; margin: 0 auto; padding: 2rem var(--gutter) 3rem; color: var(--ink-soft); font-size: .9375rem; }
 .colophon p { max-width: 44rem; margin: 0; }
 
 @media (max-width: 760px) {
   .hero, .use-columns, .avatar, .doc, .make-columns, .submit-columns { grid-template-columns: 1fr; }
+  .developers td:first-child { white-space: normal; }
   .submit-stage { max-width: 20rem; justify-self: center; width: 100%; }
   /* On a phone the file comes first; the avatar appears above the form once there is one to show. */
   .submit-stage:not(.is-live) { display: none; }
